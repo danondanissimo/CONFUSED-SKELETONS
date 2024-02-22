@@ -37,7 +37,7 @@ signUpForm.addEventListener('submit', event => {
       openModalButton.replaceChildren();
       openModalButton.insertAdjacentHTML(
         'beforeend',
-        `<img src="./images/user.png"> ${userData.name}`
+        `<img src=""> ${userData.name}`
       );
       signUpForm.classList.add('hidden');
       logOutButton.classList.remove('hidden');
@@ -49,6 +49,7 @@ signUpForm.addEventListener('submit', event => {
         logOutButton.classList.add('hidden');
         openModalButton.replaceChildren();
         openModalButton.insertAdjacentHTML('beforeend', `Sign-up`);
+        localStorage.removeItem(STORAGE_KEY);
       });
     }
     modalBackdrop.classList.add('visually-hidden');

@@ -29,4 +29,8 @@
   --background-dark: #202024;
   --buttons-and-background-main: #4f2ee8;
   --buttons-and-background-secondary: #eac645;
+
+  --desktop-breakpoint: 1440px;
+  --tablet-breakpoint: 768px;
+  --mobile-breakpoint: 375px;
 }

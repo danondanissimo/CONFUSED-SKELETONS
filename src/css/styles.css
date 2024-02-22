@@ -24,6 +24,8 @@
   -webkit-text-size-adjust: 100%;
 
   --background-light: #fff;
+  --text-color-primary: #111;
+  --text-color-secondary: #fff;
   --background-dark: #202024;
   --buttons-and-background-main: #4f2ee8;
   --buttons-and-background-secondary: #eac645;

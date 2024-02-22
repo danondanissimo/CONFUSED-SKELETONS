@@ -10,75 +10,41 @@
     <link rel="stylesheet" href="/CONFUSED-SKELETONS/assets/index-10c40100.css">
   </head>
   <body>
-    <header class="header">
-  <nav class="nav">
-    <ul class="nav-list">
-      <li class="nav-item">
-        <a href="./page-2.html" class="nav-link">Page 2</a>
-      </li>
-
-      <li class="nav-item">
-        <a href="./page-3.html" class="nav-link">Page 3</a>
+    <header>
+  <a href="../index.html"><img src="">Bookshelf</a>
+  <nav>
+    <ul class="navigation-list">
+      <li><a href="" class="navigation-list-item hidden">HOME</a></li>
+      <li><a href="" class="navigation-list-item hidden">SHOPPING LIST</a>
       </li>
     </ul>
   </nav>
+  <input type="checkbox">
+  <button class="modal-open">Sign-up</button>
 </header>
+</header>
+    <div class="modal-backdrop visually-hidden">
+    <div class="modal-window">
+        <button class="modal-close">Close</button>
+        <form class="sign-up-form" autocomplete="off">
+            <label class="name">
+                NAME
+                <input type="text" name="name" autofocus>
+            </label>
+            <label class="email">
+                EMAIL
+                <input type="email" name="email" />
+            </label>
+            <label class="password-field">
+                PASSWORD
+                <input type="password" name="password">
 
-
-    <section>
-      <h1>Example page title</h1>
-      <!-- Path to images as from index.html file -->
-      <img src="/CONFUSED-SKELETONS/assets/javascript-8dac5379.svg" alt="" />
-    </section>
-
-    <!-- Loads the specified .html file -->
-    <section class="vite-promo">
-  <div class="container">
-    <div class="wrapper">
-      <h2 class="title">
-        <span class="gradient">Vite</span>
-      </h2>
-      <p class="text">Next Generation Frontend Tooling</p>
-      <p class="tagline">
-        Get ready for a development environment that can finally catch up with
-        you.
-      </p>
-
-      <ul class="actions">
-        <li class="action">
-          <a
-            class="link"
-            href="https://vitejs.dev/guide/"
-            target="_blank"
-            rel="noopener noreferrer"
-            >Get Started</a
-          >
-        </li>
-        <li class="action">
-          <a
-            class="link"
-            href="https://github.com/vitejs/vite"
-            target="_blank"
-            rel="noopener noreferrer"
-            >View on GitHub</a
-          >
-        </li>
-      </ul>
+            </label>
+            <button type="submit">Submit</button>
+        </form>
+        <button class="log-out-button hidden">Log out <img src="./images/arrow-narrow-right.svg"></button>
     </div>
-
-    <div class="thumb">
-      <!-- Path to images as from index.html file -->
-      <img
-        class="pic"
-        src="/CONFUSED-SKELETONS/assets/vite-logo-51249ca9.png"
-        alt="Vite logo"
-        width="640"
-        height="640"
-      />
-    </div>
-  </div>
-</section>
-
+</div>
 
     
   </body>

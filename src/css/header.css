@@ -1,21 +1,92 @@
-.header {
-  padding: 20px 0;
+.navigation-list {
+  list-style-type: none;
 }
 
-.nav-list {
+.hidden {
+  display: none;
+}
+
+/* Task 2
+============================================================================================================= */
+
+/* <form class="login-form">
+      <label>
+        Email
+        <input type="email" name="email" />
+      </label>
+      <label>
+        Password
+        <input type="password" name="password" />
+      </label>
+      <button type="submit">Login</button>
+    </form> */
+
+.feedback-form,
+[type='submit'] {
   display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 40px;
+  flex-direction: column;
+
+  font-weight: 400;
+  max-width: 320px;
+  margin: 24px;
+  margin-right: auto;
+  margin-left: auto;
 }
 
-.nav-link {
+.login-form label {
+  margin-top: 8px;
+}
+
+.login-form label:first-child {
+  margin-bottom: 8px;
+}
+
+[type='submit'] {
+  font-family: inherit;
   font-weight: 500;
-  letter-spacing: 0.02em;
-  line-height: 1.5;
+  color: #fff;
+
+  border-radius: 8px;
+  border-color: transparent;
+  background-color: #4e75ff;
+
+  display: flex;
+  margin: 0 0;
+  margin-top: 16px;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  width: 86px;
+  height: 40px;
 }
 
-.nav-link:hover,
-.nav-link:focus {
-  color: #747bff;
+[type='submit']:hover,
+[type='submit']:focus {
+  background-color: #6c8cff;
+}
+
+[type='email'] {
+  height: 40px;
+}
+
+[type='email']:active,
+[name='password']:active,
+[type='email'],
+[name='password'] {
+  margin-top: 8px;
+  width: 360px;
+
+  border-radius: 4px;
+  border: 1px solid #808080;
+}
+
+[type='email']:hover,
+[type='email']:focus,
+[name='password']:hover,
+[name='password']:focus {
+  border: 1px solid #000;
+}
+
+[name='password'] {
+  height: 80px;
 }

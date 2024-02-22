@@ -22,4 +22,9 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+
+  --background-light: #fff;
+  --background-dark: #202024;
+  --buttons-and-background-main: #4f2ee8;
+  --buttons-and-background-secondary: #eac645;
 }

@@ -65,6 +65,8 @@ function logOut() {
   signUpForm.classList.remove('hidden');
   logOutButton.classList.add('hidden');
   mobileLogOutButton.classList.add('hidden');
+  mobileSignUp.replaceChildren();
+  mobileSignUp.insertAdjacentHTML('beforeend', 'Sign-up');
   openModalButton.replaceChildren();
   openModalButton.insertAdjacentHTML('beforeend', `Sign-up`);
   localStorage.removeItem(STORAGE_KEY);

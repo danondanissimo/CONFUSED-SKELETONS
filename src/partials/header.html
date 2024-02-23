@@ -1,24 +1,39 @@
 <header>
-<div class="header-navigation">
-    <a href="../index.html" class="header-logo"><img src="" >Bookshelf</a>
+  <div class="header-navigation">
+    <a href="../index.html" class="header-logo"><img src="" />Bookshelf</a>
     <nav>
       <ul class="navigation-list">
-        <li><a href="" class="navigation-list-item desktop-and-tablet-visible hidden">HOME</a></li>
-        <li><a href="./shopping_list.html" class="navigation-list-item desktop-and-tablet-visible hidden">SHOPPING LIST</a>
+        <li>
+          <a
+            href=""
+            class="navigation-list-item desktop-and-tablet-visible hidden"
+            >HOME</a
+          >
+        </li>
+        <li>
+          <a
+            href="./shopping_list.html"
+            class="navigation-list-item desktop-and-tablet-visible hidden"
+            >SHOPPING LIST</a
+          >
         </li>
       </ul>
     </nav>
-    <input type="checkbox" class="theme-toggle">
+    <input type="checkbox" class="theme-toggle" />
     <button class="modal-open">Sign-up</button>
-    <button class="toggle-mobile-menu" aria-expanded="false"></button>
-
-</div>
+    <button type="button" class="menu-button">
+      <svg width="100px" height="100px" fill="var(--text-color-primary)">
+        <use href="../img/x-close.svg" class="menu-button-icon"></use>
+        <use href="../img/align-left (1).svg" class="menu-button-icon"></use>
+      </svg>
+    </button>
+  </div>
   <div class="mobile-menu">
     <button class="mobile-sign-up">Sign-up</button>
     <ul class="navigation-list">
       <li><a href="" class="navigation-list-item hidden">HOME</a></li>
       <li><a href="" class="navigation-list-item hidden">SHOPPING LIST</a></li>
     </ul>
-    <button class="mobile-log-out-button hidden">Log out <img src=""></button>
+    <button class="mobile-log-out-button hidden">Log out <img src="" /></button>
   </div>
 </header>

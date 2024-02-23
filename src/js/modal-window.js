@@ -1,5 +1,5 @@
 import * as basicLightbox from 'basiclightbox';
-import arr from './home.js';
+// import arr from './home.js';
 
 const onclickGalleryItem = arr => event => {
   event.preventDefault();

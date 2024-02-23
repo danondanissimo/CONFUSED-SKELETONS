@@ -1,4 +1,9 @@
-import { navListItems, openModalButton } from './header';
+import {
+  navListItems,
+  openModalButton,
+  mobileLogOutButton,
+  mobileSignUp,
+} from './header';
 
 export const closeModalButton = document.querySelector('.modal-close');
 export const modalBackdrop = document.querySelector('.modal-backdrop');
@@ -6,7 +11,6 @@ export const modalBackdrop = document.querySelector('.modal-backdrop');
 const signUpForm = document.querySelector('.sign-up-form');
 const logOutButton = document.querySelector('.log-out-button');
 const STORAGE_KEY = 'sign-up-form-state';
-let data = JSON.parse(localStorage.getItem(STORAGE_KEY)) || '';
 
 signUpForm.addEventListener('submit', event => {
   localStorage.removeItem(STORAGE_KEY);
@@ -39,19 +43,32 @@ signUpForm.addEventListener('submit', event => {
         'beforeend',
         `<img src=""> ${userData.name}`
       );
+      mobileSignUp.replaceChildren();
+      mobileSignUp.insertAdjacentHTML(
+        'beforeend',
+        `<img src=""> ${userData.name}`
+      );
       signUpForm.classList.add('hidden');
+      mobileLogOutButton.classList.remove('hidden');
+      mobileLogOutButton.addEventListener('click', logOut);
       logOutButton.classList.remove('hidden');
-      logOutButton.addEventListener('click', () => {
-        navListItems.forEach(navListItem => {
-          navListItem.classList.add('hidden');
-        });
-        signUpForm.classList.remove('hidden');
-        logOutButton.classList.add('hidden');
-        openModalButton.replaceChildren();
-        openModalButton.insertAdjacentHTML('beforeend', `Sign-up`);
-        localStorage.removeItem(STORAGE_KEY);
-      });
+      logOutButton.addEventListener('click', logOut);
     }
     modalBackdrop.classList.add('visually-hidden');
   }
 });
+
+function logOut() {
+  navListItems.forEach(navListItem => {
+    navListItem.classList.add('hidden');
+  });
+  signUpForm.classList.remove('hidden');
+  logOutButton.classList.add('hidden');
+  mobileLogOutButton.classList.add('hidden');
+  mobileSignUp.replaceChildren();
+  mobileSignUp.insertAdjacentHTML('beforeend', 'Sign-up');
+  openModalButton.replaceChildren();
+  openModalButton.insertAdjacentHTML('beforeend', `Sign-up`);
+  localStorage.removeItem(STORAGE_KEY);
+  mobileSignUp.disabled = false;
+}

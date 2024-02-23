@@ -1,13 +1,24 @@
 <header>
-  <a href="../index.html"><img src="">Bookshelf</a>
-  <nav>
+<div class="header-navigation">
+    <a href="../index.html" class="header-logo"><img src="" >Bookshelf</a>
+    <nav>
+      <ul class="navigation-list">
+        <li><a href="" class="navigation-list-item desktop-and-tablet-visible hidden">HOME</a></li>
+        <li><a href="" class="navigation-list-item desktop-and-tablet-visible hidden">SHOPPING LIST</a>
+        </li>
+      </ul>
+    </nav>
+    <input type="checkbox" class="theme-toggle">
+    <button class="modal-open">Sign-up</button>
+    <button class="toggle-mobile-menu" aria-expanded="false"></button>
+
+</div>
+  <div class="mobile-menu">
+    <button class="mobile-sign-up">Sign-up</button>
     <ul class="navigation-list">
       <li><a href="" class="navigation-list-item hidden">HOME</a></li>
-      <li><a href="" class="navigation-list-item hidden">SHOPPING LIST</a>
-      </li>
+      <li><a href="" class="navigation-list-item hidden">SHOPPING LIST</a></li>
     </ul>
-  </nav>
-  <input type="checkbox">
-  <button class="modal-open">Sign-up</button>
-</header>
+    <button class="mobile-log-out-button hidden">Log out <img src=""></button>
+  </div>
 </header>

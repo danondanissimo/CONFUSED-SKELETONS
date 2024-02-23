@@ -70,4 +70,5 @@ function logOut() {
   openModalButton.replaceChildren();
   openModalButton.insertAdjacentHTML('beforeend', `Sign-up`);
   localStorage.removeItem(STORAGE_KEY);
+  mobileSignUp.disabled = false;
 }

@@ -13,51 +13,72 @@
     
     <script type="module" crossorigin src="/CONFUSED-SKELETONS/commonHelpers.js"></script>
     <link rel="modulepreload" crossorigin href="/CONFUSED-SKELETONS/assets/vendor-698aed19.js">
-    <link rel="stylesheet" href="/CONFUSED-SKELETONS/assets/index-dd901377.css">
+    <link rel="stylesheet" href="/CONFUSED-SKELETONS/assets/index-bf3ef9d2.css">
   </head>
   <body>
     <header>
-<div class="header-navigation">
-    <a href="../index.html" class="header-logo"><img src="" >Bookshelf</a>
+  <div class="header-navigation">
+    <a href="../index.html" class="header-logo"><img src="" />Bookshelf</a>
     <nav>
       <ul class="navigation-list">
-        <li><a href="" class="navigation-list-item desktop-and-tablet-visible hidden">HOME</a></li>
-        <li><a href="./shopping_list.html" class="navigation-list-item desktop-and-tablet-visible hidden">SHOPPING LIST</a>
+        <li>
+          <a
+            href=""
+            class="navigation-list-item desktop-and-tablet-visible hidden"
+            >HOME</a
+          >
+        </li>
+        <li>
+          <a
+            href="./shopping_list.html"
+            class="navigation-list-item desktop-and-tablet-visible hidden"
+            >SHOPPING LIST</a
+          >
         </li>
       </ul>
     </nav>
-    <input type="checkbox" class="theme-toggle">
+    <input type="checkbox" class="theme-toggle" />
     <button class="modal-open">Sign-up</button>
-    <button class="toggle-mobile-menu" aria-expanded="false"></button>
-
-</div>
+    <button type="button" class="menu-button">
+      <svg width="100px" height="100px" fill="var(--text-color-primary)">
+        <use href="../img/x-close.svg" class="menu-button-icon"></use>
+        <use href="../img/align-left (1).svg" class="menu-button-icon"></use>
+      </svg>
+    </button>
+  </div>
   <div class="mobile-menu">
     <button class="mobile-sign-up">Sign-up</button>
     <ul class="navigation-list">
       <li><a href="" class="navigation-list-item hidden">HOME</a></li>
       <li><a href="" class="navigation-list-item hidden">SHOPPING LIST</a></li>
     </ul>
-    <button class="mobile-log-out-button hidden">Log out <img src=""></button>
+    <button class="mobile-log-out-button hidden">Log out <img src="" /></button>
   </div>
 </header>
+
     <div class="modal-backdrop visually-hidden">
     <div class="modal-window">
-        <button class="modal-close">Close</button>
+        <button class="modal-close">
+            <svg href="../img/x-close.svg"></svg>
+        </button>
         <form class="sign-up-form" autocomplete="off">
-            <label class="name">
-                NAME
-                <input type="text" name="name" autofocus>
-            </label>
-            <label class="email">
-                EMAIL
-                <input type="email" name="email" />
-            </label>
-            <label class="password-field">
-                PASSWORD
-                <input type="password" name="password">
+<div class="login-field-container">
+                <label class="login-field-label" for="name">NAME</label>
+                <input type="text" name="name" id="name" class="login-field">
+</div>
+            
+<div class="login-field-container">
+                <label class="login-field-label" for="email">EMAIL</label>
+                <input type="email" name="email" id="email" class="login-field" />
+</div>
+           
+<div class="login-field-container">
+                <label class="login-field-label" for="password">PASSWORD</label>
+                <input type="password" name="password" id="password" class="login-field" >
+</div>
 
-            </label>
-            <button type="submit">Submit</button>
+           
+            <button type="submit" class="login-submit">SIGN UP</button>
         </form>
         <button class="log-out-button hidden">Log out <img src=""></button>
     </div>

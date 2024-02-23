@@ -1,4 +1,4 @@
-import { modalBackdrop, closeModalButton } from './modal';
+import { modalBackdrop, closeModalButton } from './login-modal';
 
 export const navListItems = document.querySelectorAll('.navigation-list-item');
 export const openModalButton = document.querySelector('.modal-open');

@@ -11,6 +11,9 @@ export const mobileLogOutButton = document.querySelector(
 
 export const mobileSignUp = document.querySelector('.mobile-sign-up');
 
+const currentPage = window.location.href;
+const navLinks = document.querySelectorAll('.navigation-list-item');
+
 function openLoginModal() {
   modalBackdrop.classList.remove('visually-hidden');
   closeModalButton.addEventListener('click', () => {
@@ -26,3 +29,14 @@ openModalButton.addEventListener('click', openLoginModal);
 // });
 
 mobileSignUp.addEventListener('click', openLoginModal);
+
+function isActive() {
+  navLinks.forEach(navLink => {
+    if (navLink.href == currentPage) {
+      console.log();
+      navLink.classList.add('currentPage');
+    }
+  });
+}
+
+isActive();

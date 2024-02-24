@@ -1,12 +1,4 @@
 .header-navigation {
-  display: flex;
-  width: 375px;
-  height: 64px;
-  margin-right: auto;
-  margin-left: auto;
-  gap: 0px;
-  justify-content: center;
-
   border: 1.5px solid rgb(255, 255, 255);
   border-radius: 0px 0px 8px 8px;
   background: rgb(17, 17, 17);

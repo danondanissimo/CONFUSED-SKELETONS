@@ -11,7 +11,6 @@ function darkThemeOnButtonClick() {
     head.insertAdjacentElement('beforeend', linkElement);
   } else {
     const addedElement = head.querySelector('link[href="/css/dark-theme.css"]');
-    console.log(addedElement);
     if (addedElement) {
       addedElement.remove();
     }

@@ -1,0 +1,79 @@
+.item-modal {
+  padding: 40px;
+  width: 579px;
+  height: 465px;
+  box-sizing: border-box;
+  border: 2px solid rgb(17, 17, 17);
+  border-radius: 18px;
+  background-color: #ffffff;
+}
+
+.item-card {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.item-image {
+  width: 192px;
+  height: 281px;
+  border-radius: 8px;
+}
+
+.book-title {
+  color: rgb(17, 17, 17);
+  font-family: DM Sans;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.17;
+  letter-spacing: -4%;
+  margin-bottom: 8px;
+}
+
+.book-author {
+  color: rgb(180, 175, 175);
+  font-family: DM Sans;
+  font-style: italic;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.29;
+  letter-spacing: -4%;
+  margin-bottom: 20px;
+}
+
+.book-description {
+  color: rgb(17, 17, 17);
+  font-family: DM Sans;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: -4%;
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.buy-links-container {
+  width: 115px;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+#addBtn {
+  min-width: 499px;
+  height: 64px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  border: 2px solid rgb(79, 46, 232);
+  border-radius: 40px;
+  color: rgb(17, 17, 17);
+  font-family: DM Sans;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.33;
+  letter-spacing: -1%;
+  text-transform: uppercase;
+  background-color: transparent;
+}

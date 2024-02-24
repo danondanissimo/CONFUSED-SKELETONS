@@ -53,6 +53,7 @@ signUpForm.addEventListener('submit', event => {
       mobileLogOutButton.addEventListener('click', logOut);
       logOutButton.classList.remove('hidden');
       logOutButton.addEventListener('click', logOut);
+      mobileSignUp.disabled = true;
     }
     modalBackdrop.classList.add('visually-hidden');
   }

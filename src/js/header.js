@@ -17,15 +17,12 @@ function openLoginModal() {
     modalBackdrop.classList.add('visually-hidden');
   });
   closeModalButton.removeEventListener('click', () => {});
-  mobileSignUp.disabled = true;
 }
 
 openModalButton.addEventListener('click', openLoginModal);
 
-toggleMobileMenuButton.addEventListener('click', () => {
-  mobileMenu.classList.toggle('is-open');
-});
+// toggleMobileMenuButton.addEventListener('click', () => {
+//   mobileMenu.classList.toggle('is-open');
+// });
 
 mobileSignUp.addEventListener('click', openLoginModal);
-
-

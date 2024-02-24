@@ -1,27 +1,53 @@
+import axios from 'axios';
 import * as basicLightbox from 'basiclightbox';
-// import arr from './home.js';
 
-const onclickGalleryItem = arr => event => {
+export const onclickGalleryItem = async event => {
   event.preventDefault();
 
   if (event.target.nodeName !== 'IMG') {
     return;
   }
 
-  const { picture, title, author, id, description, links } =
-    event.target.dataset;
-  const buyLinks = JSON.parse(links);
+  const id = event.target.dataset.id;
+  const data = await getBookById(id);
+  createModalWindow(data);
+};
+
+async function getBookById(id) {
+  const response = await axios.get(
+    `https://books-backend.p.goit.global/books/${id}`
+  );
+  return response.data;
+}
+
+function createModalWindow({
+  book_image,
+  author,
+  title,
+  description,
+  buy_links,
+}) {
+  if (description === '') {
+    description = 'Book description has not been added yet...';
+  }
+
   const instance = basicLightbox.create(
     `
     <div class="item-modal">
-        <button>close</button>
+        <button type="button" class="closeModalBtn">
+          <svg class="menu-btn-icon" width="18" height="18">
+            <use href="./img/symbol-defs.svg#icon-Icon-close-modal"></use>
+          </svg>
+        </button>
         <div class="item-card">
-            <img class="item-image" src="${picture}" /> 
+            <div class="image-container">
+              <img class="item-image" src="${book_image}" /> 
+            </div>
             <div class="item-information">
-                <h3 class="book-title">${title}</h3>
-                <p class="book-author">${author}</p>
-                <p class="book-description">${description}</p>
-                <div class="buy-links-container"></div>
+              <h3 class="book-title">${title}</h3>
+              <p class="book-author">${author}</p>
+              <p class="book-description">${description}</p>
+              <div class="buy-links-container"></div>
             </div>
         </div>
         <button type="submit" class="addBtn" id="addBtn">Add to shopping list</button>
@@ -37,7 +63,7 @@ const onclickGalleryItem = arr => event => {
   const buyLinksContainer = instance
     .element()
     .querySelector('.buy-links-container');
-  buyLinks.forEach(link => {
+  buy_links.forEach(link => {
     if (link.name === 'Amazon' || link.name === 'Apple Books') {
       const linkElement = document.createElement('a');
       linkElement.href = link.url;
@@ -66,4 +92,4 @@ const onclickGalleryItem = arr => event => {
   };
 
   document.addEventListener('keydown', pressEscapeKey);
-};
+}

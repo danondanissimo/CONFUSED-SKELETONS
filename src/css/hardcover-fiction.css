@@ -1,0 +1,19 @@
+.title_hardcover {font-family: "DM Sans", sans-serif;
+font-weight: 700;
+font-size: 48px;
+line-height: 1.08333;
+letter-spacing: -0.04em;
+color: #111;
+text-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25), 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+
+}
+.title_hardcover_span {
+    font-family: "DM Sans", sans-serif;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 1.08333;
+    letter-spacing: -0.04em;
+    color: #111;
+    color: #4f2ee8;
+    text-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25), 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+}

@@ -46,10 +46,11 @@ signUpForm.addEventListener('submit', event => {
       mobileSignUp.replaceChildren();
       mobileSignUp.insertAdjacentHTML(
         'beforeend',
-        `<img src=""> ${userData.name}`
+        `<span class="user-icon-eclipse"><img src="../img/user-icon.svg"></span> ${userData.name}`
       );
+      mobileSignUp.classList.add('user-profile');
       signUpForm.classList.add('hidden');
-      mobileLogOutButton.classList.remove('hidden');
+      mobileLogOutButton.classList.remove('hidden-positioned');
       mobileLogOutButton.addEventListener('click', logOut);
       logOutButton.classList.remove('hidden');
       logOutButton.addEventListener('click', logOut);
@@ -65,9 +66,10 @@ function logOut() {
   });
   signUpForm.classList.remove('hidden');
   logOutButton.classList.add('hidden');
-  mobileLogOutButton.classList.add('hidden');
+  mobileLogOutButton.classList.add('hidden-positioned');
   mobileSignUp.replaceChildren();
   mobileSignUp.insertAdjacentHTML('beforeend', 'Sign-up');
+  mobileSignUp.classList.remove('user-profile');
   openModalButton.replaceChildren();
   openModalButton.insertAdjacentHTML('beforeend', `Sign-up`);
   localStorage.removeItem(STORAGE_KEY);

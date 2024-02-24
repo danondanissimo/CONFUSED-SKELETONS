@@ -1,5 +1,5 @@
 import axios from 'axios';
-import onclickGalleryItem from './js/modal-window.js';
+import onclickGalleryItem from './modal-window.js';
 
 const BASE_URL = 'https://books-backend.p.goit.global/';
 renderTopCategoryBooks();
@@ -43,5 +43,3 @@ function createBookCard({ book_image, _id, title, author }) {
       <p class="top-book-author">${author}</p>
     </li>`;
 }
-
-// const array = [];

@@ -1,6 +1,6 @@
-.toggle-container {
+/* .toggle-container {
   position: absolute;
-}
+} */
 .theme-toggle {
   position: relative;
   width: 40px;
@@ -14,7 +14,7 @@
     rgb(79, 46, 232),
     rgb(220, 220, 220) 100%
   );
-  transition: 500ms;
+  transition: 300ms;
   padding: 1px;
 }
 
@@ -39,9 +39,8 @@
     rgb(247, 247, 247) 100%
   );
   border-radius: 50%;
-
   left: 0;
-  transition: 500ms;
+  transition: 500ms ease-in-out;
 }
 .theme-toggle:checked::before {
   left: 21px;

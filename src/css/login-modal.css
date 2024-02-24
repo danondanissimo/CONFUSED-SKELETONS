@@ -15,19 +15,83 @@
 }
 
 .modal-window {
-  padding: 15px;
+  /* padding: 15px; */
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 
-  background-color: #f6f6f6;
+  background: #f6f6f6;
 
   transition: ease-in;
   z-index: 1010;
 
   border: 2px solid #111;
   border-radius: 18px;
-  width: 579px;
-  height: 516px;
+  width: 335px;
+  height: 384px;
+}
+
+.modal-close {
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  top: 14px;
+  right: 14px;
+}
+
+.sign-up-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login-field-container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.login-field-container:not(:first-child) {
+  margin-top: 24px;
+}
+
+.login-field-container:first-child {
+  margin-top: 40px;
+}
+
+.login-field {
+  border: 2px solid #f6f6f6;
+  border-radius: 40px;
+  padding-left: 140px;
+  width: 155px;
+  height: 50px;
+}
+
+.login-field-label {
+  position: absolute;
+  top: 50%;
+  left: 24px;
+  transform: translateY(-50%);
+}
+
+.login-submit {
+  border-radius: 40px;
+  padding: 16px 116px;
+  width: 294px;
+  height: 50px;
+  margin-top: 24px;
+  color: var(--text-color-secondary);
+  background-color: var(--text-color-primary);
+}
+
+.login-submit:hover,
+.login-submit:focus {
+  background-color: var(--buttons-and-background-main);
+  color: var(--text-color-secondary);
+  border-color: var(--buttons-and-background-main);
+}
+
+.login-submit:focus {
+  box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.15);
 }

@@ -8,6 +8,7 @@
 @import url('./header.css');
 @import url('./login-modal.css');
 @import url('./modal-window.css');
+@import url('./footer.css');
 
 :root {
   font-family: 'DM Sans', sans-serif;

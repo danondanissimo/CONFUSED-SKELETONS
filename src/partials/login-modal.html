@@ -1,21 +1,26 @@
 <div class="modal-backdrop visually-hidden">
     <div class="modal-window">
-        <button class="modal-close">Close</button>
+        <button class="modal-close">
+            <svg href="../img/x-close.svg"></svg>
+        </button>
         <form class="sign-up-form" autocomplete="off">
-            <label class="name">
-                NAME
-                <input type="text" name="name" autofocus>
-            </label>
-            <label class="email">
-                EMAIL
-                <input type="email" name="email" />
-            </label>
-            <label class="password-field">
-                PASSWORD
-                <input type="password" name="password">
+<div class="login-field-container">
+                <label class="login-field-label" for="login-name">NAME</label>
+                <input type="text" name="name" id="login-name" class="login-field">
+</div>
+            
+<div class="login-field-container">
+                <label class="login-field-label" for="login-email">EMAIL</label>
+                <input type="email" name="email" id="login-email" class="login-field" />
+</div>
+           
+<div class="login-field-container">
+                <label class="login-field-label" for="login-password">PASSWORD</label>
+                <input type="password" name="password" id="login-password" class="login-field" >
+</div>
 
-            </label>
-            <button type="submit">Submit</button>
+           
+            <button type="submit" class="login-submit">SIGN UP</button>
         </form>
         <button class="log-out-button hidden">Log out <img src=""></button>
     </div>

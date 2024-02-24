@@ -17,6 +17,7 @@
   margin-left: auto;
   gap: 0px;
   justify-content: center;
+  color: var(--text-color-primary);
 }
 
 .header-logo {
@@ -51,4 +52,53 @@
   width: 28px;
   height: 28px;
   margin: 18px 20px 18px 0px;
+  background-color: transparent;
+  border: none;
+}
+
+.menu-button {
+  background-color: transparent;
+  display: inline-flex;
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  margin-left: auto;
+  border: none;
+  z-index: 100;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  transition-property: fill;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.menu-button-icon {
+  z-index: 1000000;
+}
+
+@media screen and (min-width: 768px) {
+  .menu-button {
+    display: none;
+  }
+}
+.menu-button__cross {
+  display: none;
+  fill: currentColor;
+}
+.menu-button__menu {
+  fill: currentColor;
+}
+.menu-button:hover,
+.menu-button:focus {
+  color: #2196f3;
+}
+.menu-button.is-open .menu-button__cross {
+  display: block;
+}
+.menu-button.is-open .menu-button__menu {
+  display: none;
+}
+.menu-button.is-open .logo {
+  z-index: -1;
 }

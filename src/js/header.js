@@ -27,3 +27,5 @@ toggleMobileMenuButton.addEventListener('click', () => {
 });
 
 mobileSignUp.addEventListener('click', openLoginModal);
+
+

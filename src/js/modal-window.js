@@ -93,3 +93,5 @@ function createModalWindow({
 
   document.addEventListener('keydown', pressEscapeKey);
 }
+
+// const array = [];

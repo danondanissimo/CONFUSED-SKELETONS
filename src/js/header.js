@@ -3,7 +3,7 @@ import { modalBackdrop, closeModalButton } from './login-modal';
 export const navListItems = document.querySelectorAll('.navigation-list-item');
 export const openModalButton = document.querySelector('.modal-open');
 
-const toggleMobileMenuButton = document.querySelector('.toggle-mobile-menu');
+const toggleMobileMenuButton = document.querySelector('.js-toggle-mobile-menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 export const mobileLogOutButton = document.querySelector(
   '.mobile-log-out-button'
@@ -17,15 +17,12 @@ function openLoginModal() {
     modalBackdrop.classList.add('visually-hidden');
   });
   closeModalButton.removeEventListener('click', () => {});
-  mobileSignUp.disabled = true;
 }
 
 openModalButton.addEventListener('click', openLoginModal);
 
-toggleMobileMenuButton.addEventListener('click', () => {
-  mobileMenu.classList.toggle('is-open');
-});
+// toggleMobileMenuButton.addEventListener('click', () => {
+//   mobileMenu.classList.toggle('is-open');
+// });
 
 mobileSignUp.addEventListener('click', openLoginModal);
-
-

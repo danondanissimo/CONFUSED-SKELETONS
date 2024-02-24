@@ -1,6 +1,6 @@
 'use strict';
-import Pagination from 'tui-pagination'; 
-import 'tui-pagination/dist/tui-pagination.css';
+// import Pagination from './tui-pagination'; 
+// import 'tui-pagination/dist/tui-pagination.css';
 let ref = {
     placeForBookList: document.querySelector('.shl-books-list'),
     onEmptyLocalStorageField: document.querySelector('.no-books-in-local-storage'),
@@ -25,33 +25,33 @@ let totalPageNumber = 0;
 const paginationButtonArray = [ref.onePaginationButton, ref.twoPaginationButton, ref.freePaginationButton, ref.morePaginationButton];
 const indexm = paginationButtonArray.findIndex(button=>button===ref.morePaginationButton);
 console.log(indexm);
-const pagination2 = new Pagination(document.getElementById('shl-pagination'), {
-    totalItems: 15,
-    itemsPerPage: 3,
-    visiblePages: 3,
-    centerAlign: true
-});
-async function getBookArray() {
-    try {
-        const response = await fetch('../partials/test.json');
-     ;
-        return response.json();
-    } catch (error) {
+// const pagination2 = new Pagination(document.getElementById('shl-pagination'), {
+//     totalItems: 15,
+//     itemsPerPage: 3,
+//     visiblePages: 3,
+//     centerAlign: true
+// });
+// async function getBookArray() {
+//     try {
+//         const response = await fetch('../partials/test.json');
+//      ;
+//         return response.json();
+//     } catch (error) {
         
-        throw error;
-    }
-    }
-async function loadDataToLocalSorage() {
-    try {
-        bookArray = await getBookArray();
-        console.log(bookArray);
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(bookArray));
-         ;
-    } catch (error) {
-        console.error('Помилка завантаження даних:', error);
-    }
-}
-loadDataToLocalSorage();
+//         throw error;
+//     }
+//     }
+// async function loadDataToLocalSorage() {
+//     try {
+//         bookArray = await getBookArray();
+//         console.log(bookArray);
+//         localStorage.setItem(STORAGE_KEY, JSON.stringify(bookArray));
+//          ;
+//     } catch (error) {
+//         console.error('Помилка завантаження даних:', error);
+//     }
+// }
+// loadDataToLocalSorage();
 function removeBookListFromLocalStorage(STORAGE_KEY) {
     localStorage.removeItem(STORAGE_KEY);
 }
@@ -64,7 +64,7 @@ function getBookListFromLocalStorage(STORAGE_KEY) {
     
     const bookData = JSON.parse(localStorage.getItem(STORAGE_KEY));
   
-      if (bookData && bookData.length > 0) { bookList = bookData[0];
+      if (bookData && bookData.length > 0) { bookList = bookData;
            return bookList;
          } 
 }
@@ -72,7 +72,7 @@ function showStartPage() {
     if (bookList.length > 0) { 
         ref.onEmptyLocalStorageField.classList.add('hide'); 
         renderBookListByPage(pageNumber, bookList);
-        // showPaginationBlock();
+        showPaginationBlock();
          } else { ref.onEmptyLocalStorageField.classList.remove('hide'); }
 }
 getBookListFromLocalStorage(STORAGE_KEY);
@@ -168,32 +168,32 @@ function onCardDeleteButtonClick(e) {
               console.log(totalPageNumber);
               renderBookByIndex(2, bookList);
               console.log(bookList.length);
-            //   showPaginationBlock();
+              showPaginationBlock();
               } else {if(bookList.length==0) {showStartPage()}}
           
     } else { return; }
 }
-// function showPaginationBlock() {
-//     totalPageNumber = Math.ceil(bookList.length / 3);
-//     console.log(totalPageNumber);
-//     if (totalPageNumber > 1) {
-//         ref.paginationBlock.classList.remove('hide');
-//         ref.onePaginationButton.classList.add('shl-active');
-//         ref.firstPaginationButton.setAttribute("disabled", "true");
-//         ref.previousPaginationButton.setAttribute("disabled", "true");
-//         if (totalPageNumber === 2) {
-//             ref.freePaginationButton.classList.add('hide');
-//             ref.morePaginationButton.classList.add('hide');
-//         } else {
-//             if (totalPageNumber === 3) {
-//                 ref.morePaginationButton.classList.add('hide');
-//             }
-//             else { if (totalPageNumber === 3) { ref.morePaginationButton.textContent('4'); } }
-//         }
-//     } else {
-//         if (ref.paginationBlock.classList.contains('hide')) { return; } else { ref.paginationBlock.classList.add('hide'); }
-//     }
-// }
+function showPaginationBlock() {
+    totalPageNumber = Math.ceil(bookList.length / 3);
+    console.log(totalPageNumber);
+    if (totalPageNumber > 1) {
+        ref.paginationBlock.classList.remove('hide');
+        ref.onePaginationButton.classList.add('shl-active');
+        ref.firstPaginationButton.setAttribute("disabled", "true");
+        ref.previousPaginationButton.setAttribute("disabled", "true");
+        if (totalPageNumber === 2) {
+            ref.freePaginationButton.classList.add('hide');
+            ref.morePaginationButton.classList.add('hide');
+        } else {
+            if (totalPageNumber === 3) {
+                ref.morePaginationButton.classList.add('hide');
+            }
+            else { if (totalPageNumber === 3) { ref.morePaginationButton.textContent('4'); } }
+        }
+    } else {
+        if (ref.paginationBlock.classList.contains('hide')) { return; } else { ref.paginationBlock.classList.add('hide'); }
+    }
+}
 function renderBookListByPage(pageNumber, books) {
     ref.placeForBookList.innerHTML = '';
     let j = pageNumber * 3 - 3;

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import onclickGalleryItem from './modal-window.js';
+import onclickGalleryItem from '../js/modal-window';
 
 const BASE_URL = 'https://books-backend.p.goit.global/';
 renderTopCategoryBooks();

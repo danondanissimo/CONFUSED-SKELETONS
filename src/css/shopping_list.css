@@ -1,0 +1,227 @@
+@import url('./reset.css');
+@import url('./styles.css');
+* {
+  box-sizing: border-box;
+}
+.shopping-list-page {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: start;
+  padding-left: 24px;
+  padding-right: 24px;
+  gap: 40px;
+  margin-top: 40px;
+}
+.sidebar {
+  width: 356px;
+  height: 474px;
+  background: #72a9b2;
+  margin: 0;
+  padding: 0;
+}
+.shopping-list-container {
+  width: 100%;
+}
+.shopping-list-title {
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 1.08333;
+  letter-spacing: -0.04em;
+  color: var(--text-color-primary);
+}
+.shopping-list-title-deco {
+  color: var(--buttons-and-background-main);
+}
+.no-books-in-local-storage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 140px;
+  gap: 20px;
+}
+.no-books-in-local-storage-note {
+  width: 349px;
+  text-align: center;
+  font-family: inherit;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.33333;
+  letter-spacing: -0.02em;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+/* Book-card */
+.book-card {
+  display: flex;
+
+  flex-direction: row;
+  gap: 24px;
+  margin-top: 40px;
+  height: 213px;
+  padding: 22px;
+  border: 2px solid rgba(79, 46, 232, 0.4);
+  border-radius: 16px;
+}
+.book-data {
+  width: 100%;
+}
+.book-image {
+  width: 116px;
+  height: 165px;
+}
+.book-features {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.book-card-features {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.bookname-category {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.book-title {
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.125;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  color: var(--text-color-primary);
+}
+.book-category {
+  font-family: inherit;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.16667;
+  letter-spacing: 0.03em;
+  color: #b4afaf;
+}
+.book-description {
+  font-family: inherit;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.28571;
+  letter-spacing: -0.04em;
+  color: var(--text-color-primary);
+}
+.card-delete-button {
+  display: flex;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 34px;
+  background-color: var(--buttons-and-background-main);
+  border: none;
+  align-items: center;
+}
+.book-author {
+  font-family: inherit;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.16667;
+  letter-spacing: -0.04em;
+  color: #b4afaf;
+  align-self: flex-end;
+}
+.buy-links {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  align-items: center;
+}
+.amazon-link {
+  display: block;
+  width: 50px;
+  height: 18px;
+  background-image: url(../img/Shopping_list/amazon.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.amazon-link:hover {
+  background-image: url(../img/Shopping_list/amazon_shadow.png);
+}
+.amazon-link:focus {
+  background-image: url(../img/Shopping_list/amazon_shadow.png);
+}
+.apple-link {
+  display: block;
+  width: 28px;
+  height: 27px;
+  background-image: url(../img/Shopping_list/apple.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.apple-link:hover {
+  background-image: url(../img/Shopping_list/apple_shadow.png);
+}
+.apple-link:focus {
+  background-image: url(../img/Shopping_list/apple_shadow.png);
+}
+@media screen and (max-width: 1439px) {
+  .sidebar {
+    display: none;
+  }
+}
+@media screen and (max-width: 767px) {
+  .book-description {
+    max-height: 70px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+  }
+  .book-card {
+    height: 170px;
+  }
+  .book-image {
+    width: 100px;
+    height: 145px;
+  }
+  .book-title,
+  .book-category,
+  .book-author {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+  }
+
+  .amazon-link {
+    width: 32px;
+    height: 12px;
+  }
+  .apple-link {
+    width: 18px;
+    height: 18px;
+  }
+  .buy-links {
+    gap: 8px;
+  }
+  .book-card {
+    padding: 12px;
+  }
+  .card-delete-button {
+    width: 28px;
+    height: 28px;
+    border-radius: 28px;
+  }
+}
+.hide {
+  display: none;
+}

@@ -1,0 +1,33 @@
+.header-navigation {
+  border: 1.5px solid rgb(255, 255, 255);
+  border-radius: 0px 0px 8px 8px;
+  background: rgb(17, 17, 17);
+  color: rgb(243, 243, 243);
+}
+
+body {
+  /* background-color: var(--background-dark); */
+  background-color: rgb(32, 32, 36);
+}
+
+.modal-window,
+.login-field {
+  background: rgb(32, 32, 36);
+}
+
+.login-field-label {
+  color: rgb(246, 246, 246);
+}
+
+.login-submit,
+.sign-up-form {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 18px;
+  letter-spacing: -1%;
+  text-transform: uppercase;
+}
+.login-submit {
+  color: var(--text-color-primary);
+  background-color: var(--text-color-secondary);
+}

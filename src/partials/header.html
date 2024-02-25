@@ -1,6 +1,8 @@
 <header>
   <div class="header-navigation">
-    <a href="../index.html" class="header-logo"><img src="../img/logo.svg" class="logo-icon"/></a>
+    <a href="../index.html" class="header-logo"
+      ><img src="../img/logo.svg" class="logo-icon"
+    /></a>
     <nav>
       <ul class="navigation-list">
         <li>
@@ -19,8 +21,13 @@
         </li>
       </ul>
     </nav>
-    <input type="checkbox" class="theme-toggle" />
+
+    <div class="toggle-container">
+      <input type="checkbox" class="theme-toggle" />
+    </div>
+
     <button class="modal-open header-sign-up">Sign-up<img src="../img/arrow-right.svg"></button>
+
     <button type="button" class="menu-button js-toggle-mobile-menu">
       <svg width="28px" height="28px" fill="var(--text-color-primary)">
         <use href="../img/" class="menu-button-icon"></use>
@@ -28,9 +35,9 @@
       </svg>
     </button>
   </div>
-  
 </header>
 <div class="mobile-menu">
+
   <button class="mobile-sign-up">Sign up<img src="../img/arrow-right.svg"></button>
 <div class="mobile-navigation-container">
     <ul class="mobile-navigation-list">
@@ -42,3 +49,4 @@
   <button class="mobile-log-out-button visually-hidden">Log out<img src="../img/arrow-right.svg" class="log-out-icon" /></button>
   <img src="../img/mobile-menu-background.png" class="mobile-background-image">
 </div>
+

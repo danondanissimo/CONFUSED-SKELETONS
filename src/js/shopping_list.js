@@ -1,5 +1,5 @@
 'use strict';
-// import Pagination from './tui-pagination'; 
+// import Pagination from 'tui-pagination';
 // import 'tui-pagination/dist/tui-pagination.css';
 let ref = {
     placeForBookList: document.querySelector('.shl-books-list'),
@@ -22,36 +22,51 @@ const STORAGE_KEY = 'shopping-list';
 let pageNumber = 1;
 let currentPage = 1;
 let totalPageNumber = 0;
+let pageToShow = 0;
+let pageBeforeMoreButton = 0;
+let btcValue = 0;
+let checkEvent = false;
+const bookPerPage = window.innerWidth > 768 ? 3 : 4;
+console.log(bookPerPage);
+const viewPortLess768 = window.innerWidth < 768 ? true : false;
 const paginationButtonArray = [ref.onePaginationButton, ref.twoPaginationButton, ref.freePaginationButton, ref.morePaginationButton];
-const indexm = paginationButtonArray.findIndex(button=>button===ref.morePaginationButton);
-console.log(indexm);
-// const pagination2 = new Pagination(document.getElementById('shl-pagination'), {
+const paginationButtonArray2 = [ref.onePaginationButton, ref.freePaginationButton, ref.morePaginationButton];
+const indexOfPaginationMoreButton = paginationButtonArray.findIndex(button => button === ref.morePaginationButton);
+let  currentIndex = 0;
+console.log(indexOfPaginationMoreButton);
+function getIndexOfActivePaginationButton(array) {
+  const  indexb= array.findIndex(button => button.classList.contains('shl-active'));
+    return indexb;
+}
+
+
+// const pagination = new Pagination(document.getElementById('shl-pagination'), {
 //     totalItems: 15,
 //     itemsPerPage: 3,
 //     visiblePages: 3,
 //     centerAlign: true
 // });
-// async function getBookArray() {
-//     try {
-//         const response = await fetch('../partials/test.json');
-//      ;
-//         return response.json();
-//     } catch (error) {
+async function getBookArray() {
+    try {
+        const response = await fetch('../partials/test.json');
+     ;
+        return response.json();
+    } catch (error) {
         
-//         throw error;
-//     }
-//     }
-// async function loadDataToLocalSorage() {
-//     try {
-//         bookArray = await getBookArray();
-//         console.log(bookArray);
-//         localStorage.setItem(STORAGE_KEY, JSON.stringify(bookArray));
-//          ;
-//     } catch (error) {
-//         console.error('Помилка завантаження даних:', error);
-//     }
-// }
-// loadDataToLocalSorage();
+        throw error;
+    }
+    }
+async function loadDataToLocalSorage() {
+    try {
+        bookArray = await getBookArray();
+        console.log(bookArray);
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(bookArray));
+         ;
+    } catch (error) {
+        console.error('Помилка завантаження даних:', error);
+    }
+}
+loadDataToLocalSorage();
 function removeBookListFromLocalStorage(STORAGE_KEY) {
     localStorage.removeItem(STORAGE_KEY);
 }
@@ -64,14 +79,15 @@ function getBookListFromLocalStorage(STORAGE_KEY) {
     
     const bookData = JSON.parse(localStorage.getItem(STORAGE_KEY));
   
-      if (bookData && bookData.length > 0) { bookList = bookData;
+    if (bookData && bookData.length > 0) {
+        bookList = bookData[0];
            return bookList;
          } 
 }
 function showStartPage() {
     if (bookList.length > 0) { 
         ref.onEmptyLocalStorageField.classList.add('hide'); 
-        renderBookListByPage(pageNumber, bookList);
+        renderBookListByPage(pageNumber,bookPerPage, bookList);
         showPaginationBlock();
          } else { ref.onEmptyLocalStorageField.classList.remove('hide'); }
 }
@@ -82,80 +98,519 @@ showStartPage();
 ref.placeForBookList.addEventListener('click', onCardDeleteButtonClick);
 ref.paginationBlock.addEventListener('click', onPaginationButtonClick);
 function onPaginationButtonClick(e) {
+    checkEvent = true;
     const classList = e.target.classList[0];
-    const textContent = parseInt(e.target.textContent,10);
-    
-    // switch (classList) {
-    //     case 'shl-pagination-button-first': pageNumber = 1;
-    //         renderBookListByPage(pageNumber, bookList);
-    //         ref.firstPaginationButton.setAttribute("disabled", "true");
-    //         ref.previousPaginationButton.setAttribute("disabled", "true");
-    //         paginationButtonArray[0].classList.add('shl-active');
-    //         paginationButtonArray[currentPage-1].classList.remove('shl-active');
-    //         break;
-    //     case 'shl-pagination-button-previous':
-    //         paginationButtonArray[currentPage - 1].classList.remove('shl-active');
-    //         currentPage = currentPage - 1;
-    //         pageNumber = currentPage;
-    //         renderBookListByPage(pageNumber, bookList);
-    //         paginationButtonArray[currentPage - 1].classList.add('shl-active');
-    //         if (pageNumber === 1) {
-    //             ref.firstPaginationButton.setAttribute("disabled", "true");
-    //             ref.previousPaginationButton.setAttribute("disabled", "true");
-    //         };
-    //         break;
-    //     case 'shl-pagination-button-one':
-    //         if (textContent === 1) {
-    //             paginationButtonArray[currentPage - 1].classList.remove('shl-active');
-    //             currentPage = 1;
-    //             pageNumber = currentPage;
-    //             paginationButtonArray[currentPage - 1].classList.add('shl-active');
-    //             renderBookListByPage(pageNumber, bookList);
-    //             ref.firstPaginationButton.setAttribute("disabled", "true");
-    //             ref.previousPaginationButton.setAttribute("disabled", "true");
-    //         } else {
-    //             paginationButtonArray[currentPage - 1].classList.remove('shl-active');
-    //             currentPage = textContent;
-    //             pageNumber = currentPage;
-    //             paginationButtonArray[currentPage - 1].classList.add('shl-active')
-    //             renderBookListByPage(pageNumber, bookList);
-    //         }; break;
-    //     case 'shl-pagination-button-two':
-    //         if (textContent === 2) {
-    //             paginationButtonArray[currentPage - 1].classList.remove('shl-active');
-    //             currentPage = 2;
-    //             pageNumber = currentPage;
-    //             paginationButtonArray[currentPage - 1].classList.add('shl-active');
-    //             renderBookListByPage(pageNumber, bookList);
-    //             ref.firstPaginationButton.removeAttribute("disabled");
-    //             ref.previousPaginationButton.removeAttribute("disabled");
-    //         } else {
-    //             paginationButtonArray[currentPage - 1].classList.remove('shl-active');
-    //             currentPage = textContent;
-    //             pageNumber = currentPage;
-    //             paginationButtonArray[currentPage - 1].classList.add('shl-active')
-    //             renderBookListByPage(pageNumber, bookList);
-    //         }; break;
-    //     case 'shl-pagination-button-free':
-    //         if (textContent === 3) {
-    //             paginationButtonArray[currentPage - 1].classList.remove('shl-active');
-    //             currentPage = 3;
-    //             pageNumber = currentPage;
-    //             paginationButtonArray[currentPage - 1].classList.add('shl-active');
-    //             renderBookListByPage(pageNumber, bookList);
-    //             ref.firstPaginationButton.removeAttribute("disabled");
-    //             ref.previousPaginationButton.removeAttribute("disabled");
-    //         } else {
-    //             paginationButtonArray[currentPage - 1].classList.remove('shl-active');
-    //             currentPage = textContent;
-    //             pageNumber = currentPage;
-    //             paginationButtonArray[currentPage - 1].classList.add('shl-active')
-    //             renderBookListByPage(pageNumber, bookList);
-    //         }; break;
-    //      case 'shl-pagination-button-more':  
-    // }
+    console.log(classList);
+    const textContent = parseInt(e.target.textContent, 10);
+    if (!viewPortLess768) {
+        switch (classList) {
+            case 'shl-pagination-button-first':
+            
+                paginationButtonArray[getIndexOfActivePaginationButton(paginationButtonArray)].classList.remove('shl-active');
+                currentPage = 1;
+                pageNumber = 1;
+                renderBookListByPage(pageNumber, bookPerPage, bookList);
+                ref.firstPaginationButton.setAttribute("disabled", "true");
+                ref.previousPaginationButton.setAttribute("disabled", "true");
+                paginationButtonArray[0].classList.add('shl-active');
+                ref.nextPaginationButton.removeAttribute("disabled");
+                ref.lastPaginationButton.removeAttribute("disabled");
+                paginationButtonArray[indexOfPaginationMoreButton - 3].textContent = currentPage;
+                paginationButtonArray[indexOfPaginationMoreButton - 1].textContent = currentPage + 2;
+               
+                paginationButtonArray[indexOfPaginationMoreButton - 2].textContent = currentPage + 1;
+                paginationButtonArray[indexOfPaginationMoreButton].textContent = '...';
+           
+                break;
+            case 'shl-pagination-button-previous':
+                currentIndex = getIndexOfActivePaginationButton(paginationButtonArray);
+                if (paginationButtonArray[indexOfPaginationMoreButton - 3].textContent == '...') {
+                    
+                    pageToShow = parseInt(paginationButtonArray[indexOfPaginationMoreButton - 2].textContent, 10) - 1;
+                   
+                    if (pageToShow >= 2) {
+                        currentPage = currentPage - 1;
+                        pageNumber = currentPage;
+                        renderBookListByPage(pageNumber, bookPerPage, bookList);
+                        if (currentIndex > 1) {
+                            paginationButtonArray[currentIndex].classList.remove('shl-active');
+                            paginationButtonArray[currentIndex - 1].classList.add('shl-active');
+                        
+                        }
+                        else {
+                            paginationButtonArray[currentIndex].textContent = currentPage;
+                            paginationButtonArray[currentIndex + 1].textContent = currentPage + 1;
+                            paginationButtonArray[currentIndex + 2].textContent = '...';
+                            ref.nextPaginationButton.removeAttribute("disabled");
+                            ref.lastPaginationButton.removeAttribute("disabled");
+                        }
+                    }
+                    else {
+                        currentPage = 1;
+                        pageNumber = currentPage;
+                        paginationButtonArray[indexOfPaginationMoreButton - 3].textContent = currentPage;
+                        paginationButtonArray[currentIndex].classList.remove('shl-active');
+                        paginationButtonArray[indexOfPaginationMoreButton - 3].classList.add('shl-active');
+                        renderBookListByPage(pageNumber, bookPerPage, bookList);
+                        ref.firstPaginationButton.setAttribute("disabled", "true");
+                        ref.previousPaginationButton.setAttribute("disabled", "true");
+                        ref.nextPaginationButton.removeAttribute("disabled");
+                        ref.lastPaginationButton.removeAttribute("disabled");
+                    }
+                        
+                };
+                break;
+            case 'shl-pagination-button-one':
+                currentIndex = getIndexOfActivePaginationButton(paginationButtonArray);
+                if (!paginationButtonArray.length === totalPageNumber) {
+                    paginationButtonArray[indexOfPaginationMoreButton].textContent = '...';
+                }
+                if (textContent === 1) {
+                    currentPage = 1;
+                    pageNumber = currentPage;
+                    paginationButtonArray[currentIndex].classList.remove('shl-active');
+                    paginationButtonArray[currentPage - 1].classList.add('shl-active');
+                    renderBookListByPage(pageNumber, bookPerPage, bookList);
+                    ref.firstPaginationButton.setAttribute("disabled", "true");
+                    ref.previousPaginationButton.setAttribute("disabled", "true");
+                }
+                else {
+                    btcValue = parseInt(paginationButtonArray[indexOfPaginationMoreButton - 2].textContent, 10);
+                    pageToShow = btcValue - 1;
+                    if (pageToShow > 2) {
+                        paginationButtonArray[indexOfPaginationMoreButton - 2].textContent = btcValue - 2;
+                        paginationButtonArray[indexOfPaginationMoreButton - 1].textContent = btcValue - 1;
+                        currentPage = parseInt(paginationButtonArray[indexOfPaginationMoreButton - 1].textContent, 10);
+                        paginationButtonArray[currentIndex].classList.remove('shl-active');
+                        paginationButtonArray[indexOfPaginationMoreButton - 1].classList.add('shl-active');
+                        pageNumber = currentPage;
+                        renderBookListByPage(pageNumber, bookPerPage, bookList);
+                        ref.nextPaginationButton.removeAttribute("disabled");
+                        ref.lastPaginationButton.removeAttribute("disabled");
+                    }
+                    else {
+                        if (pageToShow === 2) {
+                            paginationButtonArray[indexOfPaginationMoreButton].textContent = '...';
+                            paginationButtonArray[indexOfPaginationMoreButton - 2].textContent = btcValue - 1;
+                            paginationButtonArray[indexOfPaginationMoreButton - 1].textContent = btcValue;
+                            currentPage = parseInt(paginationButtonArray[indexOfPaginationMoreButton - 1].textContent, 10);
+                            paginationButtonArray[currentIndex].classList.remove('shl-active');
+                            paginationButtonArray[indexOfPaginationMoreButton - 1].classList.add('shl-active');
+                            pageNumber = currentPage;
+                            renderBookListByPage(pageNumber, bookPerPage, bookList);
+                            paginationButtonArray[indexOfPaginationMoreButton - 3].textContent = 1;
+                            ref.firstPaginationButton.setAttribute("disabled", "true");
+                            ref.previousPaginationButton.setAttribute("disabled", "true");
+                            ref.nextPaginationButton.removeAttribute("disabled");
+                            ref.lastPaginationButton.removeAttribute("disabled");
+                        } else {
+                            currentPage = 1;
+                            pageNumber = currentPage;
+                            paginationButtonArray[indexOfPaginationMoreButton - 3].textContent = 1;
+                            paginationButtonArray[currentIndex].classList.remove('shl-active');
+                            paginationButtonArray[currentPage - 1].classList.add('shl-active');
+                            renderBookListByPage(pageNumber, bookPerPage, bookList);
+                            ref.firstPaginationButton.setAttribute("disabled", "true");
+                            ref.previousPaginationButton.setAttribute("disabled", "true");
+                            ref.nextPaginationButton.removeAttribute("disabled");
+                            ref.lastPaginationButton.removeAttribute("disabled");
+                        }
+                    };
+                }
+                break;
+            case 'shl-pagination-button-two':
+                paginationButtonArray[getIndexOfActivePaginationButton(paginationButtonArray)].classList.remove('shl-active');
+                currentPage = textContent;
+                pageNumber = currentPage;
+                paginationButtonArray[indexOfPaginationMoreButton - 2].classList.add('shl-active');
+                renderBookListByPage(pageNumber, bookPerPage, bookList);
+                break;
+            case 'shl-pagination-button-free':
+                paginationButtonArray[getIndexOfActivePaginationButton(paginationButtonArray)].classList.remove('shl-active');
+                currentPage = textContent;
+                pageNumber = currentPage;
+                paginationButtonArray[indexOfPaginationMoreButton - 1].classList.add('shl-active');
+                renderBookListByPage(pageNumber, bookPerPage, bookList);
+                break;
+            case 'shl-pagination-button-more':
+                currentIndex = getIndexOfActivePaginationButton(paginationButtonArray);
+                console.log(paginationButtonArray[indexOfPaginationMoreButton].textContent);
+                console.log(currentIndex);
+                console.log(totalPageNumber);
+
+                if (!paginationButtonArray.length === totalPageNumber) {
+                    paginationButtonArray[indexOfPaginationMoreButton - 3].textContent = '...';
+                }
+                if (paginationButtonArray[indexOfPaginationMoreButton].textContent == '...') {
+                    pageBeforeMoreButton = parseInt(paginationButtonArray[indexOfPaginationMoreButton - 1].textContent, 10);
+                    pageToShow = totalPageNumber - pageBeforeMoreButton;
+                    console.log(pageBeforeMoreButton);
+                    console.log(pageToShow);
+                    if (pageToShow > 2) {
+                        paginationButtonArray[indexOfPaginationMoreButton - 1].textContent = pageBeforeMoreButton + 2;
+                        paginationButtonArray[indexOfPaginationMoreButton - 2].textContent = pageBeforeMoreButton + 1;
+                        currentPage = parseInt(paginationButtonArray[indexOfPaginationMoreButton - 2].textContent, 10);
+                        paginationButtonArray[currentIndex].classList.remove('shl-active');
+                        paginationButtonArray[indexOfPaginationMoreButton - 2].classList.add('shl-active');
+                        pageNumber = currentPage;
+                        renderBookListByPage(pageNumber, bookPerPage, bookList);
+                        ref.firstPaginationButton.removeAttribute("disabled");
+                        ref.previousPaginationButton.removeAttribute("disabled");
+                   
+                    } else {
+                        if (pageToShow === 2) {
+                            paginationButtonArray[indexOfPaginationMoreButton - 3].textContent = '...';
+                            paginationButtonArray[indexOfPaginationMoreButton - 1].textContent = pageBeforeMoreButton + 1;
+                            paginationButtonArray[indexOfPaginationMoreButton - 2].textContent = pageBeforeMoreButton;
+                            currentPage = parseInt(paginationButtonArray[indexOfPaginationMoreButton - 2].textContent, 10);
+                            paginationButtonArray[currentIndex].classList.remove('shl-active');
+                            paginationButtonArray[indexOfPaginationMoreButton - 2].classList.add('shl-active');
+                            pageNumber = currentPage;
+                            renderBookListByPage(pageNumber, bookPerPage, bookList);
+                            paginationButtonArray[indexOfPaginationMoreButton].textContent = totalPageNumber;
+                            ref.nextPaginationButton.setAttribute("disabled", "true");
+                            ref.lastPaginationButton.setAttribute("disabled", "true");
+                            ref.firstPaginationButton.removeAttribute("disabled");
+                            ref.previousPaginationButton.removeAttribute("disabled");
+                        } else {
+                            currentPage = totalPageNumber;
+                            pageNumber = currentPage;
+                            paginationButtonArray[indexOfPaginationMoreButton].textContent = totalPageNumber;
+                            paginationButtonArray[currentIndex].classList.remove('shl-active');
+                            paginationButtonArray[indexOfPaginationMoreButton].classList.add('shl-active');
+                            renderBookListByPage(pageNumber, bookPerPage, bookList);
+                            ref.nextPaginationButton.setAttribute("disabled", "true");
+                            ref.lastPaginationButton.setAttribute("disabled", "true");
+                            if (!paginationButtonArray.length === totalPageNumber) {
+                                ref.firstPaginationButton.removeAttribute("disabled");
+                                ref.previousPaginationButton.removeAttribute("disabled");
+                            }
+                        }
+                    };
+                } else {
+                    paginationButtonArray[currentIndex].classList.remove('shl-active');
+                    currentPage = totalPageNumber;
+                    pageNumber = currentPage;
+                    renderBookListByPage(pageNumber, bookPerPage, bookList);
+                    ref.nextPaginationButton.setAttribute("disabled", "true");
+                    ref.lastPaginationButton.setAttribute("disabled", "true");
+                    paginationButtonArray[indexOfPaginationMoreButton].classList.add('shl-active');
+                    if (!paginationButtonArray.length === totalPageNumber) {
+                        ref.firstPaginationButton.removeAttribute("disabled");
+                        ref.previousPaginationButton.removeAttribute("disabled");
+                    }
+                    
+                }
+            
+                break;
+            case 'shl-pagination-button-next':
+                currentIndex = getIndexOfActivePaginationButton(paginationButtonArray);
+                if (paginationButtonArray[indexOfPaginationMoreButton].textContent == '...') {
+                    pageBeforeMoreButton = parseInt(paginationButtonArray[indexOfPaginationMoreButton - 1].textContent, 10);
+                    pageToShow = totalPageNumber - currentPage;
+                    if (pageToShow >= 2) {
+                        currentPage = currentPage + 1;
+                        pageNumber = currentPage;
+                        renderBookListByPage(pageNumber, bookPerPage, bookList);
+                        if (currentIndex < 2) {
+                            paginationButtonArray[currentIndex].classList.remove('shl-active');
+                            paginationButtonArray[currentIndex + 1].classList.add('shl-active');
+                        } else {
+                            paginationButtonArray[currentIndex].textContent = currentPage;
+                            paginationButtonArray[currentIndex - 1].textContent = currentPage - 1;
+
+                            ref.firstPaginationButton.removeAttribute("disabled");
+                            ref.previousPaginationButton.removeAttribute("disabled");
+                            paginationButtonArray[indexOfPaginationMoreButton - 3].textContent = '...';
+                        }
+                    }
+                    else {
+                        currentPage = totalPageNumber;
+                        pageNumber = currentPage;
+                        renderBookListByPage(pageNumber, bookPerPage, bookList);
+                        ref.nextPaginationButton.setAttribute("disabled", "true");
+                        ref.lastPaginationButton.setAttribute("disabled", "true");
+                        paginationButtonArray[currentIndex].classList.remove('shl-active');
+                        paginationButtonArray[indexOfPaginationMoreButton].textContent = currentPage;
+                        paginationButtonArray[indexOfPaginationMoreButton].classList.add('shl-active');
+                    
+                    }
+                }
+                break;
+            case 'shl-pagination-button-last':
+                paginationButtonArray[getIndexOfActivePaginationButton(paginationButtonArray)].classList.remove('shl-active');
+                currentPage = totalPageNumber;
+                pageNumber = currentPage;
+                ref.nextPaginationButton.setAttribute("disabled", "true");
+                ref.lastPaginationButton.setAttribute("disabled", "true");
+                paginationButtonArray[indexOfPaginationMoreButton].textContent = currentPage;
+                paginationButtonArray[indexOfPaginationMoreButton].classList.add('shl-active');
+                renderBookListByPage(pageNumber, bookPerPage, bookList);
+                paginationButtonArray[indexOfPaginationMoreButton - 1].textContent = currentPage - 1;
+                paginationButtonArray[indexOfPaginationMoreButton - 2].textContent = currentPage - 2;
+                paginationButtonArray[indexOfPaginationMoreButton - 3].textContent = '...';
+                ref.firstPaginationButton.removeAttribute("disabled");
+                ref.previousPaginationButton.removeAttribute("disabled");
+                break;
+        
+        }
+    } 
+    else {
+        switch (classList) {
+            case 'shl-pagination-button-first':
+            
+                paginationButtonArray2[getIndexOfActivePaginationButton(paginationButtonArray2)].classList.remove('shl-active');
+                currentPage = 1;
+                pageNumber = 1;
+                renderBookListByPage(pageNumber, bookPerPage, bookList);
+                ref.firstPaginationButton.setAttribute("disabled", "true");
+                ref.previousPaginationButton.setAttribute("disabled", "true");
+                paginationButtonArray2[0].classList.add('shl-active');
+                ref.nextPaginationButton.removeAttribute("disabled");
+                ref.lastPaginationButton.removeAttribute("disabled");
+                paginationButtonArray2[indexOfPaginationMoreButton - 3].textContent = currentPage;
+                paginationButtonArray2[indexOfPaginationMoreButton - 1].textContent = currentPage + 2;
+               
+                paginationButtonArray2[indexOfPaginationMoreButton - 2].textContent = currentPage + 1;
+                paginationButtonArray2[indexOfPaginationMoreButton].textContent = '...';
+           
+                break;
+            case 'shl-pagination-button-previous':
+                currentIndex = getIndexOfActivePaginationButton(paginationButtonArray2);
+                if (paginationButtonArray2[indexOfPaginationMoreButton - 3].textContent == '...') {
+                    
+                    pageToShow = parseInt(paginationButtonArray2[indexOfPaginationMoreButton - 2].textContent, 10) - 1;
+                   
+                    if (pageToShow >= 2) {
+                        currentPage = currentPage - 1;
+                        pageNumber = currentPage;
+                        renderBookListByPage(pageNumber, bookPerPage, bookList);
+                        if (currentIndex > 1) {
+                            paginationButtonArray2[currentIndex].classList.remove('shl-active');
+                            paginationButtonArray2[currentIndex - 1].classList.add('shl-active');
+                        
+                        }
+                        else {
+                            paginationButtonArray2[currentIndex].textContent = currentPage;
+                            paginationButtonArray2[currentIndex + 1].textContent = currentPage + 1;
+                            paginationButtonArray2[currentIndex + 2].textContent = '...';
+                            ref.nextPaginationButton.removeAttribute("disabled");
+                            ref.lastPaginationButton.removeAttribute("disabled");
+                        }
+                    }
+                    else {
+                        currentPage = 1;
+                        pageNumber = currentPage;
+                        paginationButtonArray2[indexOfPaginationMoreButton - 3].textContent = currentPage;
+                        paginationButtonArray2[currentIndex].classList.remove('shl-active');
+                        paginationButtonArray2[indexOfPaginationMoreButton - 3].classList.add('shl-active');
+                        renderBookListByPage(pageNumber, bookPerPage, bookList);
+                        ref.firstPaginationButton.setAttribute("disabled", "true");
+                        ref.previousPaginationButton.setAttribute("disabled", "true");
+                        ref.nextPaginationButton.removeAttribute("disabled");
+                        ref.lastPaginationButton.removeAttribute("disabled");
+                    }
+                        
+                };
+                break;
+            case 'shl-pagination-button-one':
+                currentIndex = getIndexOfActivePaginationButton(paginationButtonArray2);
+                if (!paginationButtonArray2.length === totalPageNumber) {
+                    paginationButtonArray2[indexOfPaginationMoreButton].textContent = '...';
+                }
+                if (textContent === 1) {
+                    currentPage = 1;
+                    pageNumber = currentPage;
+                    paginationButtonArray2[currentIndex].classList.remove('shl-active');
+                    paginationButtonArray2[currentPage - 1].classList.add('shl-active');
+                    renderBookListByPage(pageNumber, bookPerPage, bookList);
+                    ref.firstPaginationButton.setAttribute("disabled", "true");
+                    ref.previousPaginationButton.setAttribute("disabled", "true");
+                }
+                else {
+                    btcValue = parseInt(paginationButtonArray2[indexOfPaginationMoreButton - 2].textContent, 10);
+                    pageToShow = btcValue - 1;
+                    if (pageToShow > 2) {
+                        paginationButtonArray2[indexOfPaginationMoreButton - 2].textContent = btcValue - 2;
+                        paginationButtonArray2[indexOfPaginationMoreButton - 1].textContent = btcValue - 1;
+                        currentPage = parseInt(paginationButtonArray[indexOfPaginationMoreButton - 1].textContent, 10);
+                        paginationButtonArray2[currentIndex].classList.remove('shl-active');
+                        paginationButtonArray2[indexOfPaginationMoreButton - 1].classList.add('shl-active');
+                        pageNumber = currentPage;
+                        renderBookListByPage(pageNumber, bookPerPage, bookList);
+                        ref.nextPaginationButton.removeAttribute("disabled");
+                        ref.lastPaginationButton.removeAttribute("disabled");
+                    }
+                    else {
+                        if (pageToShow === 2) {
+                            paginationButtonArray2[indexOfPaginationMoreButton].textContent = '...';
+                            paginationButtonArray2[indexOfPaginationMoreButton - 2].textContent = btcValue - 1;
+                            paginationButtonArray2[indexOfPaginationMoreButton - 1].textContent = btcValue;
+                            currentPage = parseInt(paginationButtonArray2[indexOfPaginationMoreButton - 1].textContent, 10);
+                            paginationButtonArray2[currentIndex].classList.remove('shl-active');
+                            paginationButtonArray2[indexOfPaginationMoreButton - 1].classList.add('shl-active');
+                            pageNumber = currentPage;
+                            renderBookListByPage(pageNumber, bookPerPage, bookList);
+                            paginationButtonArray2[indexOfPaginationMoreButton - 3].textContent = 1;
+                            ref.firstPaginationButton.setAttribute("disabled", "true");
+                            ref.previousPaginationButton.setAttribute("disabled", "true");
+                            ref.nextPaginationButton.removeAttribute("disabled");
+                            ref.lastPaginationButton.removeAttribute("disabled");
+                        } else {
+                            currentPage = 1;
+                            pageNumber = currentPage;
+                            paginationButtonArray2[indexOfPaginationMoreButton - 3].textContent = 1;
+                            paginationButtonArray2[currentIndex].classList.remove('shl-active');
+                            paginationButtonArray2[currentPage - 1].classList.add('shl-active');
+                            renderBookListByPage(pageNumber, bookPerPage, bookList);
+                            ref.firstPaginationButton.setAttribute("disabled", "true");
+                            ref.previousPaginationButton.setAttribute("disabled", "true");
+                            ref.nextPaginationButton.removeAttribute("disabled");
+                            ref.lastPaginationButton.removeAttribute("disabled");
+                        }
+                    };
+                }
+                break;
+            case 'shl-pagination-button-two':
+                paginationButtonArray2[getIndexOfActivePaginationButton(paginationButtonArray2)].classList.remove('shl-active');
+                currentPage = textContent;
+                pageNumber = currentPage;
+                paginationButtonArray2[indexOfPaginationMoreButton - 2].classList.add('shl-active');
+                renderBookListByPage(pageNumber, bookPerPage, bookList);
+                break;
+            case 'shl-pagination-button-free':
+                paginationButtonArray2[getIndexOfActivePaginationButton(paginationButtonArray2)].classList.remove('shl-active');
+                currentPage = textContent;
+                pageNumber = currentPage;
+                paginationButtonArray2[indexOfPaginationMoreButton - 1].classList.add('shl-active');
+                renderBookListByPage(pageNumber, bookPerPage, bookList);
+                break;
+            case 'shl-pagination-button-more':
+                currentIndex = getIndexOfActivePaginationButton();
+                console.log(paginationButtonArray2[indexOfPaginationMoreButton].textContent);
+                console.log(currentIndex);
+                console.log(totalPageNumber);
+
+                if (!paginationButtonArray2.length === totalPageNumber) {
+                    paginationButtonArray2[indexOfPaginationMoreButton - 3].textContent = '...';
+                }
+                if (paginationButtonArray2[indexOfPaginationMoreButton].textContent == '...') {
+                    pageBeforeMoreButton = parseInt(paginationButtonArray2[1].textContent, 10);
+                    pageToShow = totalPageNumber - pageBeforeMoreButton;
+                    console.log(pageBeforeMoreButton);
+                    console.log(pageToShow);
+                    if (pageToShow > 2) {
+                        paginationButtonArray2[1].textContent = pageBeforeMoreButton + 1;
+                        paginationButtonArray2[0].textContent = '...';
+                        currentPage = parseInt(paginationButtonArray2[indexOfPaginationMoreButton - 2].textContent, 10);
+                        paginationButtonArray2[currentIndex].classList.remove('shl-active');
+                        paginationButtonArray2[indexOfPaginationMoreButton - 2].classList.add('shl-active');
+                        pageNumber = currentPage;
+                        renderBookListByPage(pageNumber, bookPerPage, bookList);
+                        ref.firstPaginationButton.removeAttribute("disabled");
+                        ref.previousPaginationButton.removeAttribute("disabled");
+                   
+                    } else {
+                        if (pageToShow === 2) {
+                            paginationButtonArray2[indexOfPaginationMoreButton - 3].textContent = '...';
+                            paginationButtonArray2[indexOfPaginationMoreButton - 1].textContent = pageBeforeMoreButton + 1;
+                            paginationButtonArray2[indexOfPaginationMoreButton - 2].textContent = pageBeforeMoreButton;
+                            currentPage = parseInt(paginationButtonArray[indexOfPaginationMoreButton - 2].textContent, 10);
+                            paginationButtonArray2[currentIndex].classList.remove('shl-active');
+                            paginationButtonArray2[indexOfPaginationMoreButton - 2].classList.add('shl-active');
+                            pageNumber = currentPage;
+                            renderBookListByPage(pageNumber, bookPerPage, bookList);
+                            paginationButtonArray2[indexOfPaginationMoreButton].textContent = totalPageNumber;
+                            ref.nextPaginationButton.setAttribute("disabled", "true");
+                            ref.lastPaginationButton.setAttribute("disabled", "true");
+                            ref.firstPaginationButton.removeAttribute("disabled");
+                            ref.previousPaginationButton.removeAttribute("disabled");
+                        } else {
+                            currentPage = totalPageNumber;
+                            pageNumber = currentPage;
+                            paginationButtonArray2[indexOfPaginationMoreButton].textContent = totalPageNumber;
+                            paginationButtonArray2[currentIndex].classList.remove('shl-active');
+                            paginationButtonArray2[indexOfPaginationMoreButton].classList.add('shl-active');
+                            renderBookListByPage(pageNumber, bookPerPage, bookList);
+                            ref.nextPaginationButton.setAttribute("disabled", "true");
+                            ref.lastPaginationButton.setAttribute("disabled", "true");
+                            if (!paginationButtonArray2.length === totalPageNumber) {
+                                ref.firstPaginationButton.removeAttribute("disabled");
+                                ref.previousPaginationButton.removeAttribute("disabled");
+                            }
+                        }
+                    };
+                } else {
+                    paginationButtonArray2[currentIndex].classList.remove('shl-active');
+                    currentPage = totalPageNumber;
+                    pageNumber = currentPage;
+                    renderBookListByPage(pageNumber, bookPerPage, bookList);
+                    ref.nextPaginationButton.setAttribute("disabled", "true");
+                    ref.lastPaginationButton.setAttribute("disabled", "true");
+                    paginationButtonArray2[indexOfPaginationMoreButton].classList.add('shl-active');
+                    if (!paginationButtonArray.length === totalPageNumber) {
+                        ref.firstPaginationButton.removeAttribute("disabled");
+                        ref.previousPaginationButton.removeAttribute("disabled");
+                    }
+                    
+                }
+            
+                break;
+            case 'shl-pagination-button-next':
+                currentIndex = getIndexOfActivePaginationButton();
+                if (paginationButtonArray2[indexOfPaginationMoreButton].textContent == '...') {
+                    pageBeforeMoreButton = parseInt(paginationButtonArray2[1].textContent, 10);
+                    pageToShow = totalPageNumber - currentPage;
+                    if (pageToShow >= 2) {
+                        currentPage = currentPage + 1;
+                        pageNumber = currentPage;
+                        renderBookListByPage(pageNumber, bookPerPage, bookList);
+                        if (currentIndex < 1) {
+                            paginationButtonArray2[currentIndex].classList.remove('shl-active');
+                            paginationButtonArray2[1].classList.add('shl-active');
+                            paginationButtonArray2[currentIndex].textContent = currentPage;
+                            paginationButtonArray2[0].textContent = '...';
+                        } else {
+                            paginationButtonArray2[currentIndex].textContent = currentPage;
+                            ref.firstPaginationButton.removeAttribute("disabled");
+                            ref.previousPaginationButton.removeAttribute("disabled");
+                             }
+                    }
+                    else {
+                        currentPage = totalPageNumber;
+                        pageNumber = currentPage;
+                        renderBookListByPage(pageNumber, bookPerPage, bookList);
+                        ref.nextPaginationButton.setAttribute("disabled", "true");
+                        ref.lastPaginationButton.setAttribute("disabled", "true");
+                        paginationButtonArray2[currentIndex].classList.remove('shl-active');
+                        paginationButtonArray2[2].textContent = currentPage;
+                        paginationButtonArray2[2].classList.add('shl-active');
+                    
+                    }
+                }
+                break;
+            case 'shl-pagination-button-last':
+                paginationButtonArray2[getIndexOfActivePaginationButton(paginationButtonArray2)].classList.remove('shl-active');
+                currentPage = totalPageNumber;
+                pageNumber = currentPage;
+                ref.nextPaginationButton.setAttribute("disabled", "true");
+                ref.lastPaginationButton.setAttribute("disabled", "true");
+                paginationButtonArray2[2].textContent = currentPage;
+                paginationButtonArray2[2].classList.add('shl-active');
+                renderBookListByPage(pageNumber, bookPerPage, bookList);
+                paginationButtonArray2[1].textContent = currentPage - 1;
+                paginationButtonArray2[0].textContent = '...';
+                ref.firstPaginationButton.removeAttribute("disabled");
+                ref.previousPaginationButton.removeAttribute("disabled");
+                break;
+        
+        }
+    }
+   
 }
+
 function onCardDeleteButtonClick(e) {
+    checkEvent = true;
     let isCardDeleteButton = e.target.closest('.shl-card-delete-button');
       if (isCardDeleteButton) {
         const currentCardId = e.target.closest('.shl-book-card').dataset.id; 
@@ -174,30 +629,77 @@ function onCardDeleteButtonClick(e) {
     } else { return; }
 }
 function showPaginationBlock() {
-    totalPageNumber = Math.ceil(bookList.length / 3);
-    console.log(totalPageNumber);
+    totalPageNumber = Math.ceil(bookList.length / bookPerPage);
+    console.log('viewpor:',viewPortLess768);
     if (totalPageNumber > 1) {
         ref.paginationBlock.classList.remove('hide');
-        ref.onePaginationButton.classList.add('shl-active');
+        if (viewPortLess768) {
+            ref.twoPaginationButton.classList.add('hide');
+            ref.freePaginationButton.textContent = 2;
+            ref.morePaginationButton.textContent='...'
+        }
+        if (!checkEvent) { ref.onePaginationButton.classList.add('shl-active'); }
         ref.firstPaginationButton.setAttribute("disabled", "true");
         ref.previousPaginationButton.setAttribute("disabled", "true");
         if (totalPageNumber === 2) {
-            ref.freePaginationButton.classList.add('hide');
-            ref.morePaginationButton.classList.add('hide');
+            if (checkEvent) {
+                currentIndex = getIndexOfActivePaginationButton();
+                if (currentIndex > 1) {
+                    paginationButtonArray[currentIndex].classList.remove('shl-active');
+                    paginationButtonArray[1].classList.add('shl-active');
+                }
+            }
+            if (!viewPortLess768) {
+                ref.freePaginationButton.setAttribute("disabled", "true");
+            }
+            ref.morePaginationButton.setAttribute("disabled", "true");
+            ref.nextPaginationButton.setAttribute("disabled", "true");
+            ref.lastPaginationButton.setAttribute("disabled", "true");
         } else {
             if (totalPageNumber === 3) {
-                ref.morePaginationButton.classList.add('hide');
+                if(viewPortLess768) {ref.morePaginationButton.textContent = 3;}
+                if (checkEvent) {
+                    currentIndex = getIndexOfActivePaginationButton();
+                    if (viewPortLess768) {
+                        if (currentIndex === 1)
+                        {
+                        paginationButtonArray[currentIndex].classList.remove('shl-active');
+                        paginationButtonArray[2].classList.add('shl-active');}}   
+                    if (currentIndex > 2) {
+                        paginationButtonArray[currentIndex].classList.remove('shl-active');
+                        paginationButtonArray[2].classList.add('shl-active');
+                    }
+                }
+                if (!viewPortLess768) {
+                    ref.morePaginationButton.setAttribute("disabled", "true");
+                }
+                ref.nextPaginationButton.setAttribute("disabled", "true");
+                ref.lastPaginationButton.setAttribute("disabled", "true");
             }
-            else { if (totalPageNumber === 3) { ref.morePaginationButton.textContent('4'); } }
+            else {
+                if (totalPageNumber === 4) {
+                    if (!viewPortLess768) {
+                        ref.morePaginationButton.textContent = 4;
+                    } 
+                    if (!viewPortLess768) {
+                        ref.nextPaginationButton.setAttribute("disabled", "true");
+                        ref.lastPaginationButton.setAttribute("disabled", "true");
+                    }
+                }
+            }
         }
     } else {
         if (ref.paginationBlock.classList.contains('hide')) { return; } else { ref.paginationBlock.classList.add('hide'); }
     }
 }
-function renderBookListByPage(pageNumber, books) {
+function renderBookListByPage(pageNumber, bookPerPage, books) {
+    const totalNumberOfBoks = books.length;
+    let y = 0;
+    const booksToRender = totalNumberOfBoks - (pageNumber - 1) * bookPerPage;
+    if (booksToRender >= bookPerPage) {  y= bookPerPage - 1; } else { y = booksToRender - 1; }
     ref.placeForBookList.innerHTML = '';
-    let j = pageNumber * 3 - 3;
-    for (let i = 0; i <= 2; i += 1) { bookMarkupList.push(createBookMarkup(books[j])); j+=1}
+    let j = pageNumber * bookPerPage - bookPerPage;
+    for (let i = 0; i <= y; i += 1) { bookMarkupList.push(createBookMarkup(books[j])); j+=1}
     const markup = bookMarkupList.join('');
     ref.placeForBookList.insertAdjacentHTML('beforeend', markup);
     clearMarkupList();

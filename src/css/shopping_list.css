@@ -195,7 +195,6 @@
 .shl-pagination-block-list {
   display: flex;
   flex-direction: row;
-  gap: 8px;
 }
 .shl-pagination-block-list button {
   width: 44px;
@@ -208,6 +207,17 @@
   line-height: 1.22222;
   color: #111;
 }
+
+.shl-pagination-block-list .shl-pagination-button-two,
+.shl-pagination-block-list .shl-pagination-button-free,
+.shl-pagination-block-list .shl-pagination-button-more {
+  margin-left: 8px;
+}
+.shl-pagination-block-list .shl-pagination-button-last,
+.shl-pagination-block-list .shl-pagination-button-previous {
+  margin-left: 8px;
+}
+
 .shl-pagination-block-list .shl-pagination-button-first,
 .shl-pagination-block-list .shl-pagination-button-previous,
 .shl-pagination-block-list .shl-pagination-button-next,
@@ -280,6 +290,14 @@
   .shl-card-delete-button img {
     width: 16px;
     height: 16px;
+  }
+  .shl-pagination-block-list button {
+    width: 38px;
+    height: 38px;
+    border-radius: 38px;
+  }
+  .shl-pagination-button-list {
+    gap: 14px;
   }
 }
 

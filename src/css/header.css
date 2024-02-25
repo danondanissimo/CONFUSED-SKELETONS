@@ -89,6 +89,34 @@ header {
   }
 }
 
+@media screen and (min-width: 1440px) {
+  .header-navigation {
+    width: 1440px;
+    height: 72px;
+  }
+
+  .header-logo {
+    margin: 22px 76px 22px 24px;
+  }
+
+  .navigation-list {
+    margin-right: 745px;
+  }
+
+  .theme-toggle {
+    margin: 24px 24px 24px 0px;
+  }
+
+  .header-sign-up {
+    margin: 12px 24px 12px 0px;
+  }
+
+  .toggle-container {
+    display: flex;
+    align-items: center;
+  }
+}
+
 .navigation-list-item {
   position: relative;
 }

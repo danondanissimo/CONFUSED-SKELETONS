@@ -1,12 +1,10 @@
-<html lang="en">
   <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vanilla App Template</title>
-    
-     <link rel="stylesheet" href="../css/shopping_list.css" />
+    <link rel="stylesheet" href="../css/shopping_list.css" />
   <body>
     <header>
     <load ="partials/header.html" />
@@ -15,48 +13,42 @@
     <div class="shopping-list-page">
     <div class="shopping-list-container">
         <h1 class="shopping-list-title">Shopping <span class="shopping-list-title-deco">List</span></h1>
-        <div class="no-books-in-local-storage hide">
+        <div class="no-books-in-local-storage ">
             <p class="no-books-in-local-storage-note">This page is empty, add some books and proceed to order.</p>
         <img src="../img/Shopping_list/shoppinglist-image.png" 
         alt="books" 
          width="322"
          height="241">
         </div>
-        <ul class="books-list">
-          <li class="book-card">
-           <img class="book-image" src="../img/Shopping_list/Rectangle 13.jpg"  alt=""> 
-           <div class="book-data">
-            <ul class="book-features">
-              <li class="book-card-features">
-                <div class="bookname-category">
-                  <h4 class="book-title">Book name</h4>
-                  <p class="book-category">Some category</p>
-              </div>
-              <button class="card-delete-button" type="button">
-                <img src="../img/Shopping_list/trash-03.svg" alt="SVG Image">
-                    </button>
-              </li>
-              <li class="book-card-features"><p class="book-description">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque architecto ad delectus dignissimos eum quis, minus aliquid, tempore consequatur sunt accusamus vero ab rem dolorum modi illum neque incidunt. Voluptas. Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur unde nam commodi sed a aliquam, est, beatae modi saepe veritatis velit accusantium facilis porro aspernatur et autem suscipit labore illum?</p>
-              </li>
-              <li class="book-card-features">
-                <p class="book-author">Author Name</p>
-                <div class="buy-links">
-                  <a class="amazon-link" href="https://www.amazon.com/Wish-Barbara-OConnor/dp/1250144051?tag=NYTBSREV-20"></a>
-                  <a class="apple-link" href="https://goto.applebooks.apple/9781250144058?at=10lIEQ"></a>
-                </div>
-
-              </li>
-
-            </ul>
-           </div>
-          </li>
+        <ul class="shl-books-list">
+         
         </ul>
+        <div id="shl-pagination" class="tui-pagination"></div>
+        <div class="shl-pagination-block hide">
+      <ul class="shl-pagination-button-list">
+        <div class="shl-pagination-block-list ">
+      <li><button class="shl-pagination-button-first" type="button"><<</button></li>
+      <li><button class="shl-pagination-button-previous" type="button"><</button></li>
+      </div>
+       <div class="shl-pagination-block-list">
+      <li><button class="shl-pagination-button-one" type="button">1</button></li>
+      <li><button class="shl-pagination-button-two" type="button">2</button></li>
+      <li><button class="shl-pagination-button-free" type="button">3</button></li>
+      <li><button class="shl-pagination-button-more" type="button">...</button></li>
+      </div>
+       <div class="shl-pagination-block-list">
+      <li><button class="shl-pagination-button-next" type="button">></button></li>
+      <li><button class="shl-pagination-button-last" type="button">>></button></li>
+      </div>
+     </ul>
     </div>
-    <aside class="sidebar">
+    </div>
+    <aside class="shl-sidebar">
 <!-- <load="partials/support_block.html"/> -->
 <p>Має бути блок з благодійними фондами</p>
     </aside>
     </div>
+    
 </main>
  <script type="module" src="../js/shopping_list.js"></script>
   </body>

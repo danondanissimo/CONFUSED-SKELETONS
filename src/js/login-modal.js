@@ -3,6 +3,7 @@ import {
   openModalButton,
   mobileLogOutButton,
   mobileSignUp,
+  openLoginModal,
 } from './header';
 
 export const closeModalButton = document.querySelector('.modal-close');
@@ -10,6 +11,7 @@ export const modalBackdrop = document.querySelector('.modal-backdrop');
 
 const signUpForm = document.querySelector('.sign-up-form');
 const logOutButton = document.querySelector('.log-out-button');
+
 const STORAGE_KEY = 'sign-up-form-state';
 
 signUpForm.addEventListener('submit', event => {
@@ -35,24 +37,26 @@ signUpForm.addEventListener('submit', event => {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(userData));
     if (JSON.stringify(userData) !== 0) {
       navListItems.forEach(navListItem => {
-        navListItem.classList.remove('hidden');
+        navListItem.classList.remove('visually-hidden');
       });
 
       openModalButton.replaceChildren();
       openModalButton.insertAdjacentHTML(
         'beforeend',
-        `<img src=""> ${userData.name}`
+        `<span class="user-icon-eclipse"><img src="../img/user-icon.svg"></span> ${userData.name}<img src="../img/carret-down.svg">`
       );
+      openModalButton.classList.add('header-user');
+      openModalButton.removeEventListener('click', openLoginModal);
       mobileSignUp.replaceChildren();
       mobileSignUp.insertAdjacentHTML(
         'beforeend',
         `<span class="user-icon-eclipse"><img src="../img/user-icon.svg"></span> ${userData.name}`
       );
       mobileSignUp.classList.add('user-profile');
-      signUpForm.classList.add('hidden');
-      mobileLogOutButton.classList.remove('hidden-positioned');
+      signUpForm.classList.add('visually-hidden');
+      mobileLogOutButton.classList.remove('visually-hidden');
       mobileLogOutButton.addEventListener('click', logOut);
-      logOutButton.classList.remove('hidden');
+      logOutButton.classList.remove('visually-hidden');
       logOutButton.addEventListener('click', logOut);
       mobileSignUp.disabled = true;
     }
@@ -62,16 +66,24 @@ signUpForm.addEventListener('submit', event => {
 
 function logOut() {
   navListItems.forEach(navListItem => {
-    navListItem.classList.add('hidden');
+    navListItem.classList.add('visually-hidden');
   });
-  signUpForm.classList.remove('hidden');
-  logOutButton.classList.add('hidden');
-  mobileLogOutButton.classList.add('hidden-positioned');
+  signUpForm.classList.remove('visually-hidden');
+  logOutButton.classList.add('visually-hidden');
+  mobileLogOutButton.classList.add('visually-hidden');
   mobileSignUp.replaceChildren();
-  mobileSignUp.insertAdjacentHTML('beforeend', 'Sign-up');
+  mobileSignUp.insertAdjacentHTML(
+    'beforeend',
+    'Sign-up<img src="../img/arrow-right.svg">'
+  );
   mobileSignUp.classList.remove('user-profile');
   openModalButton.replaceChildren();
-  openModalButton.insertAdjacentHTML('beforeend', `Sign-up`);
+  openModalButton.insertAdjacentHTML(
+    'beforeend',
+    `Sign-up<img src="../img/arrow-right.svg">`
+  );
+  openModalButton.classList.remove('header-user');
+  openModalButton.addEventListener('click', openLoginModal);
   localStorage.removeItem(STORAGE_KEY);
   mobileSignUp.disabled = false;
 }

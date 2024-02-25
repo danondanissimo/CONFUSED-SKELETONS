@@ -1,6 +1,12 @@
 import axios from 'axios';
 import * as basicLightbox from 'basiclightbox';
 
+const localStorageKey = 'shopping-list';
+export default localStorageKey;
+
+let addBtn;
+const addedBooks = loadFromLS(localStorageKey) || [];
+
 export const onclickGalleryItem = async event => {
   event.preventDefault();
 
@@ -10,7 +16,17 @@ export const onclickGalleryItem = async event => {
 
   const id = event.target.dataset.id;
   const data = await getBookById(id);
+
   createModalWindow(data);
+  addBtn = document.querySelector('.addBtn');
+  addBtn.addEventListener('click', refreshLocalStorage(data));
+
+  if (addedBooks.length > 0) {
+    const isBookAdded = addedBooks.some(book => id === book._id);
+    addBtn.textContent = isBookAdded
+      ? 'Remove from the shopping list'
+      : 'Add to shopping list';
+  }
 };
 
 async function getBookById(id) {
@@ -25,6 +41,7 @@ function createModalWindow({
   author,
   title,
   description,
+  _id,
   buy_links,
 }) {
   if (description === '') {
@@ -56,6 +73,7 @@ function createModalWindow({
     {
       onShow: instance => {
         instance.element().querySelector('button').onclick = instance.close;
+        addBtn = instance.element().querySelector('.addBtn');
       },
     }
   );
@@ -92,4 +110,45 @@ function createModalWindow({
   };
 
   document.addEventListener('keydown', pressEscapeKey);
+}
+
+const refreshLocalStorage = data => e => {
+  e.preventDefault();
+
+  if (e.target.textContent === 'Remove from the shopping list') {
+    e.target.textContent = 'Add to shopping list';
+    const indexToRemove = addedBooks.findIndex(book => book._id === data._id);
+    addedBooks.splice(indexToRemove, 1);
+    removeCongratulation();
+  } else {
+    e.target.textContent = 'Remove from the shopping list';
+    addedBooks.push(data);
+    addCongratulation();
+  }
+  localStorage.setItem(localStorageKey, JSON.stringify(addedBooks));
+};
+
+function loadFromLS(key) {
+  const loadedStr = localStorage.getItem(key);
+
+  try {
+    const savedObject = JSON.parse(loadedStr);
+    return savedObject;
+  } catch {
+    return loadedStr;
+  }
+}
+
+function addCongratulation() {
+  const bookCard = document.querySelector('.item-modal');
+  const congratulationMessage = document.createElement('p');
+  congratulationMessage.className = 'congratulation';
+  congratulationMessage.textContent =
+    'Сongratulations! You have added the book to the shopping list. To delete, press the button “Remove from the shopping list”.';
+  bookCard.appendChild(congratulationMessage);
+}
+
+function removeCongratulation() {
+  const congratulation = document.querySelector('.congratulation');
+  if (congratulation) congratulation.remove();
 }

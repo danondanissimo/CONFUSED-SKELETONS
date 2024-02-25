@@ -1,5 +1,5 @@
 import axios from 'axios';
-import * as basicLightbox from 'basiclightbox';
+// import * as basicLightbox from 'basiclightbox';
 
 const localStorageKey = 'shopping-list';
 export default localStorageKey;

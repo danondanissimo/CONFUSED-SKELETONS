@@ -191,3 +191,9 @@
   color: var(--text-color-primary);
 }
 
+.hidden {
+  display: none;
+}
+.menu-button{
+  background-color: aqua;
+}

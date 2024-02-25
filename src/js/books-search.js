@@ -1,4 +1,6 @@
+
 // Функція для отримання книг і відображення їх на сторінці
+
 function getBooks() {
   document.getElementById('output').innerHTML = '';
   fetch(
@@ -7,6 +9,7 @@ function getBooks() {
   )
     .then(a => a.json())
     .then(response => {
+
       for (let i = 0; i < 3 && i < response.docs.length; i++) {
         if (response.docs[i].title) {
           document.getElementById('output').innerHTML +=
@@ -27,6 +30,7 @@ function getBooks() {
     });
 }
 
+
 // Функція для обробки події кліку на кнопку
 function handleButtonClick() {
   // Викликаємо функцію getBooks() для завантаження книг
@@ -40,3 +44,4 @@ document
 
 // Викликаємо функцію getBooks() при завантаженні сторінки
 getBooks();
+

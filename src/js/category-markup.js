@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { onclickGalleryItem } from '../js/modal-window';
+import { onclickGalleryItem } from './modal-window';
 
 const API_URL =
   'https://books-backend.p.goit.global/books/category?category=Hardcover%20Fiction';

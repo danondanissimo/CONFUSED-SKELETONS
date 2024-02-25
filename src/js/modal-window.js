@@ -23,9 +23,12 @@ export const onclickGalleryItem = async event => {
 
   if (addedBooks.length > 0) {
     const isBookAdded = addedBooks.some(book => id === book._id);
-    addBtn.textContent = isBookAdded
-      ? 'Remove from the shopping list'
-      : 'Add to shopping list';
+    if (isBookAdded) {
+      addBtn.textContent = 'Remove from the shopping list';
+      addBtn.classList.add('mobileWidth');
+    } else {
+      addBtn.textContent = 'Add to shopping list';
+    }
   }
 };
 
@@ -52,7 +55,7 @@ function createModalWindow({
     `
     <div class="item-modal">
         <button type="button" class="closeModalBtn">
-          <svg class="menu-btn-icon" width="18" height="18">
+          <svg class="menu-btn-icon">
             <use href="./img/symbol-defs.svg#icon-Icon-close-modal"></use>
           </svg>
         </button>
@@ -89,10 +92,11 @@ function createModalWindow({
       buyLinksContainer.appendChild(linkElement);
 
       const iconElement = document.createElement('img');
+      iconElement.className = 'booksIcon';
       if (link.name === 'Amazon') {
-        iconElement.src = './img/amazon.svg';
+        iconElement.src = './img/amazon.png';
       } else {
-        iconElement.src = './img/image-book.svg';
+        iconElement.src = './img/apple.svg';
       }
       iconElement.alt = link.name + ' Icon';
 
@@ -117,11 +121,14 @@ const refreshLocalStorage = data => e => {
 
   if (e.target.textContent === 'Remove from the shopping list') {
     e.target.textContent = 'Add to shopping list';
+    e.target.classList.remove('mobileWidth');
+
     const indexToRemove = addedBooks.findIndex(book => book._id === data._id);
     addedBooks.splice(indexToRemove, 1);
     removeCongratulation();
   } else {
     e.target.textContent = 'Remove from the shopping list';
+    e.target.classList.add('mobileWidth');
     addedBooks.push(data);
     addCongratulation();
   }

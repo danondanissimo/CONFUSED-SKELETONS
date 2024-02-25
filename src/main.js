@@ -4,4 +4,5 @@ import './js/modal-window';
 import './js/best-sellers';
 import './js/dark-theme';
 import './js/support-ukraine';
-// import './js/books-search';
+import './js/books-search';
+import './js/hardcover-fiction';

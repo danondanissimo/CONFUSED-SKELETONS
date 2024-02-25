@@ -9,13 +9,13 @@
 @import url('./login-modal.css');
 @import url('./mobile-menu.css');
 @import url('./modal-window.css');
-
-/* @import url('./dark-theme.css'); */
-
+@import url('./hardcover-fiction.css');
+@import url('./dark-theme.css');
+@import url('./toggle-button.css');
+@import url('./book-search.css');
 @import url('./support-ukraine.css');
 @import url('./book-search.css');
 @import url('./footer.css');
-
 
 :root {
   font-family: 'DM Sans', sans-serif;

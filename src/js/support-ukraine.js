@@ -15,7 +15,7 @@
  import world from '../img/world-vision.png';
  import world2x from '../img/world-vision-2x.png';
  import united from '../img/united24.png';
- import unites2x from '../img/united-2x.png';
+ import united2x from '../img/united-2x.png';
 
 
  const foundations = [
@@ -65,7 +65,7 @@
         title: 'UNITED24',
         url: 'https://u24.gov.ua/uk',
         img: united,
-        retinaImg: unites2x,
+        retinaImg: united2x,
     },
     {
         title: 'World vision',
@@ -76,6 +76,10 @@
 ];
 
 const listElem = document.querySelector('.donate-list');
+const btnDown = document.querySelector('.button-down');
+const btnUp = document.querySelector('.button-up');
+const donateOverflow = document.querySelector('.donate-overflow');
+
 
 function generateFunds (foundations){
    const isRetina = window.devicePixelRatio > 1.1;
@@ -86,7 +90,7 @@ function generateFunds (foundations){
      return `<li class="donate-item">
      <span class="donate-number">${foundIndex}</span>
      <a href="${fund.url}" target="_blank">
-     <img src="${foundImg}" alt="${fund.title}">
+     <img src="${foundImg}" alt="${fund.title}" class="donate-img">
      </a>
      </li>`
    }).join('');
@@ -95,3 +99,46 @@ function generateFunds (foundations){
 
 listElem.insertAdjacentHTML('beforeend', generateFunds(foundations));
 
+
+//--------------------------------------------------
+
+btnDown.addEventListener('click',  function(){
+ btnDown.style.display = 'none';
+ btnUp.style.display = 'block';
+
+ donateOverflow.scrollTo({
+    top: 1000,
+    behavior: 'smooth',
+ });
+});
+
+btnUp.addEventListener('click', function(){
+    btnUp.style.display = 'none';
+    btnDown.style.display = 'block';
+
+    donateOverflow.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+    })
+})
+
+//----------------------------------------------------
+
+
+const intersectionObserver = new IntersectionObserver(function(entries){
+    if(entries[0].intersectionRatio <= 1.1){
+        btnUp.style.display = 'none';
+        btnDown.style.display = 'block'
+    }
+})
+
+
+const intersectionObserver1 = new IntersectionObserver(function(entries){
+    if(entries[0].intersectionRatio <= 1.1){
+        btnDown.style.display = 'none';
+        btnUp.style.display = 'block';
+    }
+})
+
+intersectionObserver.observe(listElem.firstChild);
+intersectionObserver1.observe(listElem.lastChild);

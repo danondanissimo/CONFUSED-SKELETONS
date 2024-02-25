@@ -4,6 +4,8 @@ export const navListItems = document.querySelectorAll('.navigation-list-item');
 export const openModalButton = document.querySelector('.modal-open');
 
 const toggleMobileMenuButton = document.querySelector('.js-toggle-mobile-menu');
+const iconBurger = document.querySelector('.menu-button-icon_burger');
+const iconClose = document.querySelector('.menu-button-icon_close');
 const mobileMenu = document.querySelector('.mobile-menu');
 // export const mobileLogOutButton = document.querySelector(
 //   '.mobile-log-out-button'
@@ -42,3 +44,8 @@ function isActive() {
 }
 
 isActive();
+
+toggleMobileMenuButton.addEventListener('click', () => {
+  iconBurger.classList.toggle('visually-hidden');
+  iconClose.classList.toggle('visually-hidden');
+});

@@ -25,13 +25,21 @@ async function renderTopCategoryBooks() {
   topCategoryList.addEventListener('click', onclickGalleryItem);
 }
 
+function slicePhrase(length, phrase) {
+  if (phrase.length > length) {
+    return phrase.slice(0, length) + '...';
+  } else {
+    return phrase;
+  }
+}
+
 function createCategoryBox(category) {
   const bookList = category.books.map(book => createBookCard(book)).join('');
   return `
   <li class="top-category" >
     <p class="top-category-name">${category.list_name}</p>
     <ul class="top-category-list">${bookList}</ul>
-      <button value="${category.list_name}" class="js-btn-books see-more">See more</button></li>
+      <button value="${category.list_name}" class="top-books-btn">See more</button></li>
         `;
 }
 
@@ -39,7 +47,7 @@ function createBookCard({ book_image, _id, title, author }) {
   return `<li class="top-book-list" >
       <img src="${book_image}" 
       alt="${title}" class="top-book-img" id="${_id}"/>
-      <h2 class="top-book-title">${title}</h2>
-      <p class="top-book-author">${author}</p>
+      <h2 class="top-book-title">${slicePhrase(16, title)}</h2>
+      <p class="top-book-author">${slicePhrase(16, author)}</p>
     </li>`;
 }

@@ -1,0 +1,38 @@
+:root {
+  /* background-color: var(--background-dark); */
+  background-color: rgb(32, 32, 36);
+}
+
+.header-navigation {
+  border: 1.5px solid rgb(255, 255, 255);
+  border-radius: 0px 0px 8px 8px;
+  background: rgb(17, 17, 17);
+  color: rgb(243, 243, 243);
+}
+
+.logo-icon {
+}
+
+.modal-window,
+.login-field,
+.js-btn-books {
+  background: rgb(32, 32, 36);
+}
+
+.login-field-label {
+  color: rgb(246, 246, 246);
+}
+
+.login-submit {
+  color: var(--text-color-primary);
+  background-color: var(--text-color-secondary);
+}
+.title,
+.top-book-title,
+.js-btn-books {
+  color: rgb(255, 255, 255);
+}
+.top-category-name,
+.top-book-author {
+  color: rgb(180, 175, 175);
+}

@@ -1,4 +1,6 @@
+
 // Функція для отримання книг і відображення їх на сторінці
+
 function getBooks() {
   document.getElementById('output').innerHTML = '';
   fetch(
@@ -7,6 +9,7 @@ function getBooks() {
   )
     .then(a => a.json())
     .then(response => {
+
       for (let i = 0; i < 3 && i < response.docs.length; i++) {
         if (response.docs[i].title) {
           document.getElementById('output').innerHTML +=
@@ -26,8 +29,7 @@ function getBooks() {
       console.error('Помилка під час отримання книг:', error);
     });
 }
-<<<<<<< Updated upstream:src/js/search.js
-=======
+
 
 // Функція для обробки події кліку на кнопку
 function handleButtonClick() {
@@ -41,5 +43,5 @@ document
   .addEventListener('click', handleButtonClick);
 
 // Викликаємо функцію getBooks() при завантаженні сторінки
->>>>>>> Stashed changes:src/js/books-search.js
 getBooks();
+

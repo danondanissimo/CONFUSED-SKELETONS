@@ -1,0 +1,55 @@
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vanilla App Template</title>
+    <link rel="stylesheet" href="../css/shopping_list.css" />
+  <body>
+    <header>
+    <load ="partials/header.html" />
+    </header>
+<main>
+    <div class="shopping-list-page">
+    <div class="shopping-list-container">
+        <h1 class="shopping-list-title">Shopping <span class="shopping-list-title-deco">List</span></h1>
+        <div class="no-books-in-local-storage ">
+            <p class="no-books-in-local-storage-note">This page is empty, add some books and proceed to order.</p>
+        <img src="../img/Shopping_list/shoppinglist-image.png" 
+        alt="books" 
+         width="322"
+         height="241">
+        </div>
+        <ul class="shl-books-list">
+         
+        </ul>
+        <div id="shl-pagination" class="tui-pagination"></div>
+        <div class="shl-pagination-block hide">
+      <ul class="shl-pagination-button-list">
+        <div class="shl-pagination-block-list ">
+      <li><button class="shl-pagination-button-first" type="button"><<</button></li>
+      <li><button class="shl-pagination-button-previous" type="button"><</button></li>
+      </div>
+       <div class="shl-pagination-block-list">
+      <li><button class="shl-pagination-button-one" type="button">1</button></li>
+      <li><button class="shl-pagination-button-two" type="button">2</button></li>
+      <li><button class="shl-pagination-button-free" type="button">3</button></li>
+      <li><button class="shl-pagination-button-more" type="button">...</button></li>
+      </div>
+       <div class="shl-pagination-block-list">
+      <li><button class="shl-pagination-button-next" type="button">></button></li>
+      <li><button class="shl-pagination-button-last" type="button">>></button></li>
+      </div>
+     </ul>
+    </div>
+    </div>
+    <aside class="shl-sidebar">
+<!-- <load="partials/support_block.html"/> -->
+<p>Має бути блок з благодійними фондами</p>
+    </aside>
+    </div>
+    
+</main>
+ <script type="module" src="../js/shopping_list.js"></script>
+  </body>
+</html>

@@ -1,3 +1,4 @@
+
 .search-box {
   border-radius: 16px;
   width: 356px;
@@ -8,6 +9,7 @@
 }
 
 .search-form {
+
 }
 
 .search-input {
@@ -18,9 +20,11 @@
   outline: none;
 }
 
+
 .search-output {
   font-size: 8px;
 }
+
 .search-btn {
   width: 70px;
   padding: 10px;

@@ -58,20 +58,30 @@
 }
 
 .buy-links-container {
-  width: 115px;
   display: flex;
+  flex-wrap: wrap;
   gap: 20px;
+}
+
+.shop-link {
+  width: 68px;
+  height: 40px;
+  justify-content: center;
   align-items: center;
+  display: flex;
 }
 
 .booksIcon {
   filter: grayscale(100%);
-  mix-blend-mode: multiply;
   transition: filter 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.booksIconApple {
+  filter: grayscale(100%);
+}
+
 .booksIcon:hover {
-  filter: grayscale(100%) drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.35));
+  filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.35));
 }
 
 #addBtn {
@@ -151,7 +161,7 @@
 .basicLightbox {
   background: rgba(17, 17, 17, 0.4);
 }
-
+/* ======================================================================================== */
 @media screen and (min-width: 768px) {
   .item-modal {
     padding: 40px;

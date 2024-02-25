@@ -1,17 +1,4 @@
-.visual-hidden {
-    position: absolute;
-    white-space: nowrap;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-    border: 0;
-    padding: 0;
-    clip: rect(0 0 0 0);
-    clip-path: inset(50%);
-    margin: -1px;
-  }
-
-
+ 
 .container {
     max-width: 375px;
     padding-left: 20px;
@@ -23,6 +10,7 @@
 
 .donate-table {
     width: 335px;
+    height: 460px;
     padding-top: 24px;
     padding-left: 40px;
     border-radius: 16px;
@@ -87,7 +75,8 @@
 
 .donate-img{
     height: 32px;
-    /* object-fit: contain; */
+    object-fit: contain;
+    filter: brightness(0) invert(1);
 }
 
 /*------------------SCROLL-----------------------*/
@@ -99,15 +88,9 @@ background-color: transparent;
 
 
 /*------------------BUTTONS-----------------------*/
-
-.donate-block-button{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 20px;
-}
-
+ 
 .button-down{
+    margin-top: 20px;
     width: 32px;
     height: 32px;
     background-color: var(--background-light);
@@ -118,7 +101,8 @@ background-color: transparent;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-   
+    margin: 0 auto;
+    
 }
 
 
@@ -127,6 +111,7 @@ background-color: transparent;
 }
 
 .button-up{
+    margin-top: 20px;
     width: 32px;
     height: 32px;
     background-color: var(--background-light);
@@ -137,6 +122,7 @@ background-color: transparent;
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    margin: 0 auto;
 }
 
 .icon-arrow-up{
@@ -146,21 +132,23 @@ background-color: transparent;
 
 
 @media screen and (min-width: 768px){
-
     .container {
-        max-width: 768px;
-       
-    }
-    
-    .donate-table {
-     width: 356px;
-  }
-  .donate-title{
+        max-width: 768px;     
+}
+.donate-table{
+    height: 474px;
+}
+.donate-title{
     font-size: 24px;
     line-height: 1.16667;
 }
-
  .button-down{
+    margin-top: 24px;
+    width: 38px;
+    height: 38px;
+}
+.button-up{
+    margin-top: 24px;
     width: 38px;
     height: 38px;
 }
@@ -171,10 +159,11 @@ background-color: transparent;
     .container{
         max-width: 1440px;
     }
+    .donate-table {
+        width: 356px;
+     }
     .donate-header{
         margin-bottom: 42px;
     }
-    .donate-block-button{
-        margin-top: 24px;
-    }
 }
+

@@ -76,6 +76,10 @@
 ];
 
 const listElem = document.querySelector('.donate-list');
+const btnDown = document.querySelector('.button-down');
+const btnUp = document.querySelector('.button-up');
+const donateOverflow = document.querySelector('.donate-overflow');
+
 
 function generateFunds (foundations){
    const isRetina = window.devicePixelRatio > 1.1;
@@ -95,3 +99,46 @@ function generateFunds (foundations){
 
 listElem.insertAdjacentHTML('beforeend', generateFunds(foundations));
 
+
+//--------------------------------------------------
+
+btnDown.addEventListener('click',  function(){
+ btnDown.style.display = 'none';
+ btnUp.style.display = 'block';
+
+ donateOverflow.scrollTo({
+    top: 1000,
+    behavior: 'smooth',
+ });
+});
+
+btnUp.addEventListener('click', function(){
+    btnUp.style.display = 'none';
+    btnDown.style.display = 'block';
+
+    donateOverflow.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+    })
+})
+
+//----------------------------------------------------
+
+
+const intersectionObserver = new IntersectionObserver(function(entries){
+    if(entries[0].intersectionRatio <= 1.1){
+        btnUp.style.display = 'none';
+        btnDown.style.display = 'block'
+    }
+})
+
+
+const intersectionObserver1 = new IntersectionObserver(function(entries){
+    if(entries[0].intersectionRatio <= 1.1){
+        btnDown.style.display = 'none';
+        btnUp.style.display = 'block';
+    }
+})
+
+intersectionObserver.observe(listElem.firstChild);
+intersectionObserver1.observe(listElem.lastChild);

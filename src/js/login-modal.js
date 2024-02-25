@@ -43,14 +43,14 @@ signUpForm.addEventListener('submit', event => {
       openModalButton.replaceChildren();
       openModalButton.insertAdjacentHTML(
         'beforeend',
-        `<span class="user-icon-eclipse"><svg class="user-icon"><use href="./img/symbol-defs.svg#icon-user"></svg></span> ${userData.name}<svg class="carret-down-icon"><use href="./img/symbol-defs.svg#icon-carret-down"></use></svg>`
+        `<span class="user-icon-eclipse"><svg class="user-icon"><use href="./img/head-and-mobile-menu.svg#icon-user"></svg></span> ${userData.name}<svg class="carret-down-icon"><use href="./img/head-and-mobile-menu.svg#icon-carret-down"></use></svg>`
       );
       openModalButton.classList.add('header-user');
       openModalButton.removeEventListener('click', openLoginModal);
       mobileSignUp.replaceChildren();
       mobileSignUp.insertAdjacentHTML(
         'beforeend',
-        `<span class="user-icon-eclipse"><svg class="user-icon"><use href="./img/symbol-defs.svg#icon-user"></svg></span> ${userData.name}`
+        `<span class="user-icon-eclipse"><svg class="user-icon"><use href="./img/head-and-mobile-menu.svg#icon-user"></svg></span> ${userData.name}`
       );
       mobileSignUp.classList.add('user-profile');
       signUpForm.classList.add('visually-hidden');
@@ -74,13 +74,13 @@ function logOut() {
   mobileSignUp.replaceChildren();
   mobileSignUp.insertAdjacentHTML(
     'beforeend',
-    'Sign-up<svg class="sign-up-icon"><use href="./img/symbol-defs.svg#icon-arrow-narrow-right"></svg>'
+    'Sign-up<svg class="sign-up-icon"><use href="./img/head-and-mobile-menu.svg#icon-arrow-narrow-right"></svg>'
   );
   mobileSignUp.classList.remove('user-profile');
   openModalButton.replaceChildren();
   openModalButton.insertAdjacentHTML(
     'beforeend',
-    `Sign-up<svg class="sign-up-icon"><use href="./img/symbol-defs.svg#icon-arrow-narrow-right"></svg>`
+    `Sign-up<svg class="sign-up-icon"><use href="./img/head-and-mobile-menu.svg#icon-arrow-narrow-right"></svg>`
   );
   openModalButton.classList.remove('header-user');
   openModalButton.addEventListener('click', openLoginModal);

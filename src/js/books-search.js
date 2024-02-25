@@ -15,19 +15,17 @@ function getBooks() {
             '</h2>' +
             (response.docs[i].author_name
               ? response.docs[i].author_name[0]
-              : 'Невідомий автор') +
+              : 'Invisible author') +
             '<br><img src=https://covers.openlibrary.org/b/isbn/';
         } else {
-          console.log('Заголовок не знайдено для елемента з індексом ' + i);
+          console.log('Heading not found for element with index ' + i);
         }
       }
     })
     .catch(error => {
-      console.error('Помилка під час отримання книг:', error);
+      console.error('Amusement at the hour of picking up books:', error);
     });
 }
-<<<<<<< Updated upstream:src/js/search.js
-=======
 
 // Функція для обробки події кліку на кнопку
 function handleButtonClick() {
@@ -41,5 +39,4 @@ document
   .addEventListener('click', handleButtonClick);
 
 // Викликаємо функцію getBooks() при завантаженні сторінки
->>>>>>> Stashed changes:src/js/books-search.js
 getBooks();

@@ -48,7 +48,7 @@ function getIndexOfActivePaginationButton(array) {
 // });
 // async function getBookArray() {
 //     try {
-//         const response = await fetch('../partials/test.json');
+//         const response = await fetch('./partials/test.json');
 //      ;
 //         return response.json();
 //     } catch (error) {
@@ -70,7 +70,7 @@ function getIndexOfActivePaginationButton(array) {
 // function removeBookListFromLocalStorage(STORAGE_KEY) {
 //     localStorage.removeItem(STORAGE_KEY);
 // }
-// // removeBookListFromLocalStorage(STORAGE_KEY);
+// removeBookListFromLocalStorage(STORAGE_KEY);
 function clearMarkupList() { 
     bookMarkupList = [];
 }
@@ -709,7 +709,7 @@ function loadToLocalStorageNewBookList(books) {
                   <p class="shl-book-category">${list_name}</p>
               </div>
               <button class="shl-card-delete-button" type="button">
-                <img src="../img/Shopping_list/trash-03.svg" alt="SVG Image">
+                <img src="./img/Shopping_list/trash-03.svg" alt="SVG Image">
                     </button>
               </li>
               <li class="shl-book-card-features"><p class="shl-book-description">${description}</p>

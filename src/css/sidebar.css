@@ -1,36 +1,29 @@
-.title_hardcover {
-  font-family: 'DM Sans', sans-serif;
-  font-weight: 700;
-  font-size: 48px;
-  line-height: 1.08333;
-  letter-spacing: -0.04em;
-  color: var(--text-color-primary);
-  text-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25), 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+* {
+  box-sizing: border-box;
 }
-.title_hardcover_span {
-  font-family: 'DM Sans', sans-serif;
-  font-weight: 700;
-  font-size: 48px;
-  line-height: 1.08333;
-  letter-spacing: -0.04em;
-  color: var(--text-color-primary);
-  color: var(--buttons-and-background-main);
-  text-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25), 0 4px 4px 0 rgba(0, 0, 0, 0.25);
-}
+
 .categories_list {
   width: 328px;
   height: 472px;
   outline: 1px solid red;
+  overflow: auto;
+  /* overflow: hidden;
+  overflow: scroll; */
+  margin-left: 14px;
 }
-.category_item {
+.category-item {
   font-family: 'DM Sans', sans-serif;
   font-weight: 400;
   font-size: 18px;
   line-height: 1.33333;
   letter-spacing: -0.02em;
   color: rgba(17, 17, 17, 0.6);
-  gap: 32px;
+  cursor: pointer;
 }
+.category-item:nth-last-child(n + 2) {
+  padding-bottom: 32px;
+}
+
 .active {
   font-family: 'DM Sans', sans-serif;
   font-weight: 700;
@@ -39,6 +32,20 @@
   letter-spacing: -0.02em;
   text-transform: uppercase;
   color: var(--buttons-and-background-main);
+}
+.title-category-page {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 1.08333;
+  letter-spacing: -0.04em;
+  /* color: var(--text-color-primary); */
+  margin-bottom: 40px;
+}
+.titlecategory {
+
+}
+.selectedCategory {
 }
 .book {
   max-width: 180px;
@@ -70,22 +77,28 @@
   color: #b4afaf;
 }
 .books-list {
-  width: 100%;
+  max-width: 966px;
   display: grid;
   gap: 24px;
+  cursor: pointer;
 }
-
-@media (min-width: 375px) {
+.box {
+  display: flex;
+  gap: 40px;
+}
+.box-in-box {
+}
+@media screen and (min-width: 375px) {
   .books-list {
     grid-template-columns: repeat(1, 1fr);
   }
 }
-@media (min-width: 768px) {
+@media screen and (min-width: 768px) {
   .books-list {
     grid-template-columns: repeat(3, 1fr);
   }
 }
-@media (min-width: 1440px) {
+@media screen and (min-width: 1440px) {
   .books-list {
     grid-template-columns: repeat(5, 1fr);
   }

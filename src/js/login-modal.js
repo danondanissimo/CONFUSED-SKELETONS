@@ -12,11 +12,11 @@ import { onMobileMenuBtnClick } from './modal-open-buttom';
 const signUpForm = document.querySelector('.sign-up-form');
 const logOutButton = document.querySelector('.log-out-button');
 
-const STORAGE_KEY = 'sign-up-form-state';
-let data = JSON.parse(localStorage.getItem(STORAGE_KEY)) || '';
+const LOGIN_STORAGE_KEY = 'sign-up-form-state';
+let data = JSON.parse(localStorage.getItem(LOGIN_STORAGE_KEY)) || '';
 
 signUpForm.addEventListener('submit', event => {
-  localStorage.removeItem(STORAGE_KEY);
+  localStorage.removeItem(LOGIN_STORAGE_KEY);
   event.preventDefault();
   const userName = event.currentTarget.elements.name.value.trim();
   const userEmail = event.currentTarget.elements.email.value.trim();
@@ -35,7 +35,7 @@ signUpForm.addEventListener('submit', event => {
       password: userPassword,
     };
     signUpForm.reset();
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(userData));
+    localStorage.setItem(LOGIN_STORAGE_KEY, JSON.stringify(userData));
     if (JSON.stringify(userData) !== 0) {
       logIn(userData);
     }
@@ -64,7 +64,7 @@ function logOut() {
   openModalButton.classList.remove('header-user');
   openModalButton.removeEventListener('click', onMobileMenuBtnClick);
   openModalButton.addEventListener('click', openLoginModal);
-  localStorage.removeItem(STORAGE_KEY);
+  localStorage.removeItem(LOGIN_STORAGE_KEY);
   mobileSignUp.disabled = false;
   onMobileMenuBtnClick();
 }
@@ -97,7 +97,7 @@ function logIn(userData) {
 }
 
 function isLoggedIn() {
-  const userData = loadFromLS(STORAGE_KEY) || {};
+  const userData = loadFromLS(LOGIN_STORAGE_KEY) || {};
   const { name, email, password } = userData;
   if (name && name.length > 0) {
     logIn(userData);

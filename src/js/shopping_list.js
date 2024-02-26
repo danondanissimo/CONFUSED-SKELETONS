@@ -67,9 +67,9 @@ function getIndexOfActivePaginationButton(array) {
 //     }
 // }
 // loadDataToLocalSorage();
-// function removeBookListFromLocalStorage(STORAGE_KEY) {
-//     localStorage.removeItem(STORAGE_KEY);
-// }
+function removeBookListFromLocalStorage(STORAGE_KEY) {
+    localStorage.removeItem(STORAGE_KEY);
+}
 // removeBookListFromLocalStorage(STORAGE_KEY);
 function clearMarkupList() { 
     bookMarkupList = [];
@@ -581,6 +581,10 @@ function onCardDeleteButtonClick(e) {
     } else { return; }
 }
 function showPaginationBlock() {
+    ref.firstPaginationButton.textContent = '<<';
+    ref.previousPaginationButton.textContent = '<';
+    ref.lastPaginationButton.textContent = '>>';
+    ref.nextPaginationButton.textContent = '>';
     totalPageNumber = Math.ceil(bookList.length / bookPerPage);
      if (totalPageNumber > 1) {
          ref.paginationBlock.classList.remove('hide');

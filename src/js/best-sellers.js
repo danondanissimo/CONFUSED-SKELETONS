@@ -21,8 +21,7 @@ async function renderTopCategoryBooks() {
     const categoryBox = createCategoryBox(book);
     topBookList.insertAdjacentHTML('beforeend', categoryBox);
   });
-  const topCategoryList = document.querySelector('.top-category-list');
-  topCategoryList.addEventListener('click', onclickGalleryItem);
+  addListenerToCards()
 }
 
 function slicePhrase(length, phrase) {
@@ -46,8 +45,14 @@ function createCategoryBox(category) {
 function createBookCard({ book_image, _id, title, author }) {
   return `<li class="top-book-list" >
       <img src="${book_image}" 
-      alt="${title}" class="top-book-img" id="${_id}"/>
+      alt="${title}" class="top-book-img" data-id="${_id}"/>
       <h2 class="top-book-title">${slicePhrase(16, title)}</h2>
       <p class="top-book-author">${slicePhrase(16, author)}</p>
     </li>`;
+}
+function addListenerToCards() {
+  const galleryImg = document.querySelectorAll('.top-book-img');
+  galleryImg.forEach(img => {
+    img.addEventListener('click', onclickGalleryItem);
+  });
 }

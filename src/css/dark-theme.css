@@ -1,4 +1,6 @@
-:root {
+:root,
+.footer,
+.search-box {
   /* background-color: var(--background-dark); */
   background-color: rgb(32, 32, 36);
 }
@@ -29,10 +31,51 @@
 }
 .title,
 .top-book-title,
-.js-btn-books {
+.js-btn-books,
+.book-title,
+.book-description,
+#addBtn,
+.footer-logo,
+.footer-paragraf,
+.footer-address-text,
+.footer-form-btn {
   color: rgb(255, 255, 255);
 }
 .top-category-name,
-.top-book-author {
+.top-book-author,
+.book-author,
+.footer-adress-link,
+.footer-input::placeholder,
+.search-output {
   color: rgb(180, 175, 175);
+}
+
+.item-modal {
+  border: 2px solid rgb(255, 255, 255);
+  background-color: rgb(32, 32, 36);
+}
+
+.booksIcon {
+  filter: brightness(0) invert(1);
+  transition: filter 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.booksIconApple {
+  filter: grayscale(100%);
+}
+
+.booksIcon:hover {
+  filter: grayscale(100%) drop-shadow(0px 3px 3px rgba(255, 255, 255, 0.35));
+}
+.search-btn:hover,
+.search-btn:focus,
+.footer-form-btn:hover,
+.footer-form-btn:focus {
+  background-color: rgb(255, 255, 255);
+  color: var(--buttons-and-background-main);
+  border: 1px solid var(--buttons-and-background-main);
+}
+.search-input {
+  border-color: var(--buttons-and-background-main);
+  outline: none;
 }

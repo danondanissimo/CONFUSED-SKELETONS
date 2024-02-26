@@ -66,7 +66,7 @@ function createModalWindow({
         </button>
         <div class="item-card">
             <div class="image-container">
-              <img class="item-image" src="${book_image}" /> 
+              <img class="item-image" src="${book_image}" />
             </div>
             <div class="item-information">
               <h3 class="book-title">${title}</h3>

@@ -29,6 +29,7 @@
 
     <button class="modal-open header-sign-up">Sign-up<svg class="sign-up-icon"><use href="./img/head-and-mobile-menu.svg#icon-arrow-narrow-right"></svg></button>
 
+
     <button type="button" class="menu-button js-toggle-mobile-menu">
       <svg class="mobile-menu-icon">
         <use href="./img/head-and-mobile-menu.svg#icon-align-left" class="menu-button-icon_burger"></use>
@@ -37,7 +38,8 @@
     </button>
   </div>
 </header>
-<div class="mobile-menu">
+
+<div class="mobile-menu hidden">
 
   <button class="mobile-sign-up">Sign up<svg class="sign-up-icon">
     <use href="./img/head-and-mobile-menu.svg#icon-arrow-narrow-right">
@@ -49,10 +51,20 @@
         <use href="./img/head-and-mobile-menu.svg#icon-lock"></use>
       </svg></a></li>
     </ul>
+  </div>
+  <button class="mobile-log-out-button visually-hidden">
+    Log out<img src="../img/arrow-right.svg" class="log-out-icon" />
+  </button>
+  <img
+    src="../img/mobile-menu-background.png"
+    class="mobile-background-image"
+  />
 </div>
+
   <button class="mobile-log-out-button visually-hidden">Log out<svg class="sign-up-icon log-out-icon">
     <use href="./img/head-and-mobile-menu.svg#icon-arrow-narrow-right">
   </svg></button>
   <img src="./img/mobile-menu-background.png" class="mobile-background-image">
 </div>
+
 

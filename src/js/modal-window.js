@@ -6,7 +6,7 @@ const localStorageKey = 'shopping-list';
 export default localStorageKey;
 
 const scrollPosition = window.scrollY;
-document.body.style.overflow = 'hidden';
+// document.body.style.overflow = 'hidden';
 
 let addBtn;
 const addedBooks = loadFromLS(localStorageKey) || [];

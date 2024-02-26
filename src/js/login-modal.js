@@ -116,3 +116,5 @@ function loadFromLS() {
 }
 
 isLoggedIn();
+
+console.log('Hello');

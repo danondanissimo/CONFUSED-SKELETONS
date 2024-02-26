@@ -6,6 +6,8 @@ import {
   openLoginModal,
 } from './header';
 
+import { onMobileMenuBtnClick } from './modal-open-buttom';
+
 export const closeModalButton = document.querySelector('.modal-close');
 export const modalBackdrop = document.querySelector('.modal-backdrop');
 
@@ -62,9 +64,11 @@ function logOut() {
     `Sign-up<svg class="sign-up-icon"><use href="./img/head-and-mobile-menu.svg#icon-arrow-narrow-right"></svg>`
   );
   openModalButton.classList.remove('header-user');
+  openModalButton.removeEventListener('click', onMobileMenuBtnClick);
   openModalButton.addEventListener('click', openLoginModal);
   localStorage.removeItem(STORAGE_KEY);
   mobileSignUp.disabled = false;
+  onMobileMenuBtnClick();
 }
 
 function logIn(userData) {
@@ -79,6 +83,7 @@ function logIn(userData) {
   );
   openModalButton.classList.add('header-user');
   openModalButton.removeEventListener('click', openLoginModal);
+  openModalButton.addEventListener('click', onMobileMenuBtnClick);
   mobileSignUp.replaceChildren();
   mobileSignUp.insertAdjacentHTML(
     'beforeend',
@@ -94,9 +99,9 @@ function logIn(userData) {
 }
 
 function isLoggedIn() {
-  const { name, email, password } = loadFromLS(STORAGE_KEY) || {};
-  console.log(name.length);
-  if (name.length > 0) {
+  const userData = loadFromLS(STORAGE_KEY) || {};
+  const { name, email, password } = userData;
+  if (name && name.length > 0) {
     logIn(userData);
   }
 }

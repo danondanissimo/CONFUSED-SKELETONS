@@ -25,7 +25,19 @@ export function openLoginModal() {
   closeModalButton.addEventListener('click', () => {
     modalBackdrop.classList.add('visually-hidden');
   });
+  window.addEventListener('keydown', event => {
+    if (event.key === 'Escape') {
+      modalBackdrop.classList.add('visually-hidden');
+    }
+  });
   closeModalButton.removeEventListener('click', () => {});
+  window.removeEventListener('keydown', () => {});
+  modalBackdrop.addEventListener('click', event => {
+    if (event.target === event.currentTarget) {
+      modalBackdrop.classList.add('visually-hidden');
+    }
+  });
+  modalBackdrop.removeEventListener('click', () => {});
 }
 
 openModalButton.addEventListener('click', openLoginModal);

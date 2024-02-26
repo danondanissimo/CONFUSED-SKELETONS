@@ -42,7 +42,12 @@
 .footer-address-text,
 .footer-form-btn,
 .top-books-btn,
-.books-list h2 {
+.books-list h2,
+.title-category-page,
+.shopping-list-title,
+.shl-bookname-category h4,
+.shl-book-description,
+.item-modal .book-description {
   color: rgb(255, 255, 255);
 }
 .top-category-name,
@@ -97,6 +102,30 @@
   background-color: rgb(255, 255, 255);
 } */
 .menu-button-icon_burger,
-.menu-button-icon_close {
+.menu-button-icon_close,
+.menu-btn-icon {
   stroke: rgb(255, 255, 255);
+}
+.category-item {
+  color: rgba(255, 255, 255, 0.6);
+}
+.active {
+  color: rgb(234, 198, 69);
+}
+.item-modal p {
+  color: rgba(255, 255, 255, 0.5);
+}
+.shl-pagination-block-list button:disabled {
+  background-color: rgb(17, 17, 17);
+  border-color: rgb(17, 17, 17);
+}
+.shl-pagination-button-list .shl-active {
+  background-color: rgb(255, 255, 255);
+  border-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+}
+.shl-pagination-block-list button {
+  background-color: transparent;
+  color: var(--text-color-secondary);
+  border-color: rgb(255, 255, 255);
 }

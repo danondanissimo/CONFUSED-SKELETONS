@@ -24,9 +24,9 @@ async function displayBooks(category) {
     books.forEach(book => {
       const bookInfoHTML = `
                         <div class="book">
-                            <img src="${book.book_image}" alt="Book Image">
-                            <h2> ${book.title}</h2>
-                            <p> ${book.contributor}</p>
+                            <img class="image_book" src="${book.book_image}" alt="Book Image">
+                            <h2 class="title_book"> ${book.title}</h2>
+                            <p class="test_book"> ${book.contributor}</p>
                         </div>
                     `;
       booksList.innerHTML += bookInfoHTML;
@@ -58,20 +58,36 @@ fetch('https://books-backend.p.goit.global/books/category-list')
     const categoryList = document.getElementById('categoryList');
 
     // Додамо категорію "ALL CATEGORIES"
+  
     const allListItem = document.createElement('li');
     allListItem.textContent = 'ALL CATEGORIES';
+    allListItem.classList.add('category-item'); // Додаємо клас для взаємодії з CSS
     allListItem.addEventListener('click', () => {
+      const categoryItems = document.querySelectorAll('.category-item');
+      categoryItems.forEach(item => {
+        item.classList.remove('active');
+      });
+      allListItem.classList.add('active');
       displayAllBooks();
     });
     categoryList.appendChild(allListItem);
 
     // Додамо інші категорії
+
     data.forEach(item => {
       const category = item.list_name;
       if (category !== 'ALL CATEGORIES') {
         const listItem = document.createElement('li');
         listItem.textContent = category;
+        listItem.classList.add('category-item'); // Додаємо клас для взаємодії з CSS
         listItem.addEventListener('click', () => {
+          // Забираємо клас 'active' з усіх пунктів списку
+          const categoryItems = categoryList.querySelectorAll('.category-item');
+          categoryItems.forEach(item => {
+            item.classList.remove('active');
+          });
+          // Додаємо клас 'active' до натиснутого пункту
+          listItem.classList.add('active');
           displayBooks(category);
         });
         categoryList.appendChild(listItem);

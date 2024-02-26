@@ -17,7 +17,8 @@
 
 .modal-window,
 .login-field,
-.js-btn-books {
+.js-btn-books,
+.top-books-btn {
   background: rgb(32, 32, 36);
 }
 
@@ -38,7 +39,8 @@
 .footer-logo,
 .footer-paragraf,
 .footer-address-text,
-.footer-form-btn {
+.footer-form-btn,
+.top-books-btn {
   color: rgb(255, 255, 255);
 }
 .top-category-name,
@@ -79,3 +81,15 @@
   border-color: var(--buttons-and-background-main);
   outline: none;
 }
+.logo-word {
+  stroke: transparent;
+  fill: rgb(255, 255, 255);
+}
+.modal-close-icon {
+  stroke: rgb(246, 246, 246);
+}
+/* .modal-open {
+  border-color: rgb(17, 17, 17);
+  color: rgb(17, 17, 17);
+  background-color: rgb(255, 255, 255);
+} */

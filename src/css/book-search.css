@@ -58,6 +58,7 @@
 .search-btn:hover,
 .search-btn:focus {
   background-color: var(--background-light);
+  color: var(--text-color-primary);
 }
 
 .loader {

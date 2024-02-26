@@ -88,9 +88,8 @@
   }
 
   .footer-soc-item {
-      width: 40px;
-      height: 40px;
-
+    width: 28px;
+    height: 28px;
   }
 
   .footer-paragraf {
@@ -122,9 +121,17 @@
   }
 
   .svg-footer {
-    fill: #111;
+    fill: #fff;
     display: flex;
     justify-content: center;
+stroke: #4f2ee8;
+    width: 20px;
+        height: 20px;
+    }
+
+
+  .account_item:hover svg {
+      filter: invert();
   }
   
 
@@ -267,7 +274,14 @@
       .soc-footer-box {
           max-width: 208px;
       }
-
+        .footer-soc-item {
+  width: 34px;
+  height: 34px;
+ }
+  .svg-footer {
+      width: 25px;
+      height: 25px;
+  }
 
 
   }

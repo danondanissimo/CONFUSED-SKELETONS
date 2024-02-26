@@ -1,7 +1,6 @@
 :root,
 .footer,
 .search-box {
-  /* background-color: var(--background-dark); */
   background-color: rgb(32, 32, 36);
 }
 
@@ -10,9 +9,6 @@
   border-radius: 0px 0px 8px 8px;
   background: rgb(17, 17, 17);
   color: rgb(243, 243, 243);
-}
-
-.logo-icon {
 }
 
 .modal-window,
@@ -47,7 +43,8 @@
 .shopping-list-title,
 .shl-bookname-category h4,
 .shl-book-description,
-.item-modal .book-description {
+.item-modal .book-description,
+.footer-contact {
   color: rgb(255, 255, 255);
 }
 .top-category-name,
@@ -89,7 +86,8 @@
   border-color: var(--buttons-and-background-main);
   outline: none;
 }
-.logo-word {
+.logo-word,
+.shopping-list-icon {
   stroke: transparent;
   fill: rgb(255, 255, 255);
 }
@@ -128,4 +126,11 @@
   background-color: transparent;
   color: var(--text-color-secondary);
   border-color: rgb(255, 255, 255);
+}
+.titlecategory {
+  color: rgb(79, 46, 232);
+}
+
+.categories_list {
+  scrollbar-color: rgba(17, 17, 17, 0.6) rgb(32, 32, 36);
 }

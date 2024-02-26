@@ -5,16 +5,12 @@ import 'basiclightbox/dist/basicLightbox.min.css';
 const localStorageKey = 'shopping-list';
 export default localStorageKey;
 
-const scrollPosition = window.scrollY;
-// document.body.style.overflow = 'hidden';
-
 let addBtn;
 const addedBooks = loadFromLS(localStorageKey) || [];
 
 export const onclickGalleryItem = async event => {
   event.preventDefault();
 
-  document.body.style.overflow = 'hidden';
   if (event.target.nodeName !== 'IMG') {
     return;
   }
@@ -80,9 +76,14 @@ function createModalWindow({
     `,
     {
       onShow: instance => {
+        document.body.style.overflow = 'hidden';
+
         const closeButton = instance.element().querySelector('.closeModalBtn');
-        closeButton.onclick = () => closeModal(instance);
+        closeButton.onclick = () => instance.close();
         addBtn = instance.element().querySelector('.addBtn');
+      },
+      onClose: instance => {
+        document.body.style.overflow = 'visible';
       },
     }
   );
@@ -105,13 +106,6 @@ function createModalWindow({
   };
 
   document.addEventListener('keydown', pressEscapeKey);
-}
-
-function closeModal(instance) {
-  document.body.style.overflow = '';
-  window.scrollTo(0, scrollPosition);
-
-  instance.close();
 }
 
 const refreshLocalStorage = data => e => {

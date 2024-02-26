@@ -32,16 +32,47 @@ header {
   justify-content: flex-start;
   align-items: center;
   color: var(--text-color-primary);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.28571;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  color: var(--text-color-primary);
 }
 
 .header-logo {
   width: 109px;
   height: 28px;
+  display: flex;
+  align-items: center;
 }
 
 .logo-icon {
-  max-width: 109px;
-  max-height: 28px;
+  width: 24px;
+  height: 24px;
+}
+
+.logo-word {
+  stroke: #000;
+  width: 77px;
+  height: auto;
+  margin-left: 8px;
+}
+
+.shopping-list-icon {
+  height: 20px;
+  width: 20px;
+  position: absolute;
+  right: -27px;
+  top: 50%;
+  transform: translateY(-50%);
+  fill: var(--text-color-primary);
+  stroke: var(--text-color-secondary);
+}
+
+.mobile-shopping-list-icon {
+  fill: var(--text-color-secondary);
 }
 
 @media screen and (max-width: 767px) {
@@ -117,6 +148,12 @@ header {
   }
 }
 
+.sign-up-icon {
+  stroke: var(--buttons-and-background-secondary);
+  width: 20px;
+  height: 20px;
+}
+
 .navigation-list-item {
   position: relative;
 }
@@ -151,6 +188,17 @@ header {
   padding: 0px 14px 0px 14px;
 }
 
+.user-icon {
+  height: 19px;
+  width: 19px;
+}
+
+.carret-down-icon {
+  height: 22px;
+  width: 19px;
+  fill: var(--text-color-secondary);
+}
+
 @media screen and (max-width: 767px) {
   .header-sign-up {
     display: none;
@@ -161,11 +209,16 @@ header {
 .header-sign-up:focus {
   border-color: var(--buttons-and-background-main);
   color: var(--text-color-primary);
-  background-color: transparent;
+  background-color: var(--background-light);
 }
 
 .header-sign-up:focus {
   box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.15);
+}
+
+.header-sign-up:hover .carret-down-icon,
+.header-sign-up:focus .carret-down-icon {
+  fill: var(--buttons-and-background-main);
 }
 
 .header-user {
@@ -206,8 +259,10 @@ header {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.menu-button-icon {
-  z-index: 1000000;
+.mobile-menu-icon {
+  width: 28px;
+  height: 28px;
+  stroke: var(--text-color-primary);
 }
 
 @media screen and (min-width: 768px) {

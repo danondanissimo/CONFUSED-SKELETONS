@@ -1,3 +1,10 @@
+@media screen and (min-width: 375px) {
+  .header-navigation {
+    width: 375px;
+    height: 64px;
+  }
+}
+
 .navigation-list {
   list-style-type: none;
 }
@@ -6,87 +13,280 @@
   display: none;
 }
 
-/* Task 2
-============================================================================================================= */
+header {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10000;
+}
 
-/* <form class="login-form">
-      <label>
-        Email
-        <input type="email" name="email" />
-      </label>
-      <label>
-        Password
-        <input type="password" name="password" />
-      </label>
-      <button type="submit">Login</button>
-    </form> */
-
-.feedback-form,
-[type='submit'] {
+.header-navigation {
   display: flex;
-  flex-direction: column;
-
-  font-weight: 400;
-  max-width: 320px;
-  margin: 24px;
+  border-radius: 0 0 8px 8px;
+  border: 1.5px solid var(--text-color-primary);
+  background: var(--background-light);
   margin-right: auto;
   margin-left: auto;
-}
-
-.login-form label {
-  margin-top: 8px;
-}
-
-.login-form label:first-child {
-  margin-bottom: 8px;
-}
-
-[type='submit'] {
-  font-family: inherit;
-  font-weight: 500;
-  color: #fff;
-
-  border-radius: 8px;
-  border-color: transparent;
-  background-color: #4e75ff;
-
-  display: flex;
-  margin: 0 0;
-  margin-top: 16px;
-  justify-content: center;
+  gap: 0px;
+  justify-content: flex-start;
   align-items: center;
+  color: var(--text-color-primary);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.28571;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  color: var(--text-color-primary);
+}
+
+.header-logo {
+  width: 109px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+}
+
+.logo-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.logo-word {
+  stroke: #000;
+  width: 77px;
+  height: auto;
+  margin-left: 8px;
+}
+
+.shopping-list-icon {
+  height: 20px;
+  width: 20px;
+  position: absolute;
+  right: -27px;
+  top: 50%;
+  transform: translateY(-50%);
+  fill: var(--text-color-primary);
+  stroke: var(--text-color-secondary);
+}
+
+.mobile-shopping-list-icon {
+  fill: var(--text-color-secondary);
+}
+
+@media screen and (max-width: 767px) {
+  .header-logo {
+    margin: 18px 144px 18px 20px;
+  }
+
+  .modal-open {
+    display: none;
+  }
+
+  .navigation-list-item {
+    &.desktop-and-tablet-visible {
+      display: none;
+    }
+  }
+
+  .theme-toggle {
+    margin: 20px 14px 20px 0px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .header-navigation {
+    width: 768px;
+    height: 72px;
+  }
+
+  .header-logo {
+    margin: 22px 40px 22px 32px;
+  }
+
+  .navigation-list {
+    display: flex;
+    margin-right: 87px;
+    gap: 24px;
+  }
+
+  .theme-toggle {
+    margin: 10px 24px 11px 0px;
+  }
+
+  .header-sign-up {
+    font-family: 'DM Sans', sans-serif;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .header-navigation {
+    width: 1440px;
+    height: 72px;
+  }
+
+  .header-logo {
+    margin: 22px 76px 22px 24px;
+  }
+
+  .navigation-list {
+    margin-right: 745px;
+  }
+
+  .theme-toggle {
+    margin: 24px 24px 24px 0px;
+  }
+
+  .header-sign-up {
+    margin: 12px 24px 12px 0px;
+  }
+
+  .toggle-container {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.sign-up-icon {
+  stroke: var(--buttons-and-background-secondary);
+  width: 20px;
+  height: 20px;
+}
+
+.navigation-list-item {
+  position: relative;
+}
+
+.navigation-list-icon {
+  margin-left: 7px;
+  position: absolute;
+  top: 0;
+  right: -27%;
+}
+
+.theme-toggle {
+  height: 24px;
+  width: 40px;
+}
+
+.header-sign-up {
+  border: 1.5px solid var(--text-color-primary);
+  border-radius: 18px;
+  width: 156px;
+  height: 48px;
+  background-color: var(--buttons-and-background-main);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.28571;
+  letter-spacing: -0.04em;
+  color: var(--text-color-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 14px 0px 14px;
+}
+
+.user-icon {
+  height: 19px;
+  width: 19px;
+}
+
+.carret-down-icon {
+  height: 22px;
+  width: 19px;
+  fill: var(--text-color-secondary);
+}
+
+@media screen and (max-width: 767px) {
+  .header-sign-up {
+    display: none;
+  }
+}
+
+.header-sign-up:hover,
+.header-sign-up:focus {
+  border-color: var(--buttons-and-background-main);
+  color: var(--text-color-primary);
+  background-color: var(--background-light);
+}
+
+.header-sign-up:focus {
+  box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.15);
+}
+
+.header-sign-up:hover .carret-down-icon,
+.header-sign-up:focus .carret-down-icon {
+  fill: var(--buttons-and-background-main);
+}
+
+.header-user {
+  border-radius: 36px;
+  width: 184px;
+  height: 45px;
+  font-weight: 700;
+  font-size: 22px;
+  letter-spacing: -0.02em;
+}
+
+.toggle-mobile-menu {
+  width: 28px;
+  height: 28px;
+  margin: 18px 20px 18px 0px;
+  background-color: transparent;
+  border: none;
+}
+
+.menu-button {
+  display: inline-flex;
+  position: fixed;
+  top: 18px;
+  right: 20px;
+  width: 28px;
+  height: 28px;
+  margin: 0px;
+  padding: 0;
+  background-color: transparent;
+  margin-left: auto;
+  border: none;
+  z-index: 100;
   cursor: pointer;
-  width: 86px;
-  height: 40px;
+  align-items: center;
+  justify-content: center;
+  transition-property: fill;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-[type='submit']:hover,
-[type='submit']:focus {
-  background-color: #6c8cff;
+.mobile-menu-icon {
+  width: 28px;
+  height: 28px;
+  stroke: var(--text-color-primary);
 }
 
-[type='email'] {
-  height: 40px;
+@media screen and (min-width: 768px) {
+  .menu-button {
+    display: none;
+  }
 }
-
-[type='email']:active,
-[name='password']:active,
-[type='email'],
-[name='password'] {
-  margin-top: 8px;
-  width: 360px;
-
-  border-radius: 4px;
-  border: 1px solid #808080;
+/* .menu-button__cross {
+  display: none;
+  fill: currentColor;
 }
-
-[type='email']:hover,
-[type='email']:focus,
-[name='password']:hover,
-[name='password']:focus {
-  border: 1px solid #000;
+.menu-button__menu {
+  fill: currentColor;
 }
-
-[name='password'] {
-  height: 80px;
+.menu-button:hover,
+.menu-button:focus {
+  color: #2196f3;
 }
+.menu-button.is-open .menu-button__cross {
+  display: block;
+}
+.menu-button.is-open .menu-button__menu {
+  display: none;
+}
+.menu-button.is-open .logo {
+  z-index: -1;
+} */

@@ -1,3 +1,4 @@
+
 .search-box {
   display: block;
   border-radius: 16px;
@@ -9,7 +10,9 @@
   text-align: center;
   background-color: #f6f6f6;
   border: 1px solid var(--buttons-and-background-main);
+
   overflow-y: scroll;
+
 }
 
 .search-input {
@@ -24,6 +27,7 @@
   margin-bottom: 40px;
   margin-top: 40px;
 }
+
 
 .search-output {
   font-size: 15px;

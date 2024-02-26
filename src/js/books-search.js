@@ -1,3 +1,4 @@
+
 import axios from 'axios'; 
 
 
@@ -13,10 +14,12 @@ function getBooks() {
         document.getElementById('input').value
     )
     .then(response => {
+
       outputDiv.innerHTML = '';
       for (let i = 0; i < 10 && i < response.data.docs.length; i++) {
         if (response.data.docs[i].title) {
           outputDiv.innerHTML +=
+
             '<h2>' +
             response.data.docs[i].title +
             '</h2>' +
@@ -37,6 +40,7 @@ function getBooks() {
     });
 }
 
+
 function handleButtonClick() {
   getBooks();
 }
@@ -44,6 +48,7 @@ function handleButtonClick() {
 document
   .getElementById('buttonId')
   .addEventListener('click', handleButtonClick);
+
 
 document.addEventListener('DOMContentLoaded', () => {
   const outputDiv = document.getElementById('output');

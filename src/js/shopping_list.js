@@ -34,6 +34,9 @@ const indexOfPaginationMoreButton = paginationButtonArray.findIndex(button => bu
 let  currentIndex = 0;
 
 
+
+
+
 function getIndexOfActivePaginationButton(array) {
   const  indexb= array.findIndex(button => button.classList.contains('shl-active'));
     return indexb;
@@ -687,7 +690,8 @@ function loadToLocalStorageNewBookList(books) {
                   <p class="shl-book-category">${list_name}</p>
               </div>
               <button class="shl-card-delete-button" type="button">
-                <img src="./img/Shopping_list/trash-03.svg" alt="SVG Image">
+                <svg class="shl-delete-icon" > <use href="./img/Shopping_list/symbol-defs.svg#icon-trash-03"></use>
+                      </svg>
                     </button>
               </li>
               <li class="shl-book-card-features"><p class="shl-book-description">${description}</p>
@@ -695,8 +699,8 @@ function loadToLocalStorageNewBookList(books) {
               <li class="shl-book-card-features">
                 <p class="shl-book-author">${author}</p>
                 <div class="shl-buy-links">
-                  <a class="shl-amazon-link" href="${amazon_product_url}"></a>
-                  <a class="shl-apple-link" href="${appleLink}"></a>
+                  <a class="shl-amazon-link" href="${amazon_product_url}"><img class="shl-link-icon"src="./img/Shopping_list/amazon.svg" alt="Amazon Icon"></a>
+                  <a class="shl-apple-link" href="${appleLink}"><img class="shl-link-icon"src="./img/Shopping_list/apple.svg" alt="Amazon Icon"></a>
                 </div>
               </li>
              </ul>

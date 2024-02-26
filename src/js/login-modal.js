@@ -13,6 +13,7 @@ const signUpForm = document.querySelector('.sign-up-form');
 const logOutButton = document.querySelector('.log-out-button');
 
 const STORAGE_KEY = 'sign-up-form-state';
+let data = JSON.parse(localStorage.getItem(STORAGE_KEY)) || '';
 
 signUpForm.addEventListener('submit', event => {
   localStorage.removeItem(STORAGE_KEY);
@@ -36,29 +37,7 @@ signUpForm.addEventListener('submit', event => {
     signUpForm.reset();
     localStorage.setItem(STORAGE_KEY, JSON.stringify(userData));
     if (JSON.stringify(userData) !== 0) {
-      navListItems.forEach(navListItem => {
-        navListItem.classList.remove('visually-hidden');
-      });
-
-      openModalButton.replaceChildren();
-      openModalButton.insertAdjacentHTML(
-        'beforeend',
-        `<span class="user-icon-eclipse"><svg class="user-icon"><use href="./img/head-and-mobile-menu.svg#icon-user"></svg></span> ${userData.name}<svg class="carret-down-icon"><use href="./img/head-and-mobile-menu.svg#icon-carret-down"></use></svg>`
-      );
-      openModalButton.classList.add('header-user');
-      openModalButton.removeEventListener('click', openLoginModal);
-      mobileSignUp.replaceChildren();
-      mobileSignUp.insertAdjacentHTML(
-        'beforeend',
-        `<span class="user-icon-eclipse"><svg class="user-icon"><use href="./img/head-and-mobile-menu.svg#icon-user"></svg></span> ${userData.name}`
-      );
-      mobileSignUp.classList.add('user-profile');
-      signUpForm.classList.add('visually-hidden');
-      mobileLogOutButton.classList.remove('visually-hidden');
-      mobileLogOutButton.addEventListener('click', logOut);
-      logOutButton.classList.remove('visually-hidden');
-      logOutButton.addEventListener('click', logOut);
-      mobileSignUp.disabled = true;
+      logIn(userData);
     }
     modalBackdrop.classList.add('visually-hidden');
   }
@@ -87,3 +66,48 @@ function logOut() {
   localStorage.removeItem(STORAGE_KEY);
   mobileSignUp.disabled = false;
 }
+
+function logIn(userData) {
+  navListItems.forEach(navListItem => {
+    navListItem.classList.remove('visually-hidden');
+  });
+
+  openModalButton.replaceChildren();
+  openModalButton.insertAdjacentHTML(
+    'beforeend',
+    `<span class="user-icon-eclipse"><svg class="user-icon"><use href="./img/head-and-mobile-menu.svg#icon-user"></svg></span> ${userData.name}<svg class="carret-down-icon"><use href="./img/head-and-mobile-menu.svg#icon-carret-down"></use></svg>`
+  );
+  openModalButton.classList.add('header-user');
+  openModalButton.removeEventListener('click', openLoginModal);
+  mobileSignUp.replaceChildren();
+  mobileSignUp.insertAdjacentHTML(
+    'beforeend',
+    `<span class="user-icon-eclipse"><svg class="user-icon"><use href="./img/head-and-mobile-menu.svg#icon-user"></svg></span> ${userData.name}`
+  );
+  mobileSignUp.classList.add('user-profile');
+  signUpForm.classList.add('visually-hidden');
+  mobileLogOutButton.classList.remove('visually-hidden');
+  mobileLogOutButton.addEventListener('click', logOut);
+  logOutButton.classList.remove('visually-hidden');
+  logOutButton.addEventListener('click', logOut);
+  mobileSignUp.disabled = true;
+}
+
+function isLoggedIn() {
+  const { name, email, password } = loadFromLS(STORAGE_KEY) || {};
+  console.log(name.length);
+  if (name.length > 0) {
+    logIn(userData);
+  }
+}
+
+function loadFromLS() {
+  try {
+    const result = data;
+    return result;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+isLoggedIn();

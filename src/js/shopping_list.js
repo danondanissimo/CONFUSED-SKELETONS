@@ -40,33 +40,7 @@ function getIndexOfActivePaginationButton(array) {
 }
 
 
-// const pagination = new Pagination(document.getElementById('shl-pagination'), {
-//     totalItems: 15,
-//     itemsPerPage: 3,
-//     visiblePages: 3,
-//     centerAlign: true
-// });
-// async function getBookArray() {
-//     try {
-//         const response = await fetch('./partials/test.json');
-//      ;
-//         return response.json();
-//     } catch (error) {
-        
-//         throw error;
-//     }
-//     }
-// async function loadDataToLocalSorage() {
-//     try {
-//         bookArray = await getBookArray();
-//         console.log(bookArray);
-//         localStorage.setItem(STORAGE_KEY, JSON.stringify(bookArray));
-//          ;
-//     } catch (error) {
-//         console.error('Помилка завантаження даних:', error);
-//     }
-// }
-// loadDataToLocalSorage();
+
 function removeBookListFromLocalStorage(STORAGE_KEY) {
     localStorage.removeItem(STORAGE_KEY);
 }

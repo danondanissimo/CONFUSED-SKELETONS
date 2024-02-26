@@ -1,5 +1,6 @@
 :root,
-.footer {
+.footer,
+.search-box {
   /* background-color: var(--background-dark); */
   background-color: rgb(32, 32, 36);
 }
@@ -44,7 +45,8 @@
 .top-book-author,
 .book-author,
 .footer-adress-link,
-.footer-input::placeholder {
+.footer-input::placeholder,
+.search-output {
   color: rgb(180, 175, 175);
 }
 
@@ -65,6 +67,15 @@
 .booksIcon:hover {
   filter: grayscale(100%) drop-shadow(0px 3px 3px rgba(255, 255, 255, 0.35));
 }
-.footer-form-btn:hover {
-  color: rgb(17, 17, 17);
+.search-btn:hover,
+.search-btn:focus,
+.footer-form-btn:hover,
+.footer-form-btn:focus {
+  background-color: rgb(255, 255, 255);
+  color: var(--buttons-and-background-main);
+  border: 1px solid var(--buttons-and-background-main);
+}
+.search-input {
+  border-color: var(--buttons-and-background-main);
+  outline: none;
 }

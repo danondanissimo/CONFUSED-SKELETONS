@@ -20,6 +20,7 @@
 .js-btn-books,
 .top-books-btn {
   background: rgb(32, 32, 36);
+  color: var(--text-color-secondary);
 }
 
 .login-field-label {

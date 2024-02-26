@@ -40,7 +40,8 @@
 .footer-paragraf,
 .footer-address-text,
 .footer-form-btn,
-.top-books-btn {
+.top-books-btn,
+.books-list h2 {
   color: rgb(255, 255, 255);
 }
 .top-category-name,
@@ -48,7 +49,8 @@
 .book-author,
 .footer-adress-link,
 .footer-input::placeholder,
-.search-output {
+.search-output,
+.books-list p {
   color: rgb(180, 175, 175);
 }
 
@@ -93,3 +95,7 @@
   color: rgb(17, 17, 17);
   background-color: rgb(255, 255, 255);
 } */
+.menu-button-icon_burger,
+.menu-button-icon_close {
+  stroke: rgb(255, 255, 255);
+}

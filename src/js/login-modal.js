@@ -4,12 +4,10 @@ import {
   mobileLogOutButton,
   mobileSignUp,
   openLoginModal,
+  modalBackdrop,
 } from './header';
 
 import { onMobileMenuBtnClick } from './modal-open-buttom';
-
-export const closeModalButton = document.querySelector('.modal-close');
-export const modalBackdrop = document.querySelector('.modal-backdrop');
 
 const signUpForm = document.querySelector('.sign-up-form');
 const logOutButton = document.querySelector('.log-out-button');

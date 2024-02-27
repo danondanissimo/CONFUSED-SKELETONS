@@ -24,4 +24,4 @@ import{a as E,b as R,i as L}from"./vendor-b619ac7a.js";(function(){const t=docum
      <img src="${r}" alt="${o.title}" class="donate-img">
      </a>
      </li>`}).join("")}H.insertAdjacentHTML("beforeend",De(Qe));m.addEventListener("click",function(){m.style.display="none",B.style.display="block",X.scrollTo({top:1e3,behavior:"smooth"})});B.addEventListener("click",function(){B.style.display="none",m.style.display="block",X.scrollTo({top:0,behavior:"smooth"})});const ye=new IntersectionObserver(function(e){e[0].intersectionRatio<=1.1&&(B.style.display="none",m.style.display="block")}),ke=new IntersectionObserver(function(e){e[0].intersectionRatio<=1.1&&(m.style.display="none",B.style.display="block")});ye.observe(H.firstChild);ke.observe(H.lastChild);export{Ue as o};
-//# sourceMappingURL=support-ukraine-4b8290dd.js.map
+//# sourceMappingURL=support-ukraine-9b55cd8d.js.map

@@ -52,7 +52,10 @@ function isActive() {
   navLinks.forEach(navLink => {
     if (navLink.href == currentPage) {
       navLink.classList.add('current-page');
-      if (currentPage === 'http://localhost:5173/shopping_list.html') {
+      if (
+        currentPage ==
+        'https://danondanissimo.github.io/CONFUSED-SKELETONS/shopping_list.html'
+      ) {
         supportContainer.classList.add('support-shopping-list');
       }
     }

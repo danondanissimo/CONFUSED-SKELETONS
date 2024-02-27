@@ -1,18 +1,25 @@
 import { onclickGalleryItem } from '../js/modal-window';
+import { renderTopCategoryBooks } from './best-sellers';
+
+const bestSellersContainer = document.querySelector('.top-books-container');
 
 async function getBooks(category) {
-  try {
-    let url = `https://books-backend.p.goit.global/books/category?category=${category}`;
+  if (category.length !== 0) {
+    try {
+      let url = `https://books-backend.p.goit.global/books/category?category=${category}`;
 
-    const response = await fetch(url);
-    if (!response.ok) {
-      throw new Error('Failed to fetch books');
+      const response = await fetch(url);
+      if (!response.ok) {
+        throw new Error('Failed to fetch books');
+      }
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.error(error);
+      return [];
     }
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    console.error(error);
-    return [];
+  } else {
+    console.log('Hello sir ');
   }
 }
 
@@ -40,12 +47,27 @@ document.addEventListener('DOMContentLoaded', () => {
   const categoryList = document.getElementById('categoryList');
   if (categoryList) {
     categoryList.addEventListener('click', event => {
+      bestSellersContainer.replaceChildren();
+      bestSellersContainer.insertAdjacentHTML(
+        'afterbegin',
+        `  <div class="box-in-box">
+    <h1 class="title-category-page">
+      <span class="titlecategory" id="selectedCategory"></span>
+    </h1>
+    <ul class="books-list"></ul>
+  </div>`
+      );
+
+      const bookList = document.querySelector('.books-list');
+      bookList.addEventListener('click', onclickGalleryItem);
+
       if (event.target && event.target.matches('li.category-item')) {
         let category = event.target.textContent;
-        if (category === 'All Categories') {
-          category = " "; // Якщо обрано "All Categories", передаємо порожній рядок
-        }
 
+        if (category == 'All categories') {
+          renderTopCategoryBooks();
+          return;
+        }
         const categoryItems = categoryList.querySelectorAll('.category-item');
         categoryItems.forEach(item => {
           item.classList.remove('active');
@@ -75,6 +97,3 @@ fetch('https://books-backend.p.goit.global/books/category-list')
     });
   })
   .catch(error => console.error('Error fetching data:', error));
-
-const bookList = document.querySelector('.books-list');
-bookList.addEventListener('click', onclickGalleryItem);

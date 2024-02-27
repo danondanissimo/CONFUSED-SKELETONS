@@ -1,0 +1,217 @@
+/* * {
+  box-sizing: border-box;
+} */
+
+.categories_list {
+  width: 328px;
+  height: 472px;
+  overflow: auto;
+  /* overflow: hidden;
+  overflow: scroll; */
+  margin-left: 14px;
+}
+.category-item {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.33333;
+  letter-spacing: -0.02em;
+  color: rgba(17, 17, 17, 0.6);
+  cursor: pointer;
+}
+.category-item:nth-last-child(n + 2) {
+  padding-bottom: 32px;
+}
+
+.active {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.33333;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--buttons-and-background-main);
+}
+.title-category-page {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 1.08333;
+  letter-spacing: -0.04em;
+  color: rgb(17, 17, 17);
+  margin-bottom: 40px;
+}
+.titlecategory {
+}
+.selectedCategory {
+}
+.book {
+  width: 180px;
+  height: 306px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.image_book {
+  border-radius: 8px;
+  width: 180px;
+  height: 256px;
+  margin-bottom: 14px;
+}
+.title_book {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.125;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  color: var(--text-color-primary);
+  margin-bottom: 4px;
+}
+.test_book {
+  font-family: 'DM Sans', sans-serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.16667;
+  letter-spacing: -0.04em;
+  color: #b4afaf;
+}
+.books-list {
+  max-width: 966px;
+  display: grid;
+  gap: 24px;
+  cursor: pointer;
+}
+.box {
+  /* display: flex; */
+  gap: 40px;
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.box-in-box {
+}
+@media screen and (min-width: 375px) {
+  .books-list {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .book {
+    width: 335px;
+    height: 535px;
+  }
+  .image_book {
+    border-radius: 8px;
+    width: 335px;
+    height: 485px;
+  }
+  .title_book {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1.125;
+    letter-spacing: -0.04em;
+    text-transform: uppercase;
+    color: #111;
+  }
+  .test_book {
+    font-family: 'DM Sans', sans-serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.16667;
+    letter-spacing: -0.04em;
+    color: #b4afaf;
+  }
+  .box {
+    max-width: 375px;
+  }
+  .title-category-page {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 1.1875;
+    letter-spacing: -0.04em;
+  }
+}
+@media screen and (min-width: 768px) {
+  .books-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .box {
+    max-width: 768px;
+    margin-right: 67px;
+  }
+  .title-category-page {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 1.08333;
+    letter-spacing: -0.04em;
+    color: rgb(17, 17, 17);
+  }
+  .book {
+    width: 218px;
+    height: 366px;
+  }
+  .image_book {
+    border-radius: 8px;
+    width: 218px;
+    height: 316px;
+  }
+  .title_book {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1.125;
+    letter-spacing: -0.04em;
+    color: #111;
+  }
+  .test_book {
+    font-family: 'DM Sans', sans-serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.16667;
+    letter-spacing: -0.04em;
+    color: #b4afaf;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .books-list {
+    grid-template-columns: repeat(5, 1fr);
+  }
+  .box {
+    display: flex;
+    margin-top: 100px;
+    width: 356px;
+  }
+  .book {
+    width: 180px;
+    height: 306px;
+  }
+  .image_book {
+    border-radius: 8px;
+    width: 180px;
+    height: 256px;
+  }
+  .title_book {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1.125;
+    letter-spacing: -0.04em;
+    color: #111;
+  }
+  .test_book {
+    font-family: 'DM Sans', sans-serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.16667;
+    letter-spacing: -0.04em;
+    color: #b4afaf;
+  }
+}
+.titlecategory {
+  color: rgb(79, 46, 232);
+}

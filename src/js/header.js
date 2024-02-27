@@ -1,10 +1,14 @@
-import { modalBackdrop, closeModalButton } from './login-modal';
-
 export const navListItems = document.querySelectorAll('.navigation-list-item');
 export const openModalButton = document.querySelector('.modal-open');
 
 const toggleMobileMenuButton = document.querySelector('.js-toggle-mobile-menu');
+const iconBurger = document.querySelector('.menu-button-icon_burger');
+const iconClose = document.querySelector('.menu-button-icon_close');
 const mobileMenu = document.querySelector('.mobile-menu');
+
+const closeModalButton = document.querySelector('.modal-close');
+export const modalBackdrop = document.querySelector('.modal-backdrop');
+const supportContainer = document.querySelector('.support-container');
 // export const mobileLogOutButton = document.querySelector(
 //   '.mobile-log-out-button'
 // );
@@ -21,7 +25,19 @@ export function openLoginModal() {
   closeModalButton.addEventListener('click', () => {
     modalBackdrop.classList.add('visually-hidden');
   });
+  window.addEventListener('keydown', event => {
+    if (event.key === 'Escape') {
+      modalBackdrop.classList.add('visually-hidden');
+    }
+  });
   closeModalButton.removeEventListener('click', () => {});
+  window.removeEventListener('keydown', () => {});
+  modalBackdrop.addEventListener('click', event => {
+    if (event.target === event.currentTarget) {
+      modalBackdrop.classList.add('visually-hidden');
+    }
+  });
+  modalBackdrop.removeEventListener('click', () => {});
 }
 
 openModalButton.addEventListener('click', openLoginModal);
@@ -35,10 +51,17 @@ mobileSignUp.addEventListener('click', openLoginModal);
 function isActive() {
   navLinks.forEach(navLink => {
     if (navLink.href == currentPage) {
-      console.log();
-      navLink.classList.add('currentPage');
+      navLink.classList.add('current-page');
+      if (currentPage === 'http://localhost:5173/shopping_list.html') {
+        supportContainer.classList.add('support-shopping-list');
+      }
     }
   });
 }
 
 isActive();
+
+toggleMobileMenuButton.addEventListener('click', () => {
+  iconBurger.classList.toggle('visually-hidden');
+  iconClose.classList.toggle('visually-hidden');
+});

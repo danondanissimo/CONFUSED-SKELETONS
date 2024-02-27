@@ -1,5 +1,10 @@
 import axios from 'axios';
 import * as basicLightbox from 'basiclightbox';
+import 'basiclightbox/dist/basicLightbox.min.css';
+import iziToast from 'izitoast';
+import 'izitoast/dist/css/iziToast.min.css';
+import resolveIcon from '../img/bi_check2-circle.svg';
+import infoIcon from '../img/info.svg';
 
 const localStorageKey = 'shopping-list';
 export default localStorageKey;
@@ -61,13 +66,13 @@ function createModalWindow({
         </button>
         <div class="item-card">
             <div class="image-container">
-              <img class="item-image" src="${book_image}" /> 
+              <img class="item-image" src="${book_image}" />
             </div>
             <div class="item-information">
               <h3 class="book-title">${title}</h3>
               <p class="book-author">${author}</p>
               <p class="book-description">${description}</p>
-              <div class="buy-links-container"></div>
+              <ul class="buy-links-container"></ul>
             </div>
         </div>
         <button type="submit" class="addBtn" id="addBtn">Add to shopping list</button>
@@ -75,8 +80,14 @@ function createModalWindow({
     `,
     {
       onShow: instance => {
-        instance.element().querySelector('button').onclick = instance.close;
+        document.body.style.overflow = 'hidden';
+
+        const closeButton = instance.element().querySelector('.closeModalBtn');
+        closeButton.onclick = () => instance.close();
         addBtn = instance.element().querySelector('.addBtn');
+      },
+      onClose: instance => {
+        document.body.style.overflow = 'visible';
       },
     }
   );
@@ -84,25 +95,10 @@ function createModalWindow({
   const buyLinksContainer = instance
     .element()
     .querySelector('.buy-links-container');
-  buy_links.forEach(link => {
-    if (link.name === 'Amazon' || link.name === 'Apple Books') {
-      const linkElement = document.createElement('a');
-      linkElement.href = link.url;
-      linkElement.target = '_blank';
-      buyLinksContainer.appendChild(linkElement);
-
-      const iconElement = document.createElement('img');
-      iconElement.className = 'booksIcon';
-      if (link.name === 'Amazon') {
-        iconElement.src = './img/amazon.png';
-      } else {
-        iconElement.src = './img/apple.svg';
-      }
-      iconElement.alt = link.name + ' Icon';
-
-      linkElement.appendChild(iconElement);
-    }
-  });
+  searchBooksInShops(
+    { book_image, author, title, buy_links },
+    buyLinksContainer
+  );
 
   instance.show();
 
@@ -126,14 +122,39 @@ const refreshLocalStorage = data => e => {
     const indexToRemove = addedBooks.findIndex(book => book._id === data._id);
     addedBooks.splice(indexToRemove, 1);
     removeCongratulation();
+    removeBookMessage();
   } else {
     e.target.textContent = 'Remove from the shopping list';
     e.target.classList.add('mobileWidth');
     addedBooks.push(data);
     addCongratulation();
+    addBookMessage();
   }
   localStorage.setItem(localStorageKey, JSON.stringify(addedBooks));
 };
+
+function addBookMessage() {
+  iziToast.success({
+    messageColor: '#ffffff',
+    messageSize: '20',
+    backgroundColor: '#6dcc14',
+    iconUrl: resolveIcon,
+    position: 'bottomRight',
+    message: '😃  Your book has been added to the shopping list!.',
+  });
+}
+
+function removeBookMessage() {
+  iziToast.info({
+    messageColor: '#ffffff',
+    messageSize: '20',
+    iconColor: '#ffffff',
+    iconUrl: infoIcon,
+    backgroundColor: 'rgb(37, 119, 241)',
+    position: 'bottomRight',
+    message: '😔  The book has been removed from the shopping list',
+  });
+}
 
 function loadFromLS(key) {
   const loadedStr = localStorage.getItem(key);
@@ -158,4 +179,64 @@ function addCongratulation() {
 function removeCongratulation() {
   const congratulation = document.querySelector('.congratulation');
   if (congratulation) congratulation.remove();
+}
+
+function searchBooksInShops(
+  { book_image, author, title, buy_links },
+  buyLinksContainer
+) {
+  buy_links.forEach(link => {
+    const itemElement = document.createElement('li');
+    buyLinksContainer.appendChild(itemElement);
+    const linkElement = document.createElement('a');
+    itemElement.appendChild(linkElement);
+    const iconElement = document.createElement('img');
+    linkElement.appendChild(iconElement);
+
+    itemElement.className = 'shop-link';
+    linkElement.target = '_blank';
+    iconElement.className = 'booksIcon';
+    iconElement.alt = link.name + ' Icon';
+
+    const url = `${book_image}`;
+    const fileName = url.split('/').pop();
+    const fileNameWithoutExtension = fileName.split('.')[0];
+
+    switch (link.name) {
+      case 'Amazon':
+        linkElement.href = link.url;
+        iconElement.src = './img/amazon.svg';
+        break;
+      case 'Apple Books':
+        linkElement.href = link.url;
+        iconElement.src = './img/apple.svg';
+        iconElement.className = 'booksIconApple';
+        break;
+      case 'Books-A-Million':
+        linkElement.href = `https://www.booksamillion.com/p/${title}/${author}/${fileNameWithoutExtension}`;
+        iconElement.src = './img/Books-A-Million_logo.svg';
+        break;
+      case 'Bookshop':
+        linkElement.href = `https://bookshop.org/search?keywords=${fileNameWithoutExtension}`;
+        iconElement.src = './img/bookshop.svg';
+        break;
+      case 'IndieBound':
+        linkElement.href = `https://bookshop.org/p/books/atomic-habits-an-easy-proven-way-to-build-good-habits-break-bad-ones-james-clear/12117739?ean=${fileNameWithoutExtension}`;
+        iconElement.src = './img/indiebound.svg';
+        break;
+      default:
+        linkElement.href = link.url;
+        iconElement.src = './img/another-shops.svg';
+        break;
+    }
+
+    if (
+      link.name !== 'Amazon' &&
+      link.name !== 'Apple Books' &&
+      link.name !== 'Barnes and Noble'
+    ) {
+      iconElement.width = '40';
+      iconElement.height = '40';
+    }
+  });
 }

@@ -140,6 +140,7 @@
   }
   .box {
     max-width: 768px;
+    margin-right: 67px;
   }
   .title-category-page {
     font-family: 'DM Sans', sans-serif;

@@ -59,8 +59,6 @@ function isActive() {
   });
 }
 
-console.log(currentPage === 'http://localhost:5173/shopping_list.html');
-
 isActive();
 
 toggleMobileMenuButton.addEventListener('click', () => {

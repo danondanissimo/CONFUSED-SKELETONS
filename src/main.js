@@ -9,3 +9,4 @@ import './js/books-search';
 import './js/modal-open-buttom';
 
 import './js/sidebar';
+import './js/footer';

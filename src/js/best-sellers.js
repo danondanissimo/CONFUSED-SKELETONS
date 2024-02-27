@@ -1,9 +1,12 @@
 import axios from 'axios';
+
 import { onclickGalleryItem } from '../js/modal-window';
+
+const topBooksContainer = document.querySelector('.top-books-container');
 
 const BASE_URL = 'https://books-backend.p.goit.global/';
 renderTopCategoryBooks();
-
+addListenerToCards();
 async function getTopFiveBooks() {
   try {
     const response = await axios.get(BASE_URL + 'books/top-books');
@@ -14,14 +17,22 @@ async function getTopFiveBooks() {
   }
 }
 
-async function renderTopCategoryBooks() {
+export async function renderTopCategoryBooks() {
+  topBooksContainer.replaceChildren();
+  topBooksContainer.insertAdjacentHTML(
+    'afterbegin',
+    `  <h1 class="best-sellers-title">
+    Best sellers <span class="best-sellers-title-accent">Books</span>
+  </h1>
+  <ul class="top-books-list"></ul>`
+  );
   const topBookList = document.querySelector('.top-books-list');
   const topBooks = await getTopFiveBooks();
   topBooks.data.map(book => {
     const categoryBox = createCategoryBox(book);
     topBookList.insertAdjacentHTML('beforeend', categoryBox);
   });
-  addListenerToCards()
+  addListenerToCards();
 }
 
 function slicePhrase(length, phrase) {

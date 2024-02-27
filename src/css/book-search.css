@@ -9,7 +9,11 @@
   text-align: center;
   background-color: #f6f6f6;
   border: 1px solid var(--buttons-and-background-main);
-  overflow-y: scroll;
+
+  overflow-y: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .search-input {
@@ -19,16 +23,23 @@
   height: 40px;
   padding-top: auto;
   padding-left: 20px;
-  font-size: 18px;
-  color: #0056b3;
   margin-bottom: 40px;
   margin-top: 40px;
+  color: var(--text-color-primary);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.33333;
+  letter-spacing: -0.01em;
 }
 
 .search-output {
   font-size: 15px;
   color: rgba(17, 17, 17, 0.6);
-  overflow-y: auto; /* Додайте цю властивість */
+  overflow-y: scroll; /* Додайте цю властивість */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .search-btn {
@@ -40,13 +51,14 @@
   font-family: 'DM Sans', sans-serif;
   font-weight: 500;
   font-size: 14px;
-  color: #fff;
-  margin-bottom: 50px;
+  color: var(--text-color-secondary);
+  margin-bottom: 10px;
 }
 
 .search-btn:hover,
 .search-btn:focus {
-  background-color: #0056b3;
+  background-color: var(--background-light);
+  color: var(--text-color-primary);
 }
 
 .loader {
@@ -98,5 +110,27 @@
   }
   100% {
     width: 100%;
+  }
+}
+
+.books-search-cover {
+  width: 260px;
+}
+
+.book-search-title {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 1.33333;
+  letter-spacing: -0.01em;
+}
+
+@media screen and (min-width: 320px) {
+  .search-box {
+    max-width: 335px;
+    height: 460px;
+    margin-top: 40px;
+    margin-left: auto;
+    margin-right: auto;
   }
 }

@@ -285,3 +285,9 @@ header {
 .menu-button.is-open .logo {
   z-index: -1;
 } */
+
+.header-shopping-list {
+  display: flex;
+  align-items: center;
+  width: 118px;
+}

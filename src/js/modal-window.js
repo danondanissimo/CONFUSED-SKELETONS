@@ -1,6 +1,10 @@
 import axios from 'axios';
 import * as basicLightbox from 'basiclightbox';
 import 'basiclightbox/dist/basicLightbox.min.css';
+import iziToast from 'izitoast';
+import 'izitoast/dist/css/iziToast.min.css';
+import resolveIcon from '../img/bi_check2-circle.svg';
+import infoIcon from '../img/info.svg';
 
 const localStorageKey = 'shopping-list';
 export default localStorageKey;
@@ -118,14 +122,39 @@ const refreshLocalStorage = data => e => {
     const indexToRemove = addedBooks.findIndex(book => book._id === data._id);
     addedBooks.splice(indexToRemove, 1);
     removeCongratulation();
+    removeBookMessage();
   } else {
     e.target.textContent = 'Remove from the shopping list';
     e.target.classList.add('mobileWidth');
     addedBooks.push(data);
     addCongratulation();
+    addBookMessage();
   }
   localStorage.setItem(localStorageKey, JSON.stringify(addedBooks));
 };
+
+function addBookMessage() {
+  iziToast.success({
+    messageColor: '#ffffff',
+    messageSize: '20',
+    backgroundColor: '#6dcc14',
+    iconUrl: resolveIcon,
+    position: 'bottomRight',
+    message: '😃  Your book has been added to the shopping list!.',
+  });
+}
+
+function removeBookMessage() {
+  iziToast.info({
+    messageColor: '#ffffff',
+    messageSize: '20',
+    iconColor: '#ffffff',
+    iconUrl: infoIcon,
+    backgroundColor: 'rgb(37, 119, 241)',
+    position: 'bottomRight',
+    message: '😔  The book has been removed from the shopping list',
+  });
+}
 
 function loadFromLS(key) {
   const loadedStr = localStorage.getItem(key);

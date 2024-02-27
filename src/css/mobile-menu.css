@@ -153,6 +153,7 @@
 
   .mobile-background-image-desktop {
     display: block;
+    height: 450px;
   }
 
   .mobile-log-out-button {
@@ -225,14 +226,15 @@
 }
 
 .current-page {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  /* display: flex; */
+  /* justify-content: center;
+  align-items: center; */
+
+  /* width: 72px; */
+  /* height: 34px; */
+  background-color: var(--buttons-and-background-secondary);
   border-radius: 36px;
   padding: 8px 16px;
-  width: 72px;
-  height: 34px;
-  background-color: var(--buttons-and-background-secondary);
   color: var(--text-color-primary);
 }
 

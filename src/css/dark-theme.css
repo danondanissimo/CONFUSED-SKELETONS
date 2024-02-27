@@ -2,6 +2,7 @@
 .footer,
 .search-box {
   background-color: rgb(32, 32, 36);
+  border-color: var(--text-color-secondary);
 }
 
 .header-navigation {

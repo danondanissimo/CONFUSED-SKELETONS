@@ -46,6 +46,14 @@
   --mobile-breakpoint: 375px;
 }
 
+@media screen and (min-width: 768px) and (max-width: 1439px) {
+  .sidebar-section {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 112px;
+  }
+}
+
 @media screen and (min-width: 1440px) {
   .main-section {
     display: flex;

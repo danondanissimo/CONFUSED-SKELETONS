@@ -59,8 +59,6 @@ header {
   margin-left: 7px;
   fill: var(--text-color-primary);
   stroke: var(--text-color-secondary);
-  margin-top: 5px;
-  margin-bottom: 5px;
 }
 
 .mobile-shopping-list-icon {
@@ -289,5 +287,5 @@ header {
 .header-shopping-list {
   display: flex;
   align-items: center;
-  width: 118px;
+  /* width: 118px; */
 }

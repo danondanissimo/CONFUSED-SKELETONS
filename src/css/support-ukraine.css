@@ -122,15 +122,26 @@
 
 @media screen and (min-width: 768px) {
   .support-container {
-    max-width: 768px;
+    height: 450px;
+    width: 295px;
+    margin-left: 0;
+    margin-right: auto;
+    padding: 0;
   }
   .donate-table {
-    height: 474px;
+    /* height: 474px; */
+    width: auto;
   }
   .donate-title {
     font-size: 24px;
     line-height: 1.16667;
   }
+
+  .donate-overflow {
+    width: 159px;
+    height: 292px;
+  }
+
   .button-down {
     margin-top: 24px;
     width: 38px;

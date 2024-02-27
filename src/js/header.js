@@ -19,6 +19,7 @@ export const mobileLogOutButton = document.querySelector(
 );
 const currentPage = window.location.href;
 const navLinks = document.querySelectorAll('.navigation-list-item');
+console.log(currentPage);
 
 export function openLoginModal() {
   modalBackdrop.classList.remove('visually-hidden');
@@ -51,11 +52,12 @@ mobileSignUp.addEventListener('click', openLoginModal);
 function isActive() {
   navLinks.forEach(navLink => {
     if (navLink.href == currentPage) {
-      console.log();
-      navLink.classList.add('currentPage');
+      navLink.classList.add('current-page');
     }
   });
 }
+
+console.log(window.location.href);
 
 isActive();
 

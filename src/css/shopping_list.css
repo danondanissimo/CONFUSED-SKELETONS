@@ -1,6 +1,6 @@
 @import url('./reset.css');
 @import url('./styles.css');
-@import url('./support-ukraine.css');
+/* @import url('./support-ukraine.css'); */
 @import url('./header.css');
 * {
   box-sizing: border-box;
@@ -170,8 +170,8 @@
 }
 .shl-amazon-link {
   display: block;
-  width: 50px;
-  height: 18px;
+  width: 68px;
+  height: 26px;
 }
 
 .shl-apple-link {
@@ -180,10 +180,15 @@
   height: 27px;
 }
 .shl-link-icon {
+  width: 100%;
+  height: 100%;
   filter: grayscale(100%);
   transition: filter 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .shl-link-icon:hover {
+  filter: grayscale(100%) drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.35));
+}
+.shl-link-icon:focus {
   filter: grayscale(100%) drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.35));
 }
 

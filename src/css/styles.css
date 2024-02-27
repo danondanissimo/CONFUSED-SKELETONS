@@ -45,3 +45,17 @@
   --tablet-breakpoint: 768px;
   --mobile-breakpoint: 375px;
 }
+
+@media screen and (min-width: 1440px) {
+  .main-section {
+    display: flex;
+  }
+
+  .sidebar-section {
+    margin-left: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 356px;
+  }
+}

@@ -1,3 +1,4 @@
+
 .footer-logo {
   color: #111;
   font-size: 16px;
@@ -16,6 +17,7 @@
   letter-spacing: 0.03em;
   text-transform: uppercase;
   text-align: center;
+  padding-bottom: 20px;
 }
 .footer-contact {
   font-size: 18px;
@@ -226,6 +228,7 @@
   .footer-form {
     flex-direction: row;
     gap: 24px;
+
   }
 
   .footer-input {
@@ -253,8 +256,20 @@
   }
 
   .footer-soc-item {
-    width: 34px;
-    height: 34px;
+
+    width: 28px;
+    height: 28px;
+  }
+
+  .footer-paragraf {
+    font-size: 20px;
+        font-weight: 700;
+        line-height: 1.17;
+        letter-spacing: 0.03em;
+        text-transform: uppercase;
+        text-align: center;
+        padding-bottom: 20px;
+
   }
   .svg-footer {
     width: 25px;

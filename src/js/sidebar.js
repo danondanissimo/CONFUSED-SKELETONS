@@ -38,7 +38,14 @@ async function displayBooks(category) {
                     `;
       booksList.innerHTML += bookInfoHTML;
     });
-    document.getElementById('selectedCategory').textContent = category;
+    const arrCategory = category.split(' ');
+    const lastWord = arrCategory.at(-1);
+    document.querySelector('.titlecategory').textContent = lastWord;
+    arrCategory.pop();
+    const newCategory = arrCategory.join(' ');
+    document
+      .getElementById('selectedCategory')
+      .insertAdjacentHTML('afterbegin', newCategory);
   } else {
     console.error('Element with class "books-list" not found');
   }
@@ -50,9 +57,9 @@ document.addEventListener('DOMContentLoaded', () => {
       bestSellersContainer.replaceChildren();
       bestSellersContainer.insertAdjacentHTML(
         'afterbegin',
-        `  <div class="box-in-box">
-    <h1 class="title-category-page">
-      <span class="titlecategory" id="selectedCategory"></span>
+        `<div class="box-in-box">
+    <h1 class="title-category-page" id="selectedCategory">
+      <span class="titlecategory"></span>
     </h1>
     <ul class="books-list"></ul>
   </div>`

@@ -27,6 +27,7 @@
   color: var(--text-color-primary);
   background-color: var(--text-color-secondary);
 }
+
 .title,
 .top-book-title,
 .js-btn-books,
@@ -44,9 +45,11 @@
 .shl-bookname-category h4,
 .shl-book-description,
 .item-modal .book-description,
-.footer-contact {
+.footer-contact,
+.best-sellers-title {
   color: rgb(255, 255, 255);
 }
+
 .top-category-name,
 .top-book-author,
 .book-author,
@@ -74,6 +77,7 @@
 .booksIcon:hover {
   filter: grayscale(100%) drop-shadow(0px 3px 3px rgba(255, 255, 255, 0.35));
 }
+
 .search-btn:hover,
 .search-btn:focus,
 .footer-form-btn:hover,
@@ -82,53 +86,55 @@
   color: var(--buttons-and-background-main);
   border: 1px solid var(--buttons-and-background-main);
 }
+
 .search-input {
   border-color: var(--buttons-and-background-main);
   outline: none;
 }
+
 .logo-word,
 .shopping-list-icon {
   stroke: transparent;
   fill: rgb(255, 255, 255);
 }
+
 .modal-close-icon {
   stroke: rgb(246, 246, 246);
 }
-/* .modal-open {
-  border-color: rgb(17, 17, 17);
-  color: rgb(17, 17, 17);
-  background-color: rgb(255, 255, 255);
-} */
+
 .menu-button-icon_burger,
 .menu-button-icon_close,
 .menu-btn-icon {
   stroke: rgb(255, 255, 255);
 }
+
 .category-item {
   color: rgba(255, 255, 255, 0.6);
 }
+
 .active {
   color: rgb(234, 198, 69);
 }
+
 .item-modal p {
   color: rgba(255, 255, 255, 0.5);
 }
+
 .shl-pagination-block-list button:disabled {
   background-color: rgb(17, 17, 17);
   border-color: rgb(17, 17, 17);
 }
+
 .shl-pagination-button-list .shl-active {
   background-color: rgb(255, 255, 255);
   border-color: rgb(255, 255, 255);
   color: rgb(0, 0, 0);
 }
+
 .shl-pagination-block-list button {
   background-color: transparent;
   color: var(--text-color-secondary);
   border-color: rgb(255, 255, 255);
-}
-.titlecategory {
-  color: rgb(79, 46, 232);
 }
 
 .categories_list {

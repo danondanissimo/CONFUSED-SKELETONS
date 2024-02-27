@@ -38,7 +38,7 @@
   font-size: 48px;
   line-height: 1.08333;
   letter-spacing: -0.04em;
-  /* color: var(--text-color-primary); */
+  color: rgb(17, 17, 17);
   margin-bottom: 40px;
 }
 .titlecategory {
@@ -131,7 +131,6 @@
     font-size: 32px;
     line-height: 1.1875;
     letter-spacing: -0.04em;
-    color: #111;
   }
 }
 @media screen and (min-width: 768px) {
@@ -147,7 +146,7 @@
     font-size: 48px;
     line-height: 1.08333;
     letter-spacing: -0.04em;
-    color: #111;
+    color: rgb(17, 17, 17);
   }
   .book {
     width: 218px;
@@ -211,4 +210,7 @@
     letter-spacing: -0.04em;
     color: #b4afaf;
   }
+}
+.titlecategory {
+  color: rgb(79, 46, 232);
 }

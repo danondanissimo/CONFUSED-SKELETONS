@@ -548,7 +548,9 @@ function onCardDeleteButtonClick(e) {
                loadToLocalStorageNewBookList(bookList);
           };
           if (totalPageNumber > 1) {
-              renderBookByIndex(2, bookList);
+              
+                  renderBookByIndex(bookPerPage-1, bookList);
+              
               showPaginationBlock();
               } else {if(bookList.length==0) {showStartPage()}}
           

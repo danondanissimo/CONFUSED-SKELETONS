@@ -1,22 +1,18 @@
 @import url('./reset.css');
 @import url('./styles.css');
-/* @import url('./support-ukraine.css'); */
+@import url('./support-ukraine.css');
 @import url('./header.css');
 * {
   box-sizing: border-box;
 }
 .shopping-list-page {
   display: flex;
-  flex-direction: row-reverse;
-  justify-content: start;
-  padding-left: 24px;
-  padding-right: 24px;
+
   gap: 40px;
-  margin-top: 40px;
 }
 .shl-sidebar {
   width: 356px;
-  height: 100% vw;
+
   margin: 0;
   padding: 0;
 }
@@ -309,7 +305,21 @@
     gap: 14px;
   }
 }
+@media screen and (min-width: 1440px) {
+  .shopping-list-container {
+    width: 996px;
+    margin-right: auto;
+  }
 
+  .shopping-list-page {
+    margin-top: 112px;
+  }
+
+  .shl-sidebar {
+    height: 474px;
+    margin-left: auto;
+  }
+}
 .hide {
   display: none;
 }

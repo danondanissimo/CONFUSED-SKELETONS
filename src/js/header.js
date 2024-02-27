@@ -19,7 +19,6 @@ export const mobileLogOutButton = document.querySelector(
 );
 const currentPage = window.location.href;
 const navLinks = document.querySelectorAll('.navigation-list-item');
-console.log(currentPage);
 
 export function openLoginModal() {
   modalBackdrop.classList.remove('visually-hidden');
@@ -56,8 +55,6 @@ function isActive() {
     }
   });
 }
-
-console.log(window.location.href);
 
 isActive();
 

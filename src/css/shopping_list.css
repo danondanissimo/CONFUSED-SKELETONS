@@ -7,17 +7,12 @@
 }
 .shopping-list-page {
   display: flex;
-  flex-direction: row-reverse;
-  justify-content: start;
-  padding-left: 24px;
-  padding-right: 24px;
+
   gap: 40px;
-  margin-top: 40px;
 }
 .shl-sidebar {
   width: 356px;
-  height: 100% vw;
-  background: #72a9b2;
+
   margin: 0;
   padding: 0;
 }
@@ -240,6 +235,13 @@
   .shl-sidebar {
     display: none;
   }
+
+  .shopping-list-page {
+    flex-direction: row-reverse;
+    justify-content: start;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
 }
 @media screen and (max-width: 767px) {
   .shl-book-description {
@@ -306,3 +308,23 @@
 .hide {
   display: none;
 }
+
+@media screen and (min-width: 1440px) {
+  .shopping-list-container {
+    width: 996px;
+    margin-right: auto;
+  }
+
+  .shopping-list-page {
+    margin-top: 112px;
+  }
+
+  .shl-sidebar {
+    height: 474px;
+    margin-left: auto;
+  }
+}
+
+/* .shopping-list-main-section {
+  display: flex;
+} */

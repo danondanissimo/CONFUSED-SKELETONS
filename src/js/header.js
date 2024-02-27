@@ -8,7 +8,7 @@ const mobileMenu = document.querySelector('.mobile-menu');
 
 const closeModalButton = document.querySelector('.modal-close');
 export const modalBackdrop = document.querySelector('.modal-backdrop');
-
+const supportContainer = document.querySelector('.support-container');
 // export const mobileLogOutButton = document.querySelector(
 //   '.mobile-log-out-button'
 // );
@@ -52,9 +52,14 @@ function isActive() {
   navLinks.forEach(navLink => {
     if (navLink.href == currentPage) {
       navLink.classList.add('current-page');
+      if (currentPage === 'http://localhost:5173/shopping_list.html') {
+        supportContainer.classList.add('support-shopping-list');
+      }
     }
   });
 }
+
+console.log(currentPage === 'http://localhost:5173/shopping_list.html');
 
 isActive();
 

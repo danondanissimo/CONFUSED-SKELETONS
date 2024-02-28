@@ -38,30 +38,30 @@ let  currentIndex = 0;
 function getIndexOfActivePaginationButton(array) {
   const  indexb= array.findIndex(button => button.classList.contains('shl-active'));
     return indexb;
-}
+};
 
 
 
 function clearMarkupList() { 
     bookMarkupList = [];
-}
+};
 
 function getBookListFromLocalStorage(STORAGE_KEY) {
     
     const bookData = JSON.parse(localStorage.getItem(STORAGE_KEY));
   
     if (bookData && bookData.length > 0) {
-        bookList = bookData[0];
+        bookList = bookData;
            return bookList;
          } 
-}
+};
 function showStartPage() {
     if (bookList.length > 0) { 
         ref.onEmptyLocalStorageField.classList.add('hide'); 
         renderBookListByPage(pageNumber,bookPerPage, bookList);
         showPaginationBlock();
          } else { ref.onEmptyLocalStorageField.classList.remove('hide'); }
-}
+};
 getBookListFromLocalStorage(STORAGE_KEY);
 showStartPage();
 
@@ -575,7 +575,10 @@ function onCardDeleteButtonClick(e) {
               if (currentPage === totalPageNumber)
               {
                   const renderedBookcardsOnPage = document.getElementsByClassName('shl-book-card').length;
-                  if (renderedBookcardsOnPage === 0) { currentPage = currentPage - 1; renderBookListByPage(currentPage,bookPerPage,bookList)}      
+                  if (renderedBookcardsOnPage === 0) {
+                      currentPage = currentPage - 1;
+                      renderBookListByPage(currentPage, bookPerPage, bookList)
+                  }      
                   
                   showPaginationBlock(); 
                   
@@ -723,7 +726,7 @@ function loadToLocalStorageNewBookList(books) {
               </div>
               <button class="shl-card-delete-button" type="button">
                 <svg class="shl-delete-icon" >
-                        <use href="../img/Shopping_list/icon_delete_sprite.svg#icon-trash-03"></use>
+                        <use href="./img/Shopping_list/icon_delete_sprite.svg#icon-trash-03"></use>
                       </svg>
                     </button>
               </li>

@@ -98,6 +98,7 @@
   .book {
     width: 335px;
     height: 535px;
+     margin-bottom: 40px;
   }
   .image_book {
     border-radius: 8px;
@@ -152,6 +153,7 @@
   .book {
     width: 218px;
     height: 366px;
+   
   }
   .image_book {
     border-radius: 8px;

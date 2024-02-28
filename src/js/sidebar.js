@@ -67,21 +67,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const bookList = document.querySelector('.books-list');
       bookList.addEventListener('click', onclickGalleryItem);
+if (event.target && event.target.matches('li.category-item')) {
+  let category = event.target.textContent;
 
-      if (event.target && event.target.matches('li.category-item')) {
-        let category = event.target.textContent;
+  if (category == 'All categories') {
+    const categoryItems = categoryList.querySelectorAll('.category-item');
+    categoryItems.forEach(item => {
+      item.classList.remove('active');
+    });
+    event.target.classList.add('active');
+    renderTopCategoryBooks();
+    return;
+  }
+  const categoryItems = categoryList.querySelectorAll('.category-item');
+  categoryItems.forEach(item => {
+    item.classList.remove('active');
+  });
+  event.target.classList.add('active');
+  displayBooks(category);
+}
 
-        if (category == 'All categories') {
-          renderTopCategoryBooks();
-          return;
-        }
-        const categoryItems = categoryList.querySelectorAll('.category-item');
-        categoryItems.forEach(item => {
-          item.classList.remove('active');
-        });
-        event.target.classList.add('active');
-        displayBooks(category);
-      }
     });
   } else {
     console.error('Element with id "categoryList" not found');

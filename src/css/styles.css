@@ -69,3 +69,14 @@
     max-width: 356px;
   }
 }
+
+.header-content-container {
+  width: 1440px;
+  margin: 0 auto;
+}
+
+.page-content-container {
+  width: 1392px;
+  margin: 0 auto;
+  padding: 0 24px;
+}

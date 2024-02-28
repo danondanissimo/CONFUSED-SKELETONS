@@ -1,6 +1,6 @@
 'use strict';
-// import Pagination from 'tui-pagination';
-// import 'tui-pagination/dist/tui-pagination.css';
+
+
 let ref = {
     placeForBookList: document.querySelector('.shl-books-list'),
     onEmptyLocalStorageField: document.querySelector('.no-books-in-local-storage'),
@@ -34,20 +34,17 @@ const indexOfPaginationMoreButton = paginationButtonArray.findIndex(button => bu
 let  currentIndex = 0;
 
 
+
 function getIndexOfActivePaginationButton(array) {
   const  indexb= array.findIndex(button => button.classList.contains('shl-active'));
     return indexb;
-}
+};
 
 
 
-function removeBookListFromLocalStorage(STORAGE_KEY) {
-    localStorage.removeItem(STORAGE_KEY);
-}
-// removeBookListFromLocalStorage(STORAGE_KEY);
 function clearMarkupList() { 
     bookMarkupList = [];
-}
+};
 
 function getBookListFromLocalStorage(STORAGE_KEY) {
     
@@ -57,14 +54,14 @@ function getBookListFromLocalStorage(STORAGE_KEY) {
         bookList = bookData;
            return bookList;
          } 
-}
+};
 function showStartPage() {
     if (bookList.length > 0) { 
         ref.onEmptyLocalStorageField.classList.add('hide'); 
         renderBookListByPage(pageNumber,bookPerPage, bookList);
         showPaginationBlock();
          } else { ref.onEmptyLocalStorageField.classList.remove('hide'); }
-}
+};
 getBookListFromLocalStorage(STORAGE_KEY);
 showStartPage();
 
@@ -74,8 +71,10 @@ ref.paginationBlock.addEventListener('click', onPaginationButtonClick);
 function onPaginationButtonClick(e) {
     checkEvent = true;
     const classList = e.target.classList[0];
+    
     const textContent = parseInt(e.target.textContent, 10);
     if (!viewPortLess768) {
+      
         switch (classList) {
             case 'shl-pagination-button-first':
             
@@ -131,7 +130,20 @@ function onPaginationButtonClick(e) {
                         ref.lastPaginationButton.removeAttribute("disabled");
                     }
                         
-                };
+                } else {
+                    currentPage = currentPage - 1;
+                    pageNumber = currentPage;
+                    renderBookListByPage(pageNumber, bookPerPage, bookList);
+                    paginationButtonArray[currentIndex].classList.remove('shl-active');
+                    paginationButtonArray[currentIndex - 1].classList.add('shl-active');
+                    if (currentIndex - 1 === 0) {
+                        ref.firstPaginationButton.setAttribute("disabled", "true");
+                        ref.previousPaginationButton.setAttribute("disabled", "true");
+                       
+                    }
+                }
+                
+                ;
                 break;
             case 'shl-pagination-button-one':
                 currentIndex = getIndexOfActivePaginationButton(paginationButtonArray);
@@ -215,8 +227,7 @@ function onPaginationButtonClick(e) {
                 if (paginationButtonArray[indexOfPaginationMoreButton].textContent == '...') {
                     pageBeforeMoreButton = parseInt(paginationButtonArray[indexOfPaginationMoreButton - 1].textContent, 10);
                     pageToShow = totalPageNumber - pageBeforeMoreButton;
-                    console.log(pageBeforeMoreButton);
-                    console.log(pageToShow);
+                   
                     if (pageToShow > 2) {
                         paginationButtonArray[indexOfPaginationMoreButton - 1].textContent = pageBeforeMoreButton + 2;
                         paginationButtonArray[indexOfPaginationMoreButton - 2].textContent = pageBeforeMoreButton + 1;
@@ -327,6 +338,7 @@ function onPaginationButtonClick(e) {
         }
     } 
     else {
+        
         switch (classList) {
             case 'shl-pagination-button-first':
             
@@ -361,7 +373,7 @@ function onPaginationButtonClick(e) {
                             paginationButtonArray2[2].textContent = '...';
                             ref.nextPaginationButton.removeAttribute("disabled");
                             ref.lastPaginationButton.removeAttribute("disabled");
-                          }
+                        }
                         else {
                             paginationButtonArray2[1].textContent = currentPage;
                             
@@ -380,7 +392,18 @@ function onPaginationButtonClick(e) {
                         ref.lastPaginationButton.removeAttribute("disabled");
                     }
                         
-                };
+                } else {
+                    currentPage = currentPage - 1;
+                    pageNumber = currentPage;
+                    renderBookListByPage(pageNumber, bookPerPage, bookList);
+                     paginationButtonArray2[currentIndex].classList.remove('shl-active');
+                    paginationButtonArray2[currentIndex-1].classList.add('shl-active'); 
+                    if (currentIndex-1 === 0) { ref.firstPaginationButton.setAttribute("disabled", "true");
+                        ref.previousPaginationButton.setAttribute("disabled", "true");
+                       
+                    } 
+                }
+                ;
                 break;
             case 'shl-pagination-button-one':
                 currentIndex = getIndexOfActivePaginationButton(paginationButtonArray2);
@@ -535,7 +558,7 @@ function onPaginationButtonClick(e) {
         }
     }
    
-}
+};
 
 function onCardDeleteButtonClick(e) {
     checkEvent = true;
@@ -547,9 +570,24 @@ function onCardDeleteButtonClick(e) {
           if (removeBookById(currentCardId, bookList)) {
                loadToLocalStorageNewBookList(bookList);
           };
+
           if (totalPageNumber > 1) {
-              renderBookByIndex(2, bookList);
-              showPaginationBlock();
+              if (currentPage === totalPageNumber)
+              {
+                  const renderedBookcardsOnPage = document.getElementsByClassName('shl-book-card').length;
+                  if (renderedBookcardsOnPage === 0) {
+                      currentPage = currentPage - 1;
+                      renderBookListByPage(currentPage, bookPerPage, bookList)
+                  }      
+                  
+                  showPaginationBlock(); 
+                  
+              }
+              else {
+                  renderBookByIndex(bookPerPage - 1, bookList);
+                  showPaginationBlock();
+                  
+              }
               } else {if(bookList.length==0) {showStartPage()}}
           
     } else { return; }
@@ -660,7 +698,7 @@ function renderBookByIndex(index, books) {
 }
 function removeBookById(id, books) {
     const index = books.findIndex(book => book._id === id); 
-    console.log(index);
+   
     if (index !== -1) {
         books.splice(index, 1);
         bookList = books;
@@ -687,7 +725,9 @@ function loadToLocalStorageNewBookList(books) {
                   <p class="shl-book-category">${list_name}</p>
               </div>
               <button class="shl-card-delete-button" type="button">
-                <img src="./img/Shopping_list/trash-03.svg" alt="SVG Image">
+                <svg class="shl-delete-icon" >
+                        <use href="./img/Shopping_list/icon_delete_sprite.svg#icon-trash-03"></use>
+                      </svg>
                     </button>
               </li>
               <li class="shl-book-card-features"><p class="shl-book-description">${description}</p>

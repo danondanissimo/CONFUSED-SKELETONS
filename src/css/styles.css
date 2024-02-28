@@ -6,10 +6,21 @@
 */
 @import url('./reset.css');
 @import url('./header.css');
-@import url('./modal.css');
+@import url('./login-modal.css');
+@import url('./mobile-menu.css');
+@import url('./sidebar.css');
+@import url('./modal-window.css');
+@import url('./best-sellers.css');
+
+/* @import url('./dark-theme.css'); */
+@import url('./toggle-button.css');
+@import url('./book-search.css');
+@import url('./support-ukraine.css');
+@import url('./book-search.css');
+@import url('./footer.css');
 
 :root {
-  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'DM Sans', sans-serif;
   font-size: 16px;
   line-height: 24px;
   font-weight: 400;
@@ -29,4 +40,30 @@
   --background-dark: #202024;
   --buttons-and-background-main: #4f2ee8;
   --buttons-and-background-secondary: #eac645;
+
+  --desktop-breakpoint: 1440px;
+  --tablet-breakpoint: 768px;
+  --mobile-breakpoint: 375px;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1439px) {
+  .sidebar-section {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 112px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .main-section {
+    display: flex;
+  }
+
+  .sidebar-section {
+    margin-left: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 356px;
+  }
 }

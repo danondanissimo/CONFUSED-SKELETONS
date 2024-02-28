@@ -1,0 +1,67 @@
+
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vanilla App Template</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+          href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet" href="./css/shopping_list.css" />
+
+  <body>
+
+    <load ="partials/header.html" />
+    <load ="partials/login-modal.html" />
+   
+
+
+<main>
+    <div class="shopping-list-page">
+          <aside class="shl-sidebar">
+            <load="partials/support-ukraine.html" />
+          
+          </aside>
+    <div class="shopping-list-container">
+        <h1 class="shopping-list-title">Shopping <span class="shopping-list-title-deco">List</span></h1>
+        <div class="no-books-in-local-storage ">
+            <p class="no-books-in-local-storage-note">This page is empty, add some books and proceed to order.</p>
+        <img src="./img/Shopping_list/shoppinglist-image.png" 
+        alt="books" 
+         width="322"
+         height="241">
+        </div>
+        <ul class="shl-books-list">
+         
+        </ul>
+       
+        <div class="shl-pagination-block hide">
+      <ul class="shl-pagination-button-list">
+        <div class="shl-pagination-block-list ">
+      <li><button class="shl-pagination-button-first" type="button"></button></li>
+      <li><button class="shl-pagination-button-previous" type="button"></button></li>
+      </div>
+       <div class="shl-pagination-block-list">
+      <li><button class="shl-pagination-button-one" type="button">1</button></li>
+      <li><button class="shl-pagination-button-two" type="button">2</button></li>
+      <li><button class="shl-pagination-button-free" type="button">3</button></li>
+      <li><button class="shl-pagination-button-more" type="button">...</button></li>
+      </div>
+       <div class="shl-pagination-block-list">
+      <li><button class="shl-pagination-button-next" type="button"></button></li>
+      <li><button class="shl-pagination-button-last" type="button"></button></li>
+      </div>
+     </ul>
+    </div>
+    </div>
+
+    </div>
+    
+</main>
+<load="partials/footer.html" />
+<script type="module" src="./secondary.js"></script>
+  </body>
+</html>

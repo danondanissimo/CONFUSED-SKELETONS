@@ -1,13 +1,62 @@
 <header>
-  <a href="../index.html"><img src="">Bookshelf</a>
-  <nav>
-    <ul class="navigation-list">
-      <li><a href="" class="navigation-list-item hidden">HOME</a></li>
-      <li><a href="" class="navigation-list-item hidden">SHOPPING LIST</a>
-      </li>
+  <div class="header-navigation">
+    <a href="./index.html" class="header-logo"
+      >
+  <svg class="logo-icon"><use href="./img/head-and-mobile-menu.svg#icon-logo"></svg><svg class="logo-word"><use href="./img/head-and-mobile-menu.svg#icon-bookshelf"></svg>
+  </a>
+    <nav>
+      <ul class="navigation-list">
+        <li class="navigation-list-element">
+          <a
+            href="./index.html"
+            class="navigation-list-item desktop-and-tablet-visible visually-hidden"
+            >HOME</a
+          >
+        </li>
+        <li class="navigation-list-element">
+          <a
+            href="./shopping_list.html"
+            class="navigation-list-item desktop-and-tablet-visible visually-hidden header-shopping-list"
+            >SHOPPING LIST<svg class="shopping-list-icon"><use href="./img/head-and-mobile-menu.svg#icon-lock"></use></svg></a
+          >
+        </li>
+      </ul>
+    </nav>
+
+    <div class="toggle-container">
+      <input type="checkbox" class="theme-toggle" />
+    </div>
+
+    <button class="modal-open header-sign-up">Sign-up<svg class="sign-up-icon"><use href="./img/head-and-mobile-menu.svg#icon-arrow-narrow-right"></svg></button>
+
+
+    <button type="button" class="menu-button js-toggle-mobile-menu">
+      <svg class="mobile-menu-icon">
+        <use href="./img/head-and-mobile-menu.svg#icon-align-left" class="menu-button-icon_burger"></use>
+        <use href="./img/head-and-mobile-menu.svg#icon-x-close" class="menu-button-icon_close visually-hidden"></use>
+      </svg>
+    </button>
+  </div>
+</header>
+
+<div class="mobile-menu visually-hidden">
+
+  <button class="mobile-sign-up">Sign up<svg class="sign-up-icon">
+    <use href="./img/head-and-mobile-menu.svg#icon-arrow-narrow-right">
+  </svg></button>
+<div class="mobile-navigation-container">
+    <ul class="mobile-navigation-list">
+      <li><a href="./index.html" class="navigation-list-item visually-hidden mobile-navigation-list-item">HOME</a></li>
+      <li><a href="./shopping_list.html" class="navigation-list-item visually-hidden mobile-navigation-list-item ">SHOPPING LIST <svg class="shopping-list-icon mobile-shopping-list-icon">
+        <use href="./img/head-and-mobile-menu.svg#icon-lock"></use>
+      </svg></a></li>
     </ul>
-  </nav>
-  <input type="checkbox">
-  <button class="modal-open">Sign-up</button>
-</header>
-</header>
+  </div>
+  <button class="mobile-log-out-button visually-hidden">Log out<svg class="sign-up-icon log-out-icon">
+    <use href="./img/head-and-mobile-menu.svg#icon-arrow-narrow-right">
+  </svg></button>
+  <img src="./img/mobile-menu-background.png" class="mobile-background-image">
+  <img src="./img/mobile-background-2.png" class="mobile-background-image-desktop">
+</div>
+
+

@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 function getBooks() {
   const outputDiv = document.getElementById('output');
   outputDiv.innerHTML = '';
@@ -14,13 +16,13 @@ function getBooks() {
       for (let i = 0; i < 10 && i < response.data.docs.length; i++) {
         if (response.data.docs[i].title) {
           outputDiv.innerHTML +=
-            '<h2>' +
+            '<h2 class="book-search-title">' +
             response.data.docs[i].title +
             '</h2>' +
             (response.data.docs[i].author_name
               ? response.data.docs[i].author_name[0]
               : 'Invisible author') +
-            '<br><img src="https://covers.openlibrary.org/b/isbn/' +
+            '<br><img class="books-search-cover" src="https://covers.openlibrary.org/b/isbn/' +
             response.data.docs[i].isbn[0] +
             '-M.jpg"><br>';
         } else {

@@ -18,7 +18,7 @@ function toggleTheme() {
   if (temp) {
     const linkElement = document.createElement('link');
     linkElement.setAttribute('rel', 'stylesheet');
-    linkElement.setAttribute('href', '/css/dark-theme.css');
+    linkElement.setAttribute('href', './css/dark-theme.css');
     head.insertAdjacentElement('beforeend', linkElement);
   } else {
     const addedElement = head.querySelector('link[href="/css/dark-theme.css"]');

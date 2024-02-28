@@ -79,7 +79,7 @@ function logIn(userData) {
   openModalButton.replaceChildren();
   openModalButton.insertAdjacentHTML(
     'beforeend',
-    `<span class="user-icon-eclipse"><svg class="user-icon"><use href="${sprite}#icon-user"></svg></span> ${userData.name}<svg class="carret-down-icon"><use href="./img/head-and-mobile-menu.svg#icon-carret-down"></use></svg>`
+    `<span class="user-icon-eclipse"><svg class="user-icon"><use href="${sprite}#icon-user"></svg></span> ${userData.name}<svg class="carret-down-icon"><use href="${sprite}#icon-carret-down"></use></svg>`
   );
   openModalButton.classList.add('header-user');
   openModalButton.removeEventListener('click', openLoginModal);

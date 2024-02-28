@@ -716,7 +716,7 @@ function loadToLocalStorageNewBookList(books) {
      const {_id, book_image, description, author, list_name, title, amazon_product_url, buy_links } = book;
          const appleLink = buy_links[1] ? buy_links[1].url : '';
      return `<li class="shl-book-card" data-id="${_id}">
-           <img class="shl-book-image" src="${book_image}"  alt=""> 
+           <img class="shl-book-image" src="${book_image}"  alt="Book cover picture for ${title}"> 
            <div class="shl-book-data">
             <ul class="shl-book-features">
               <li class="shl-book-card-features">

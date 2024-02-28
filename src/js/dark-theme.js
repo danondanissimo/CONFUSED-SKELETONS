@@ -1,5 +1,5 @@
 const toggleButton = document.querySelector('.theme-toggle');
-// const head = document.querySelector('head');
+const head = document.querySelector('head');
 // const root  = document.documentElement;
 // const footer= document.querySelector('.footer');
 // const searchBox = document.querySelector('.search-box');

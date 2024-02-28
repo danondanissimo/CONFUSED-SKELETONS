@@ -33,15 +33,20 @@ const topCategoryName = document.querySelector('.top-category-name');
 const topBookAuthor = document.querySelector('.top-book-author');
 const bookAuthor = document.querySelector('.book-author');
 const footerAdressLink = document.querySelector('.footer-adress-link')
+const footerInputPlaceholder = document.querySelector('.footer-input::placeholder');
+const searchOutput = document.querySelector('.search-output');
+const booksList = document.querySelector('.books-list p');
+const itemModal = document.querySelector('.item-modal');
+const booksIcon = document.querySelector('.booksIcon');
+const booksIconApple = document.querySelector('.booksIconApple');
+const booksIconHover = document.querySelector('.booksIcon:hover');
+const menuButtonIconBurger = document.querySelector('.menu-button-icon_burger');
 
 
 
-
-// .footer-input::placeholder,
-// .search-output,
-// .books-list p
-
-
+.menu-button-icon_burger,
+.menu-button-icon_close,
+.menu-btn-icon
 
 if (localStorage.getItem('theme') === 'true') {
   toggleButton.checked = 'true';

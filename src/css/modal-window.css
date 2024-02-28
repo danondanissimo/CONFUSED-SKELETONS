@@ -175,7 +175,11 @@ div.basicLightbox {
 }
 
 .iziToast-capsule .iziToast > .iziToast-close {
-  background: url(/img/bi_x-lg.svg) no-repeat 50% 50%;
+  background: url(/img/bi_x-lg.png) no-repeat 50% 50%;
+  width: 15px;
+  height: 15px;
+  top: 20px;
+  right: 15px;
 }
 /* ======================================================================================== */
 @media screen and (min-width: 768px) {
@@ -216,6 +220,10 @@ div.basicLightbox {
     font-size: 14px;
     line-height: 1.29;
     letter-spacing: -0.56px;
+    margin-bottom: 20px;
+  }
+
+  .book-description {
     margin-bottom: 20px;
   }
 

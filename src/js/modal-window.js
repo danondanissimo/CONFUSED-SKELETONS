@@ -1,16 +1,19 @@
+'use strict';
+
 import axios from 'axios';
 import * as basicLightbox from 'basiclightbox';
 import 'basiclightbox/dist/basicLightbox.min.css';
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
-import resolveIcon from '../img/bi_check2-circle.svg';
-import infoIcon from '../img/info.svg';
-import amazonIcon from '../img/amazon.svg';
-import appleIcon from '../img/apple.svg';
-import anotherShopsIcon from '../img/another-shops.svg';
-import bamIcon from '../img/Books-A-Million_logo.svg';
-import bookShopIcon from '../img/bookshop.svg';
-import indieIcon from '../img/indiebound.svg';
+import resolveIcon from '../img/bi_check2-circle.png';
+import infoIcon from '../img/info.png';
+import amazonIcon from '../img/amazon.png';
+import appleIcon from '../img/apple.png';
+import banIcon from '../img/barnes-and-noble.png';
+import bamIcon from '../img/Books-A-Million.png';
+import bookShopIcon from '../img/bookshop.png';
+import indieIcon from '../img/indiebound.png';
+import sprite from '../img/sprite.svg';
 
 const localStorageKey = 'shopping-list';
 export default localStorageKey;
@@ -67,7 +70,7 @@ function createModalWindow({
     <div class="item-modal">
         <button type="button" class="closeModalBtn">
           <svg class="menu-btn-icon" width='18' height='18'>
-            <use href="./img/symbol-defs.svg#icon-Icon-close-modal"></use>
+            <use href="${sprite}#icon-Icon-close-modal"></use>
           </svg>
         </button>
         <div class="item-card">
@@ -232,7 +235,7 @@ function searchBooksInShops(
         break;
       default:
         linkElement.href = link.url;
-        iconElement.src = anotherShopsIcon;
+        iconElement.src = banIcon;
         break;
     }
 

@@ -66,8 +66,8 @@ function createModalWindow({
     `
     <div class="item-modal">
         <button type="button" class="closeModalBtn">
-          <svg class="menu-btn-icon">
-            <use href="./img/symbol-defs.svg#icon-Icon-close-modal"claa></use>
+          <svg class="menu-btn-icon" width='18' height='18'>
+            <use href="./img/symbol-defs.svg#icon-Icon-close-modal"></use>
           </svg>
         </button>
         <div class="item-card">

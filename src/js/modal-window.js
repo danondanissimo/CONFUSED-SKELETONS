@@ -10,7 +10,7 @@ import infoIcon from '../img/info.png';
 import amazonIcon from '../img/amazon.png';
 import appleIcon from '../img/apple.png';
 import banIcon from '../img/barnes-and-noble.png';
-import bamIcon from '../img/Books-A-Million.png';
+import bamIcon from '../img/books-a-million.png';
 import bookShopIcon from '../img/bookshop.png';
 import indieIcon from '../img/indiebound.png';
 import sprite from '../img/sprite.svg';

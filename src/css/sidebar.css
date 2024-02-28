@@ -98,7 +98,7 @@
   .book {
     width: 335px;
     height: 535px;
-     margin-bottom: 40px;
+    margin-bottom: 40px;
   }
   .image_book {
     border-radius: 8px;
@@ -134,6 +134,13 @@
     letter-spacing: -0.04em;
   }
 }
+
+@media screen and (max-width: 767px) {
+  .categories_list {
+    padding-left: 10px;
+  }
+}
+
 @media screen and (min-width: 768px) {
   .books-list {
     grid-template-columns: repeat(3, 1fr);
@@ -153,7 +160,6 @@
   .book {
     width: 218px;
     height: 366px;
-   
   }
   .image_book {
     border-radius: 8px;

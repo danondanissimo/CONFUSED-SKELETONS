@@ -1,5 +1,5 @@
 'use strict';
-import sprite from './img/Shopping_list/icon_delete_sprite.svg';
+import sprite from '../img/Shopping_list/icon_delete_sprite.svg';
 
 let ref = {
     placeForBookList: document.querySelector('.shl-books-list'),

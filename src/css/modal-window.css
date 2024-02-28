@@ -1,3 +1,16 @@
+@media screen and (max-width: 767px) {
+  .basicLightbox__placeholder {
+    height: 100vh;
+  }
+}
+
+div.basicLightbox {
+  background: rgba(17, 17, 17, 0.4);
+  z-index: 20000;
+  overflow-y: scroll;
+  height: 100%;
+}
+
 .item-modal {
   position: relative;
   padding: 40px 24px;
@@ -58,25 +71,35 @@
 }
 
 .buy-links-container {
-  width: 115px;
   display: flex;
+  flex-wrap: wrap;
   gap: 20px;
+}
+
+.shop-link {
+  width: 68px;
+  height: 40px;
+  justify-content: center;
   align-items: center;
+  display: flex;
 }
 
 .booksIcon {
   filter: grayscale(100%);
-  mix-blend-mode: multiply;
   transition: filter 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.booksIconApple {
+  filter: grayscale(100%);
 }
 
 .booksIcon:hover {
   filter: grayscale(100%) drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.35));
 }
 
-#addBtn {
+.addBtn {
   margin: 0 auto;
-  width: 221px;
+  width: 211px;
   height: 46px;
   display: flex;
   justify-content: center;
@@ -94,10 +117,8 @@
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-@media screen and (max-width: 767px) {
-  #addBtn.mobileWidth {
-    width: 279px;
-  }
+.mobileWidth {
+  width: 279px;
 }
 
 #addBtn:hover {
@@ -147,11 +168,16 @@
   align-items: center;
   justify-content: center;
 }
-
-.basicLightbox {
-  background: rgba(17, 17, 17, 0.4);
+.iziToast-capsule {
+  z-index: 20000;
+  color: rgb(37, 119, 241);
+  color: #111;
 }
 
+.iziToast-capsule .iziToast > .iziToast-close {
+  background: url(/img/bi_x-lg.svg) no-repeat 50% 50%;
+}
+/* ======================================================================================== */
 @media screen and (min-width: 768px) {
   .item-modal {
     padding: 40px;
@@ -221,8 +247,80 @@
     line-height: 1.17;
     letter-spacing: -0.48px;
   }
+}
+/* ================================================================================================== */
+@media screen and (min-width: 590px) and (max-height: 470px) {
+  .basicLightbox__placeholder {
+    height: 100%;
+  }
+}
+@media screen and (min-width: 600px) and (max-height: 767px) {
+  .item-modal {
+    padding: 40px;
+    width: 583px;
+  }
 
-  .basicLightbox {
-    background: rgba(17, 17, 17, 0.4);
+  .item-card {
+    flex-direction: row;
+    gap: 24px;
+    margin-bottom: 40px;
+  }
+
+  .image-container {
+    height: 281px;
+    min-width: 192px;
+  }
+
+  .item-image {
+    width: 192px;
+    transition: transform 500ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .item-image:hover {
+    transform: scale(1.2);
+  }
+
+  .book-title {
+    max-width: 270px;
+    font-size: 24px;
+    line-height: 1.17;
+    letter-spacing: -0.96px;
+    margin-bottom: 8px;
+  }
+
+  .book-author {
+    font-size: 14px;
+    line-height: 1.29;
+    letter-spacing: -0.56px;
+    margin-bottom: 20px;
+  }
+
+  #addBtn {
+    width: 499px;
+    height: 64px;
+    font-size: 18px;
+    line-height: 1.33;
+    letter-spacing: -0.18px;
+  }
+
+  .closeModalBtn {
+    width: 28px;
+    height: 28px;
+    left: 527px;
+    right: 24px;
+    top: 24px;
+    bottom: 413px;
+  }
+
+  .menu-btn-icon {
+    width: 18px;
+    height: 18px;
+  }
+
+  .congratulation {
+    width: 324px;
+    font-size: 12px;
+    line-height: 1.17;
+    letter-spacing: -0.48px;
   }
 }

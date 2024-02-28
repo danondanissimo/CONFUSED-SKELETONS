@@ -1,8 +1,7 @@
 <div class="modal-backdrop visually-hidden">
     <div class="modal-window">
         <button class="modal-close">
-            <!-- <img src="./img/x-close.svg" alt=""> -->
-            <svg><use href="./img/x-close.svg" height="10px" width="10px"></svg>
+            <svg class="modal-close-icon"><use href="./img/head-and-mobile-menu.svg#icon-x-close" ></use></svg>
         </button>
         <form class="sign-up-form" autocomplete="off">
 <div class="login-field-container">
@@ -11,12 +10,16 @@
 </div>
             
 <div class="login-field-container">
-                <label class="login-field-label" for="login-email">EMAIL</label>
+                <label class="login-field-label" for="login-email">EMAIL<svg class="login-field-icon login-field-icon_email">
+                    <use href="./img/head-and-mobile-menu.svg#icon-mail-login"></use>
+                </svg></label>
                 <input type="email" name="email" id="login-email" class="login-field" />
 </div>
            
 <div class="login-field-container">
-                <label class="login-field-label" for="login-password">PASSWORD</label>
+                <label class="login-field-label" for="login-password">PASSWORD<svg class="login-field-icon login-field-icon_password">
+                    <use href="./img/head-and-mobile-menu.svg#icon-lock-login"></use>
+                </svg></label>
                 <input type="password" name="password" id="login-password" class="login-field" >
 </div>
 

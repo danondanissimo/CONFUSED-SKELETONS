@@ -1,38 +1,143 @@
-:root {
-  /* background-color: var(--background-dark); */
+.dark-root,
+.dark-footer,
+.dark-search-box {
   background-color: rgb(32, 32, 36);
+  border-color: var(--text-color-secondary);
 }
 
-.header-navigation {
+.dark-header-navigation {
   border: 1.5px solid rgb(255, 255, 255);
   border-radius: 0px 0px 8px 8px;
   background: rgb(17, 17, 17);
   color: rgb(243, 243, 243);
 }
 
-.logo-icon {
-}
-
-.modal-window,
-.login-field,
-.js-btn-books {
+.dark-modal-window,
+.dark-login-field,
+.dark-js-btn-books,
+.dark-top-books-btn {
   background: rgb(32, 32, 36);
+  color: var(--text-color-secondary);
 }
 
-.login-field-label {
+.dark-login-field-label {
   color: rgb(246, 246, 246);
 }
 
-.login-submit {
+.dark-login-submit {
   color: var(--text-color-primary);
   background-color: var(--text-color-secondary);
 }
-.title,
-.top-book-title,
-.js-btn-books {
+
+.dark-title,
+.dark-top-book-title,
+.dark-js-btn-books,
+.dark-book-title,
+.dark-book-description,
+#addBtn,
+.dark-footer-logo,
+.dark-footer-paragraf,
+.dark-footer-address-text,
+.dark-footer-form-btn,
+.dark-top-books-btn,
+.dark-books-list h2,
+.dark-title-category-page,
+.dark-shopping-list-title,
+.dark-shl-bookname-category h4,
+.dark-shl-book-description,
+.dark-item-modal .book-description,
+.dark-footer-contact,
+.dark-best-sellers-title {
   color: rgb(255, 255, 255);
 }
-.top-category-name,
-.top-book-author {
+
+.dark-top-category-name,
+.dark-top-book-author,
+.dark-book-author,
+.dark-footer-adress-link,
+.dark-footer-input::placeholder,
+.dark-search-output,
+.dark-books-list p {
   color: rgb(180, 175, 175);
+}
+
+.dark-item-modal {
+  border: 2px solid rgb(255, 255, 255);
+  background-color: rgb(32, 32, 36);
+}
+
+.dark-booksIcon {
+  filter: brightness(0) invert(1);
+  transition: filter 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dark-booksIconApple {
+  filter: grayscale(100%);
+}
+
+.dark-booksIcon:hover {
+  filter: grayscale(100%) drop-shadow(0px 3px 3px rgba(255, 255, 255, 0.35));
+}
+
+.dark-search-btn:hover,
+.dark-search-btn:focus,
+.dark-footer-form-btn:hover,
+.dark-footer-form-btn:focus {
+  background-color: rgb(255, 255, 255);
+  color: var(--buttons-and-background-main);
+  border: 1px solid var(--buttons-and-background-main);
+}
+
+.dark-search-input {
+  border-color: var(--buttons-and-background-main);
+  outline: none;
+}
+
+.dark-logo-word,
+.dark-shopping-list-icon {
+  stroke: transparent;
+  fill: rgb(255, 255, 255);
+}
+
+.dark-modal-close-icon {
+  stroke: rgb(246, 246, 246);
+}
+
+.dark-menu-button-icon_burger,
+.dark-menu-button-icon_close,
+.dark-menu-btn-icon {
+  stroke: rgb(255, 255, 255);
+}
+
+.dark-category-item {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.dark-active {
+  color: rgb(234, 198, 69);
+}
+
+.dark-item-modal p {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.dark-shl-pagination-block-list button:disabled {
+  background-color: rgb(17, 17, 17);
+  border-color: rgb(17, 17, 17);
+}
+
+.dark-shl-pagination-button-list .shl-active {
+  background-color: rgb(255, 255, 255);
+  border-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+}
+
+.dark-shl-pagination-block-list button {
+  background-color: transparent;
+  color: var(--text-color-secondary);
+  border-color: rgb(255, 255, 255);
+}
+
+.dark-categories_list {
+  scrollbar-color: rgba(17, 17, 17, 0.6) rgb(32, 32, 36);
 }

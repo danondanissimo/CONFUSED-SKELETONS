@@ -66,7 +66,7 @@ function toggleTheme() {
     linkElement.setAttribute('href', './css/dark-theme.css');
     head.insertAdjacentElement('beforeend', linkElement);
   } else {
-    const addedElement = head.querySelector('link[href="/css/dark-theme.css"]');
+    const addedElement = head.querySelector('link[href="./css/dark-theme.css"]');
     if (addedElement) {
       addedElement.remove();
     }

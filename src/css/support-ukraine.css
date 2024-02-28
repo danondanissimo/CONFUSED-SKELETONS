@@ -187,21 +187,36 @@
 }
 
 @media screen and (min-width: 1440px) {
-  .support-container {
-    margin-top: 86px;
-    padding: 0px;
+  .footer-subbox {
+    flex-direction: row;
+    align-items: baseline;
+    flex-wrap: nowrap;
+    width: 1440px;
+    justify-content: center;
+    gap: 150px;
   }
-  .donate-table {
-    width: 356px;
-    padding-left: 0;
+
+  .footer-advantages-content {
+    flex-direction: row;
+    align-items: baseline;
+    flex-wrap: nowrap;
+    width: 100%;
   }
-  .donate-header {
-    margin-bottom: 42px;
-    margin-left: 40px;
+
+  .footer {
+    padding-top: 100px;
+    padding-bottom: 100px;
   }
-  .donate-overflow {
-    width: 159px;
-    margin-left: 40px;
+
+  .soc-footer-box {
+    margin: 0 80px 0 0;
+    max-width: 208px;
+  }
+
+  .footer-content {
+    margin: 0 120px 0 0;
+    max-width: 264px;
+    margin-right: 24px;
   }
 }
 

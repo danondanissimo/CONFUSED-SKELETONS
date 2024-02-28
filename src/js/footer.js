@@ -6,7 +6,7 @@ const currentObj = {
     email: '',
 };
 
-const localStorageKey = "feedback-form-state";
+const localStorageKey = "subscribe-form";
 let localStorageData = '';
 
 try {

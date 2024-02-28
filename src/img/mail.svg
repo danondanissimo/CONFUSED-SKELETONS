@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden">
+  <defs>
+
+ <symbol id="icon-mail" viewBox="0 0 32 32">
+<path d="M16.86 17.173c-0.256 0.188-0.558 0.282-0.86 0.282s-0.604-0.094-0.86-0.282l-15.14-11.102-0 20.596c0 0.803 0.651 1.455 1.455 1.455l29.091-0c0.803 0 1.455-0.651 1.455-1.454v-20.596l-15.14 11.102z"></path>
+<path d="M16 14.196l14.069-10.317-28.138-0z"></path>
+</symbol>
+
+
+  </defs>
+</svg>

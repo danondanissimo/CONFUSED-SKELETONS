@@ -5,6 +5,12 @@ import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 import resolveIcon from '../img/bi_check2-circle.svg';
 import infoIcon from '../img/info.svg';
+import amazonIcon from '../img/amazon.svg';
+import appleIcon from '../img/apple.svg';
+import anotherShopsIcon from '../img/another-shops.svg';
+import bamIcon from '../img/Books-A-Million_logo.svg';
+import bookShopIcon from '../img/bookshop.svg';
+import indieIcon from '../img/indiebound.svg';
 
 const localStorageKey = 'shopping-list';
 export default localStorageKey;
@@ -61,7 +67,7 @@ function createModalWindow({
     <div class="item-modal">
         <button type="button" class="closeModalBtn">
           <svg class="menu-btn-icon">
-            <use href="./img/symbol-defs.svg#icon-Icon-close-modal"></use>
+            <use href="./img/symbol-defs.svg#icon-Icon-close-modal"claa></use>
           </svg>
         </button>
         <div class="item-card">
@@ -205,28 +211,28 @@ function searchBooksInShops(
     switch (link.name) {
       case 'Amazon':
         linkElement.href = link.url;
-        iconElement.src = './img/amazon.svg';
+        iconElement.src = amazonIcon;
         break;
       case 'Apple Books':
         linkElement.href = link.url;
-        iconElement.src = './img/apple.svg';
+        iconElement.src = appleIcon;
         iconElement.className = 'booksIconApple';
         break;
       case 'Books-A-Million':
         linkElement.href = `https://www.booksamillion.com/p/${title}/${author}/${fileNameWithoutExtension}`;
-        iconElement.src = './img/Books-A-Million_logo.svg';
+        iconElement.src = bamIcon;
         break;
       case 'Bookshop':
         linkElement.href = `https://bookshop.org/search?keywords=${fileNameWithoutExtension}`;
-        iconElement.src = './img/bookshop.svg';
+        iconElement.src = bookShopIcon;
         break;
       case 'IndieBound':
         linkElement.href = `https://bookshop.org/p/books/atomic-habits-an-easy-proven-way-to-build-good-habits-break-bad-ones-james-clear/12117739?ean=${fileNameWithoutExtension}`;
-        iconElement.src = './img/indiebound.svg';
+        iconElement.src = indieIcon;
         break;
       default:
         linkElement.href = link.url;
-        iconElement.src = './img/another-shops.svg';
+        iconElement.src = anotherShopsIcon;
         break;
     }
 

@@ -1,143 +1,143 @@
-:root,
-.footer,
-.search-box {
+.dark-root,
+.dark-footer,
+.dark-search-box {
   background-color: rgb(32, 32, 36);
   border-color: var(--text-color-secondary);
 }
 
-.header-navigation {
+.dark-header-navigation {
   border: 1.5px solid rgb(255, 255, 255);
   border-radius: 0px 0px 8px 8px;
   background: rgb(17, 17, 17);
   color: rgb(243, 243, 243);
 }
 
-.modal-window,
-.login-field,
-.js-btn-books,
-.top-books-btn {
+.dark-modal-window,
+.dark-login-field,
+.dark-js-btn-books,
+.dark-top-books-btn {
   background: rgb(32, 32, 36);
   color: var(--text-color-secondary);
 }
 
-.login-field-label {
+.dark-login-field-label {
   color: rgb(246, 246, 246);
 }
 
-.login-submit {
+.dark-login-submit {
   color: var(--text-color-primary);
   background-color: var(--text-color-secondary);
 }
 
-.title,
-.top-book-title,
-.js-btn-books,
-.book-title,
-.book-description,
+.dark-title,
+.dark-top-book-title,
+.dark-js-btn-books,
+.dark-book-title,
+.dark-book-description,
 #addBtn,
-.footer-logo,
-.footer-paragraf,
-.footer-address-text,
-.footer-form-btn,
-.top-books-btn,
-.books-list h2,
-.title-category-page,
-.shopping-list-title,
-.shl-bookname-category h4,
-.shl-book-description,
-.item-modal .book-description,
-.footer-contact,
-.best-sellers-title {
+.dark-footer-logo,
+.dark-footer-paragraf,
+.dark-footer-address-text,
+.dark-footer-form-btn,
+.dark-top-books-btn,
+.dark-books-list h2,
+.dark-title-category-page,
+.dark-shopping-list-title,
+.dark-shl-bookname-category h4,
+.dark-shl-book-description,
+.dark-item-modal .book-description,
+.dark-footer-contact,
+.dark-best-sellers-title {
   color: rgb(255, 255, 255);
 }
 
-.top-category-name,
-.top-book-author,
-.book-author,
-.footer-adress-link,
-.footer-input::placeholder,
-.search-output,
-.books-list p {
+.dark-top-category-name,
+.dark-top-book-author,
+.dark-book-author,
+.dark-footer-adress-link,
+.dark-footer-input::placeholder,
+.dark-search-output,
+.dark-books-list p {
   color: rgb(180, 175, 175);
 }
 
-.item-modal {
+.dark-item-modal {
   border: 2px solid rgb(255, 255, 255);
   background-color: rgb(32, 32, 36);
 }
 
-.booksIcon {
+.dark-booksIcon {
   filter: brightness(0) invert(1);
   transition: filter 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.booksIconApple {
+.dark-booksIconApple {
   filter: grayscale(100%);
 }
 
-.booksIcon:hover {
+.dark-booksIcon:hover {
   filter: grayscale(100%) drop-shadow(0px 3px 3px rgba(255, 255, 255, 0.35));
 }
 
-.search-btn:hover,
-.search-btn:focus,
-.footer-form-btn:hover,
-.footer-form-btn:focus {
+.dark-search-btn:hover,
+.dark-search-btn:focus,
+.dark-footer-form-btn:hover,
+.dark-footer-form-btn:focus {
   background-color: rgb(255, 255, 255);
   color: var(--buttons-and-background-main);
   border: 1px solid var(--buttons-and-background-main);
 }
 
-.search-input {
+.dark-search-input {
   border-color: var(--buttons-and-background-main);
   outline: none;
 }
 
-.logo-word,
-.shopping-list-icon {
+.dark-logo-word,
+.dark-shopping-list-icon {
   stroke: transparent;
   fill: rgb(255, 255, 255);
 }
 
-.modal-close-icon {
+.dark-modal-close-icon {
   stroke: rgb(246, 246, 246);
 }
 
-.menu-button-icon_burger,
-.menu-button-icon_close,
-.menu-btn-icon {
+.dark-menu-button-icon_burger,
+.dark-menu-button-icon_close,
+.dark-menu-btn-icon {
   stroke: rgb(255, 255, 255);
 }
 
-.category-item {
+.dark-category-item {
   color: rgba(255, 255, 255, 0.6);
 }
 
-.active {
+.dark-active {
   color: rgb(234, 198, 69);
 }
 
-.item-modal p {
+.dark-item-modal p {
   color: rgba(255, 255, 255, 0.5);
 }
 
-.shl-pagination-block-list button:disabled {
+.dark-shl-pagination-block-list button:disabled {
   background-color: rgb(17, 17, 17);
   border-color: rgb(17, 17, 17);
 }
 
-.shl-pagination-button-list .shl-active {
+.dark-shl-pagination-button-list .shl-active {
   background-color: rgb(255, 255, 255);
   border-color: rgb(255, 255, 255);
   color: rgb(0, 0, 0);
 }
 
-.shl-pagination-block-list button {
+.dark-shl-pagination-block-list button {
   background-color: transparent;
   color: var(--text-color-secondary);
   border-color: rgb(255, 255, 255);
 }
 
-.categories_list {
+.dark-categories_list {
   scrollbar-color: rgba(17, 17, 17, 0.6) rgb(32, 32, 36);
 }

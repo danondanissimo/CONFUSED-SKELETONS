@@ -17,9 +17,8 @@
 @media screen and (min-width: 1440px) {
   .top-books-container {
     max-width: 996px;
-    padding-left: 40px;
-    padding-right: 24px;
-    margin-left: 0px;
+    padding: 0;
+    margin-left: 40px;
     margin-top: 100px;
   }
 }

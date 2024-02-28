@@ -1,5 +1,5 @@
 'use strict';
-
+import sprite from '../img/Shopping_list/icon_delete_sprite.svg';
 
 let ref = {
     placeForBookList: document.querySelector('.shl-books-list'),
@@ -726,7 +726,7 @@ function loadToLocalStorageNewBookList(books) {
               </div>
               <button class="shl-card-delete-button" type="button">
                 <svg class="shl-delete-icon" >
-                        <use href="./img/Shopping_list/icon_delete_sprite.svg#icon-trash-03"></use>
+                        <use href="${sprite}#icon-trash-03"></use>
                       </svg>
                     </button>
               </li>

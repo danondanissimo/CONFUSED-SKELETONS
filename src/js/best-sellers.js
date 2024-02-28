@@ -79,7 +79,6 @@ function handleSeeMore(e) {
   e.preventDefault();
   getBooksByCategory(e.target.value).then(data => {
     const targetTitle = colorizeLastWord(e.target.value)
-    console.log(data.data)
     topBooksContainer.innerHTML = `<div class="box-in-box">
     <h1 class="best-sellers-title" id="selectedCategory">${targetTitle}
       <span class="titlecategory"></span>
@@ -87,6 +86,11 @@ function handleSeeMore(e) {
     <ul class="books-list">${createBooks(data)}</ul>
   </div>`;
     addListenerToCards();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    const categoryItems = document.querySelectorAll('.category-item');
+    categoryItems.forEach(item => {
+      e.target.value === item.textContent ? item.classList.add('active') : item.classList.remove('active');
+    })
   })
    
 }

@@ -125,8 +125,11 @@ header {
     margin: 22px 76px 22px 24px;
   }
 
-  .navigation-list {
+  .navigation-container {
     margin-right: 745px;
+  }
+
+  .navigation-list {
     gap: 24px;
   }
 

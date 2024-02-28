@@ -7,7 +7,7 @@ import {
   modalBackdrop,
 } from './header';
 
-import sprite from '../img/head-and-mobile-menu.svg';
+import sprite from '../img/sprite.svg';
 
 import { onMobileMenuBtnClick } from './modal-open-buttom';
 

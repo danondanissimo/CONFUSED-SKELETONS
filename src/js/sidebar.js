@@ -31,7 +31,10 @@ async function displayBooks(category) {
     books.forEach(book => {
       const bookInfoHTML = `
                         <div class="book">
-                            <img class="image_book" src="${book.book_image}"  data-id="${book._id}"alt="Book Image">
+                            <div class="ovelay-container">
+                              <img class="image_book" src="${book.book_image}"  data-id="${book._id}"alt="Book Image">
+                              <p class="overlay">Quick view</p>
+                            </div>
                             <h2 class="title_book"> ${book.title}</h2>
                             <p class="test_book"> ${book.contributor}</p>
                         </div>

@@ -46,7 +46,7 @@ export async function renderTopCategoryBooks() {
   });
   addListenerToCards();
   const topBooksBtn = document.querySelectorAll('.top-books-btn');
-  topBooksBtn.forEach(btn => btn.addEventListener('click', handleSeeMore))
+  topBooksBtn.forEach(btn => btn.addEventListener('click', handleSeeMore));
 }
 
 function slicePhrase(length, phrase) {
@@ -68,8 +68,11 @@ function createCategoryBox(category) {
 }
 function createBookCard(book_obj) {
   return `<li class="top-book-list" value="${book_obj.list_item}">
-      <img src="${book_obj.book_image}" 
-      alt="${book_obj.title}" class="top-book-img" data-id="${book_obj._id}"/>
+      <div class="ovelay-container">
+        <img src="${book_obj.book_image}" 
+        alt="${book_obj.title}" class="top-book-img" data-id="${book_obj._id}"/>
+        <p class="overlay">Quick view</p>
+      </div>
       <h2 class="top-book-title">${slicePhrase(16, book_obj.title)}</h2>
       <p class="top-book-author">${slicePhrase(16, book_obj.author)}</p>
 
@@ -78,7 +81,7 @@ function createBookCard(book_obj) {
 function handleSeeMore(e) {
   e.preventDefault();
   getBooksByCategory(e.target.value).then(data => {
-    const targetTitle = colorizeLastWord(e.target.value)
+    const targetTitle = colorizeLastWord(e.target.value);
     topBooksContainer.innerHTML = `<div class="box-in-box">
     <h1 class="best-sellers-title" id="selectedCategory">${targetTitle}
       <span class="titlecategory"></span>
@@ -89,10 +92,11 @@ function handleSeeMore(e) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
     const categoryItems = document.querySelectorAll('.category-item');
     categoryItems.forEach(item => {
-      e.target.value === item.textContent ? item.classList.add('active') : item.classList.remove('active');
-    })
-  })
-   
+      e.target.value === item.textContent
+        ? item.classList.add('active')
+        : item.classList.remove('active');
+    });
+  });
 }
 function addListenerToCards() {
   const galleryImg = document.querySelectorAll('.top-book-img');
@@ -111,4 +115,3 @@ function colorizeLastWord(sentence) {
 
   return `${restOfSentence} <span class="best-sellers-title-accent">${lastWord}</span>`;
 }
-

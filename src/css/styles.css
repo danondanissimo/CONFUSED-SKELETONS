@@ -46,6 +46,10 @@
   --mobile-breakpoint: 375px;
 }
 
+.root-dark {
+  background-color: rgb(32, 32, 36);
+}
+
 body.dark .main-section {
   background-color: var(--background-dark);
 }

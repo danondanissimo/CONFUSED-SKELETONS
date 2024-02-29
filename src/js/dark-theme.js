@@ -45,6 +45,57 @@ const head = document.querySelector('head');
 // .menu-button-icon_burger,
 // .menu-button-icon_close,
 // .menu-btn-icon
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// if (localStorage.getItem('theme') === 'true') {
+//   toggleButton.checked = 'true';
+//   toggleTheme();
+// }
+
+// toggleButton.addEventListener('click', darkThemeOnButtonClick);
+
+// function darkThemeOnButtonClick() {
+//   toggleTheme();
+// }
+
+// function toggleTheme() {
+//   let temp = toggleButton.checked;
+//   localStorage.setItem('theme', JSON.stringify(temp));
+//   if (temp) {
+//     const linkElement = document.createElement('link');
+//     linkElement.setAttribute('rel', 'stylesheet');
+//     linkElement.setAttribute('href', './css/dark-theme.css');
+//     head.insertAdjacentElement('beforeend', linkElement);
+//   } else {
+//     const addedElement = head.querySelector(
+//       'link[href="./css/dark-theme.css"]'
+//     );
+//     if (addedElement) {
+//       addedElement.remove();
+//     }
+//   }
+// }
+
+// toggleButton.addEventListener('click', event => {
+//   event.preventDefault();
+//   if (localStorage.getItem('theme') === 'dark') {
+//     localStorage.removeItem('theme');
+//   } else {
+//     localStorage.setItem('theme', 'dark');
+//   }
+//   switchToDarkTheme();
+// });
+
+// function switchToDarkTheme() {
+//   try {
+//     if (localStorage.getItem('theme') === 'dark') {
+//       document.querySelector('body').classList.add('dark');
+//     } else {
+//       document.querySelector('body').classList.remove('dark');
+//     }
+//   } catch (err) {}
+// }
+
+// switchToDarkTheme();
 
 if (localStorage.getItem('theme') === 'true') {
   toggleButton.checked = 'true';
@@ -61,14 +112,8 @@ function toggleTheme() {
   let temp = toggleButton.checked;
   localStorage.setItem('theme', JSON.stringify(temp));
   if (temp) {
-    const linkElement = document.createElement('link');
-    linkElement.setAttribute('rel', 'stylesheet');
-    linkElement.setAttribute('href', './css/dark-theme.css');
-    head.insertAdjacentElement('beforeend', linkElement);
+    document.querySelector('body').classList.add('dark');
   } else {
-    const addedElement = head.querySelector('link[href="./css/dark-theme.css"]');
-    if (addedElement) {
-      addedElement.remove();
-    }
+    document.querySelector('body').classList.remove('dark');
   }
 }

@@ -111,3 +111,4 @@ function colorizeLastWord(sentence) {
 
   return `${restOfSentence} <span class="best-sellers-title-accent">${lastWord}</span>`;
 }
+

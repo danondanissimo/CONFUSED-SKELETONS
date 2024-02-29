@@ -7,7 +7,7 @@ import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 import resolveIcon from '../img/bi_check2-circle.png';
 import infoIcon from '../img/info.png';
-import amazonIcon from '../img/amazon.png';
+import amazonIcon from '../img/amazon1.webp';
 import appleIcon from '../img/apple.png';
 import banIcon from '../img/barnes-and-noble.png';
 import bamIcon from '../img/books-a-million.png';
@@ -237,15 +237,6 @@ function searchBooksInShops(
         linkElement.href = link.url;
         iconElement.src = banIcon;
         break;
-    }
-
-    if (
-      link.name !== 'Amazon' &&
-      link.name !== 'Apple Books' &&
-      link.name !== 'Barnes and Noble'
-    ) {
-      iconElement.width = '40';
-      iconElement.height = '40';
     }
   });
 }

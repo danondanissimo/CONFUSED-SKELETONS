@@ -118,12 +118,10 @@ function loadFromLS() {
 isLoggedIn();
 
 function onUserButtonClick() {
-  headerLogOutButton.classList.remove('hidden');
-  openModalButton.classList.add('hidden');
+  headerLogOutButton.classList.toggle('hidden');
 }
 
 function headerLogOut() {
   logOut();
   headerLogOutButton.classList.add('hidden');
-  openModalButton.classList.remove('hidden');
 }

@@ -2,6 +2,11 @@
 * {
   box-sizing: border-box;
 }
+
+.shopping-list {
+  margin-top: 112px;
+}
+
 .shl-container {
   /* width: 1440px; */
   padding: 0px 24px;

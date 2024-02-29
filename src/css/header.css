@@ -224,6 +224,12 @@ body.dark .shopping-list-icon {
   .header-sign-up {
     display: none;
   }
+
+  .header-log-out-button {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
 }
 
 .header-sign-up:hover,

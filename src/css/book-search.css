@@ -148,3 +148,10 @@
     margin-top: 100px;
   }
 }
+body.dark .search-box {
+  background-color: inherit;
+}
+body.dark .search-box button:hover {
+  color: rgb(17, 17, 17);
+  border-color: var(--buttons-and-background-main);
+}

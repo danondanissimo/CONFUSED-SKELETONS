@@ -360,3 +360,45 @@
 /* .shopping-list-main-section {
   display: flex;
 } */
+
+body.dark {
+  background-color: rgb(32, 32, 36);
+}
+
+body.dark .shopping-list-title {
+  color: rgb(255, 255, 255);
+}
+
+body.dark .shl-book-title,
+body.dark .shl-book-description {
+  color: rgb(255, 255, 255);
+}
+body.dark .shl-book-author,
+body.dark .shl-book-category {
+  color: rgb(180, 175, 175);
+}
+
+body.dark .shl-pagination-block-list button:disabled {
+  background-color: rgb(17, 17, 17);
+  border-color: rgb(17, 17, 17);
+}
+
+body.dark .shl-pagination-button-list .shl-active {
+  background-color: rgb(255, 255, 255);
+  border-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+}
+
+body.dark .shl-pagination-block-list button {
+  background-color: transparent;
+  color: var(--text-color-secondary);
+  border-color: rgb(255, 255, 255);
+}
+
+body.dark .shl-pagination-block-list .shl-pagination-button-first,
+body.dark .shl-pagination-block-list .shl-pagination-button-previous,
+body.dark .shl-pagination-block-list .shl-pagination-button-next,
+body.dark .shl-pagination-block-list .shl-pagination-button-last {
+  background-color: var(--buttons-and-background-secondary);
+  color: var(--text-color-primary);
+}

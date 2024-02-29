@@ -67,27 +67,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const bookList = document.querySelector('.books-list');
       bookList.addEventListener('click', onclickGalleryItem);
-if (event.target && event.target.matches('li.category-item')) {
-  let category = event.target.textContent;
 
-  if (category == 'All categories') {
-    const categoryItems = categoryList.querySelectorAll('.category-item');
-    categoryItems.forEach(item => {
-      item.classList.remove('active');
-    });
-    event.target.classList.add('active');
-    renderTopCategoryBooks();
-    return;
-  }
-  const categoryItems = categoryList.querySelectorAll('.category-item');
-  categoryItems.forEach(item => {
-    item.classList.remove('active');
-  });
-  event.target.classList.add('active');
-  displayBooks(category);
-}
+      if (event.target && event.target.matches('li.category-item')) {
+        let category = event.target.textContent;
 
+        // Встановлюємо клас "active" для поточного елемента та видаляємо його для інших
+        const categoryItems = categoryList.querySelectorAll('.category-item');
+        categoryItems.forEach(item => {
+          item.classList.remove('active');
+        });
+        event.target.classList.add('active');
+
+        if (category == 'All categories') {
+          renderTopCategoryBooks();
+          return;
+        }
+
+        displayBooks(category);
+      }
     });
+
+    // Встановлюємо клас "active" для першого елемента ("All categories")
+    const firstCategoryItem = categoryList.querySelector('.category-item');
+    firstCategoryItem.classList.add('active');
   } else {
     console.error('Element with id "categoryList" not found');
   }

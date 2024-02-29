@@ -1,5 +1,13 @@
 @import url('./styles.css');
-
+* {
+  box-sizing: border-box;
+}
+.shl-container {
+  width: 1440px;
+  padding: 0px 24px;
+  margin-right: auto;
+  margin-left: auto;
+}
 .shopping-list-page {
   display: flex;
   margin-top: 112px;
@@ -230,6 +238,13 @@
   background-color: gray;
   color: var(--text-color-secondary);
 }
+@media screen and (min-width: 768px) and (max-width: 1439px) {
+  .shl-container {
+    width: 768px;
+    padding: 0px 32px;
+  }
+}
+
 @media screen and (max-width: 1439px) {
   .shl-sidebar {
     display: none;
@@ -238,19 +253,25 @@
   .shopping-list-page {
     flex-direction: row-reverse;
     justify-content: start;
-    padding-left: 24px;
-    padding-right: 24px;
+    /* padding-left: 24px;
+    padding-right: 24px; */
     max-width: 704px;
     margin-right: auto;
     margin-left: auto;
   }
 }
 @media screen and (max-width: 767px) {
+  .shl-container {
+    width: 375px;
+    padding: 0px 20px;
+  }
   .shopping-list-page {
     margin-top: 104px;
     max-width: 335px;
   }
-
+  .no-books-in-local-storage-note {
+    width: 300px;
+  }
   .shl-book-description {
     max-height: 70px;
     overflow: hidden;

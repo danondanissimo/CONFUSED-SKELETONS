@@ -46,11 +46,31 @@
   --mobile-breakpoint: 375px;
 }
 
+@media screen and (max-width: 767px) {
+  .header-content-container {
+    width: 375px;
+  }
+
+  .page-content-container {
+    padding: 0 20px;
+    max-width: 335px;
+  }
+}
+
 @media screen and (min-width: 768px) and (max-width: 1439px) {
   .sidebar-section {
     display: flex;
     flex-wrap: wrap;
     margin-top: 112px;
+  }
+
+  .header-content-container {
+    width: 768px;
+  }
+
+  .page-content-container {
+    padding: 0 32px;
+    max-width: 704px;
   }
 }
 
@@ -68,4 +88,21 @@
     align-items: center;
     max-width: 356px;
   }
+
+  .header-content-container {
+    width: 1440px;
+  }
+
+  .page-content-container {
+    width: 1392px;
+  }
+}
+
+.header-content-container {
+  margin: 0 auto;
+}
+
+.page-content-container {
+  margin: 0 auto;
+  padding: 0 24px;
 }

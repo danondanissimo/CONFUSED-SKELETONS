@@ -80,6 +80,10 @@ body.dark .shopping-list-icon {
   fill: rgb(255, 255, 255);
 }
 
+body.dark .current-page .shopping-list-icon {
+  fill: var(--text-color-primary);
+}
+
 .mobile-shopping-list-icon {
   fill: var(--text-color-secondary);
 }

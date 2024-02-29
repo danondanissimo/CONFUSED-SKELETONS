@@ -141,5 +141,16 @@
   }
 }
 body.dark .top-books-btn {
+  background-color: inherit;
+  color: rgb(255, 255, 255);
+}
+
+body.dark .top-books-btn:hover,
+body.dark .top-books-btn:focus{
+  background-color: var(--buttons-and-background-main);
+}
+
+body.dark .best-sellers-title,
+body.dark .top-book-title {
   color: rgb(255, 255, 255);
 }

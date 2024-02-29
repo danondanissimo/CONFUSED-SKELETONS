@@ -239,3 +239,6 @@ body.dark .login-submit:hover {
   color: var(--text-color-secondary);
   border-color: var(--buttons-and-background-main);
 }
+body.dark .modal-window input{
+  color: rgb(246, 246, 246);
+}

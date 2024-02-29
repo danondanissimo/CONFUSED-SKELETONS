@@ -3,7 +3,7 @@
   box-sizing: border-box;
 }
 .shl-container {
-  width: 1440px;
+  /* width: 1440px; */
   padding: 0px 24px;
   margin-right: auto;
   margin-left: auto;
@@ -348,11 +348,15 @@
   .shopping-list-container {
     width: 996px;
     margin-right: auto;
+    margin-left: 40px;
   }
 
   .shl-sidebar {
     height: 474px;
-    margin-left: auto;
+  }
+
+  .shl-container {
+    padding: 0px;
   }
 }
 .hide {

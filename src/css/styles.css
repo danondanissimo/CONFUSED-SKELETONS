@@ -59,8 +59,17 @@ body.dark .main-section {
   margin: 0 auto;
 }
 
+.page-content-container {
+  width: 100%;
+}
+
 .sidebar-section {
   padding-top: 107px;
+}
+
+.hero-section {
+  display: flex;
+  align-items: flex-start;
 }
 
 .shopping-list-body {
@@ -85,7 +94,7 @@ body.dark .main-section {
 @media screen and (min-width: 1440px) {
   .main-section {
     display: flex;
-    max-width: 1440px;
+    max-width: 1392px;
     margin: 0 auto 0 auto;
   }
 

@@ -2,7 +2,7 @@
   display: block;
   border-radius: 16px;
   border-radius: 16px;
-  width: 375px;
+  width: 295px;
   height: 474px;
   margin-bottom: 20px;
   margin-top: 20px;
@@ -18,7 +18,7 @@
 .search-input {
   border: 2px solid var(--buttons-and-background-main);
   border-radius: 40px;
-  width: 300px;
+  width: 250px;
   height: 40px;
   padding-top: auto;
   padding-left: 20px;

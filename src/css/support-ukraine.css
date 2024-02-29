@@ -187,6 +187,10 @@
 }
 
 @media screen and (min-width: 1440px) {
+  .support-container {
+    margin-top: 86px;
+  }
+
   .footer-subbox {
     flex-direction: row;
     align-items: baseline;

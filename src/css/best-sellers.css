@@ -12,7 +12,6 @@
 }
 
 .overlay {
-  cursor: pointer;
   position: absolute;
   top: 100%;
   left: 0;
@@ -81,6 +80,11 @@
 .top-book-img {
   border-radius: 8px;
 }
+
+.top-book-img:hover {
+  cursor: pointer;
+}
+
 .top-book-author {
   font-style: italic;
   font-weight: 400;

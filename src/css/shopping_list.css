@@ -165,16 +165,18 @@
   display: block;
   width: 50px;
   height: 18px;
-  background-image: url(../img/Shopping_list/amazon.png);
+  filter: grayscale(100%);
+  transition: filter 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  background-image: url(../img/amazon1.webp);
   background-repeat: no-repeat;
   background-position: center;
-  background-size: cover;
+  background-size: contain;
 }
 .shl-amazon-link:hover {
-  background-image: url(../img/Shopping_list/amazon_shadow.png);
+  filter: grayscale(100%) drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.35));
 }
 .shl-amazon-link:focus {
-  background-image: url(../img/Shopping_list/amazon_shadow.png);
+  filter: grayscale(100%) drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.35));
 }
 .shl-apple-link {
   display: block;
@@ -390,18 +392,18 @@ body.dark .shl-book-category {
 
 body.dark .shl-pagination-block-list button:disabled {
   background-color: rgb(17, 17, 17);
-  border-color: rgb(17, 17, 17);
+
+  color: rgb(208, 206, 206);
 }
 
 body.dark .shl-pagination-button-list .shl-active {
-  background-color: rgb(255, 255, 255);
-  border-color: rgb(255, 255, 255);
-  color: rgb(0, 0, 0);
-}
+  background-color: rgb(60, 36, 126);
 
+  color: rgb(208, 206, 206);
+}
 body.dark .shl-pagination-block-list button {
-  background-color: transparent;
-  color: var(--text-color-secondary);
+  background-color: rgb(249, 230, 204);
+  color: rgb(112, 120, 93);
   border-color: rgb(255, 255, 255);
 }
 
@@ -409,14 +411,34 @@ body.dark .shl-pagination-block-list .shl-pagination-button-first,
 body.dark .shl-pagination-block-list .shl-pagination-button-previous,
 body.dark .shl-pagination-block-list .shl-pagination-button-next,
 body.dark .shl-pagination-block-list .shl-pagination-button-last {
-  background-color: var(--buttons-and-background-secondary);
-  color: var(--text-color-primary);
+  background-color: rgb(227, 217, 78);
+  color: rgb(112, 120, 93);
 }
 
 body.dark .no-books-in-local-storage-note {
   color: rgba(255, 255, 255, 0.6);
 }
-
+body.dark .shl-amazon-link {
+  filter: brightness(0) invert(1);
+  transition: filter 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+body.dark .shl-amazon-link:hover {
+  filter: grayscale(100%) drop-shadow(0px 3px 3px rgba(255, 255, 255, 0.35));
+}
+body.dark .shl-amazon-link:focus {
+  filter: grayscale(100%) drop-shadow(0px 3px 3px rgba(255, 255, 255, 0.35));
+}
+body.dark .shl-apple-link {
+  display: block;
+  background-image: url(../img/apple.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  filter: grayscale(100%);
+}
+body.dark .shl-apple-link:hover {
+  filter: grayscale(100%) drop-shadow(0px 3px 3px rgba(255, 255, 255, 0.35));
+}
 .shopping-list-common-container {
   display: flex;
   justify-content: center;

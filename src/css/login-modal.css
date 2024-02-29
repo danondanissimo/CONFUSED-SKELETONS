@@ -214,6 +214,28 @@
   box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.15);
 }
 
-body.dark .button-icon_close {
+body.dark .modal-close-icon {
+  stroke: rgb(246, 246, 246);
+}
+body.dark .modal-window {
+  background-color: rgb(32, 32, 36);
+  border: 2px solid rgb(246, 246, 246);
+}
+body.dark .login-field {
+  border-color: rgb(246, 246, 246);
+}
+body.dark .login-field {
+  background-color: rgb(32, 32, 36);
+}
+body.dark .login-submit {
+  background-color: rgb(246, 246, 246);
+  color: rgb(32, 32, 36);
+}
+body.dark .login-field-label {
   color: rgb(246, 246, 246);
+}
+body.dark .login-submit:hover {
+  background-color: var(--buttons-and-background-main);
+  color: var(--text-color-secondary);
+  border-color: var(--buttons-and-background-main);
 }

@@ -2,14 +2,13 @@
   display: block;
   border-radius: 16px;
   border-radius: 16px;
-  width: 356px;
+  width: 375px;
   height: 474px;
   margin-bottom: 20px;
   margin-top: 20px;
   text-align: center;
   background-color: #f6f6f6;
   border: 1px solid var(--buttons-and-background-main);
-
   overflow-y: hidden;
   display: flex;
   flex-direction: column;
@@ -36,7 +35,7 @@
 .search-output {
   font-size: 15px;
   color: rgba(17, 17, 17, 0.6);
-  overflow-y: scroll; /* Додайте цю властивість */
+  overflow-y: scroll;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -146,5 +145,7 @@
 @media screen and (min-width: 1440px) {
   .search-box {
     margin-top: 100px;
+    width: 295px;
+    margin-right: 67px;
   }
 }

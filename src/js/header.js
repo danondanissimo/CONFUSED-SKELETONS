@@ -19,6 +19,7 @@ export const mobileLogOutButton = document.querySelector(
 );
 const currentPage = window.location.href;
 const navLinks = document.querySelectorAll('.navigation-list-item');
+const donateTable = document.querySelector('.donate-table');
 
 export function openLoginModal() {
   modalBackdrop.classList.remove('visually-hidden');
@@ -57,6 +58,7 @@ function isActive() {
         'https://danondanissimo.github.io/CONFUSED-SKELETONS/shopping_list.html'
       ) {
         supportContainer.classList.add('support-shopping-list');
+        donateTable.classList.add('donate-table-shopping-list');
       }
     }
   });

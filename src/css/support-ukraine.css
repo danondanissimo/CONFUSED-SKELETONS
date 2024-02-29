@@ -142,6 +142,13 @@
   }
 }
 
+@media screen and (min-width: 768px) and (max-width: 1439px) {
+  .donate-table {
+    height: 474px;
+    width: 335px;
+  }
+}
+
 @media screen and (min-width: 768px) {
   .support-container {
     height: 450px;
@@ -150,10 +157,12 @@
     margin-right: auto;
     padding: 0;
   }
+
   .donate-table {
     /* height: 474px; */
     width: auto;
   }
+
   .donate-title {
     font-size: 24px;
     line-height: 1.16667;
@@ -226,4 +235,8 @@
 
 .support-shopping-list {
   margin-top: 0px;
+}
+
+.donate-table-shopping-list {
+  width: 335px;
 }

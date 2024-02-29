@@ -403,3 +403,7 @@ body.dark .shl-pagination-block-list .shl-pagination-button-last {
   background-color: var(--buttons-and-background-secondary);
   color: var(--text-color-primary);
 }
+
+body.dark .no-books-in-local-storage-note {
+  color: rgba(255, 255, 255, 0.6);
+}

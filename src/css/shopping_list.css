@@ -335,7 +335,8 @@
 
 @media screen and (min-width: 768px) {
   .shopping-list-page {
-    margin-top: 112px;
+    margin-top: 72px;
+    padding-top: 40px;
   }
 }
 

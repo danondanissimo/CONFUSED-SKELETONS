@@ -167,7 +167,7 @@ body.dark .current-page .shopping-list-icon {
   }
 
   .header-sign-up {
-    margin: 12px 24px 12px 0px;
+    margin: 12px 24px 12px 25px;
   }
 
   .toggle-container {
@@ -259,6 +259,7 @@ body.dark .current-page .shopping-list-icon {
   font-weight: 700;
   font-size: 22px;
   letter-spacing: -0.02em;
+  margin-left: 0px;
 }
 
 .toggle-mobile-menu {
@@ -298,6 +299,16 @@ body.dark .current-page .shopping-list-icon {
 
 body.dark .mobile-menu-icon {
   stroke: rgb(255, 255, 255);
+}
+
+@media screen and (min-width: 768px) and (max-width: 1439px) {
+  .header-sign-up {
+    margin-left: 60px;
+  }
+
+  .header-user {
+    margin-left: 40px;
+  }
 }
 
 @media screen and (min-width: 768px) {

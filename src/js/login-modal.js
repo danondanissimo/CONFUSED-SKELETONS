@@ -9,10 +9,9 @@ import {
 
 import sprite from '../img/sprite.svg';
 
-import { onMobileMenuBtnClick } from './modal-open-buttom';
-
 const signUpForm = document.querySelector('.sign-up-form');
 const logOutButton = document.querySelector('.log-out-button');
+const headerLogOutButton = document.querySelector('.header-log-out-button');
 
 const LOGIN_STORAGE_KEY = 'sign-up-form-state';
 let data = JSON.parse(localStorage.getItem(LOGIN_STORAGE_KEY)) || '';
@@ -64,11 +63,11 @@ function logOut() {
     `Sign-up<svg class="sign-up-icon"><use href="${sprite}#icon-arrow-narrow-right"></svg>`
   );
   openModalButton.classList.remove('header-user');
-  openModalButton.removeEventListener('click', onMobileMenuBtnClick);
+  openModalButton.removeEventListener('click', onUserButtonClick);
   openModalButton.addEventListener('click', openLoginModal);
   localStorage.removeItem(LOGIN_STORAGE_KEY);
   mobileSignUp.disabled = false;
-  onMobileMenuBtnClick();
+  onUserButtonClick();
 }
 
 function logIn(userData) {
@@ -83,7 +82,8 @@ function logIn(userData) {
   );
   openModalButton.classList.add('header-user');
   openModalButton.removeEventListener('click', openLoginModal);
-  openModalButton.addEventListener('click', onMobileMenuBtnClick);
+  openModalButton.addEventListener('click', onUserButtonClick);
+  headerLogOutButton.addEventListener('click', headerLogOut);
   mobileSignUp.replaceChildren();
   mobileSignUp.insertAdjacentHTML(
     'beforeend',
@@ -116,3 +116,14 @@ function loadFromLS() {
 }
 
 isLoggedIn();
+
+function onUserButtonClick() {
+  headerLogOutButton.classList.remove('hidden');
+  openModalButton.classList.add('hidden');
+}
+
+function headerLogOut() {
+  logOut();
+  headerLogOutButton.classList.add('hidden');
+  openModalButton.classList.remove('hidden');
+}

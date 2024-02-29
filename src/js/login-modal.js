@@ -10,7 +10,7 @@ import {
 import sprite from '../img/sprite.svg';
 
 const signUpForm = document.querySelector('.sign-up-form');
-const logOutButton = document.querySelector('.log-out-button');
+// const logOutButton = document.querySelector('.log-out-button');
 const headerLogOutButton = document.querySelector('.header-log-out-button');
 
 const LOGIN_STORAGE_KEY = 'sign-up-form-state';

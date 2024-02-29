@@ -161,7 +161,6 @@ body.dark .active {
   }
 }
 
-
 @media screen and (min-width: 768px) {
   .books-list {
     grid-template-columns: repeat(3, 1fr);
@@ -212,7 +211,7 @@ body.dark .active {
   }
   .box {
     display: flex;
-    margin-top: 100px;
+    margin-top: 112px;
     width: 356px;
   }
   .book {
@@ -248,6 +247,7 @@ body.dark .active {
 body.dark .categories_list {
   scrollbar-color: rgba(17, 17, 17, 0.6) rgb(32, 32, 36);
 }
-body.dark #selectedCategory, body.dark .title_book{
+body.dark #selectedCategory,
+body.dark .title_book {
   color: rgb(255, 255, 255);
 }

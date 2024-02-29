@@ -127,6 +127,11 @@
   .best-sellers-title-accent {
     font-size: 48px;
   }
+
+  .top-books-container {
+    margin: 112px 0px 0px 40px;
+  }
+
   .top-category-list {
     display: flex;
     gap: 24px;
@@ -146,7 +151,7 @@ body.dark .top-books-btn {
 }
 
 body.dark .top-books-btn:hover,
-body.dark .top-books-btn:focus{
+body.dark .top-books-btn:focus {
   background-color: var(--buttons-and-background-main);
 }
 

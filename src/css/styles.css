@@ -46,6 +46,10 @@
   --mobile-breakpoint: 375px;
 }
 
+.root-dark {
+  background-color: rgb(32, 32, 36);
+}
+
 body.dark .main-section {
   background-color: var(--background-dark);
 }
@@ -55,12 +59,27 @@ body.dark .main-section {
   margin: 0 auto;
 }
 
+.page-content-container {
+  width: 100%;
+}
+
 .sidebar-section {
   padding-top: 107px;
 }
 
+.hero-section {
+  display: flex;
+  align-items: flex-start;
+}
+
 .shopping-list-body {
   margin: 0 auto;
+}
+
+@media screen and (max-width: 1439px) {
+  .hero-section {
+    flex-wrap: wrap;
+  }
 }
 
 @media screen and (min-width: 768px) and (max-width: 1439px) {
@@ -81,7 +100,7 @@ body.dark .main-section {
 @media screen and (min-width: 1440px) {
   .main-section {
     display: flex;
-    max-width: 1440px;
+    max-width: 1392px;
     margin: 0 auto 0 auto;
   }
 

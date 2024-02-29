@@ -49,7 +49,7 @@ function logOut() {
     navListItem.classList.add('visually-hidden');
   });
   signUpForm.classList.remove('visually-hidden');
-  logOutButton.classList.add('visually-hidden');
+  // logOutButton.classList.add('visually-hidden');
   mobileLogOutButton.classList.add('visually-hidden');
   mobileSignUp.replaceChildren();
   mobileSignUp.insertAdjacentHTML(
@@ -93,8 +93,8 @@ function logIn(userData) {
   signUpForm.classList.add('visually-hidden');
   mobileLogOutButton.classList.remove('visually-hidden');
   mobileLogOutButton.addEventListener('click', logOut);
-  logOutButton.classList.remove('visually-hidden');
-  logOutButton.addEventListener('click', logOut);
+  // logOutButton.classList.remove('visually-hidden');
+  // logOutButton.addEventListener('click', logOut);
   mobileSignUp.disabled = true;
 }
 
